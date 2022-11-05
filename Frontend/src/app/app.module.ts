@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MedicalCentersComponent
   ],
   imports: [
     BrowserModule,

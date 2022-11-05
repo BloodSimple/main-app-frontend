@@ -1,0 +1,40 @@
+<div class="medicalCentersContainer">
+    <h1 >Medical Centers</h1>
+
+    <br/>
+
+    <div class="form-outline mb-4">
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Search by name or city...">
+    </div>
+    <span class="filters">
+    <select class="form-select form-select-md" aria-label=".form-select-sm example">
+        <option selected>Filter by grade</option>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+    </select>&nbsp;
+    <select class="form-select form-select-md" aria-label=".form-select-sm example">
+        <option selected>Filter by location</option>
+        <option value="Beograd">Beograd</option>
+        <option value="Novi Sad">Novi Sad</option>
+        <option value="Novi Pazar">Novi Pazar</option>
+        <option value="Smederevo">Smederevo</option>
+        <option value="Subotica">Subotica</option>
+    </select>
+    </span>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let medicalCenter of medicalCenters">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{this.medicalCenter.name}}</h5>
+                <p class="card-text">{{this.medicalCenter.description}}</p>
+                <p class="card-text">Adresa centra</p>
+                <p class="card-text">Ocena centra</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
