@@ -1,7 +1,9 @@
+import { AddressModel } from "./address";
+
 export class MedicalCenterModel {
     id?: string='';
     name?: string='';
-    //address
+    address = new AddressModel();
     description?: string='';
 
 }

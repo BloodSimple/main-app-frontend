@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddressModel } from 'src/app/model/address';
 import { MedicalCenterModel } from 'src/app/model/medicalCenter';
 import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
 
@@ -14,6 +15,7 @@ export class MedicalCentersComponent implements OnInit {
 
   medicalCenter = new MedicalCenterModel();
   medicalCenters: MedicalCenterModel[] = [];
+  address = new AddressModel();
   
   constructor(private medicalCenterService: MedicalCenterService) { }
 

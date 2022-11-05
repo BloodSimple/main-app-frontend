@@ -31,7 +31,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{this.medicalCenter.name}}</h5>
                 <p class="card-text">{{this.medicalCenter.description}}</p>
-                <p class="card-text">Adresa centra</p>
+                <p class="card-text">{{this.medicalCenter.address.street}} {{this.medicalCenter.address.number}}</p>
+                    <p class="card-text"> {{this.medicalCenter.address.city}}, {{this.medicalCenter.address.country}}</p>
                 <p class="card-text">Ocena centra</p>
             </div>
         </div>
