@@ -15,7 +15,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Name</label><input class="form-control" placeholder="name" name="name" [(ngModel)]="this.user.name"></div>
-                    <div class="col-md-6"><label class="labels">Surname</label><input class="form-control" value="Doe" placeholder="surname" name="surname" [(ngModel)]="this.user.surname"></div>
+                    <div class="col-md-6"><label class="labels">Surname</label><input class="form-control" placeholder="surname" name="surname" [(ngModel)]="this.user.surname"></div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12"><label class="labels">JMBG</label><input class="form-control" disabled placeholder="jmbg" name="id" [(ngModel)]="this.user.id"></div>
@@ -23,12 +23,12 @@
                     <div class="col-md-12"><label class="labels">Password</label><input type="password" class="form-control" placeholder="password" name="password" [(ngModel)]="this.user.password"></div>
                     <div class="col-md-12"><label class="labels">Phone number</label><input class="form-control" placeholder="phone number" name="phoneNumber" [(ngModel)]="this.user.phoneNumber"></div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Address street</label><input class="form-control" placeholder="address street" value="Resavska"></div>
-                        <div class="col-md-6"><label class="labels">Address number</label><input class="form-control" value="12A" placeholder="address number"></div>
+                        <div class="col-md-6"><label class="labels">Address street</label><input class="form-control" placeholder="address street" name="addressStreet" [(ngModel)]="this.user.addressStreet"></div>
+                        <div class="col-md-6"><label class="labels">Address number</label><input class="form-control" placeholder="address number" name="addressNumber" [(ngModel)]="this.user.addressNumber"></div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">City</label><input class="form-control" placeholder="city" value="Novi Sad"></div>
-                        <div class="col-md-6"><label class="labels">Country</label><input class="form-control" value="Srbija" placeholder="country"></div>
+                        <div class="col-md-6"><label class="labels">City</label><input class="form-control" placeholder="city"  name="addressCity" [(ngModel)]="this.user.addressCity"></div>
+                        <div class="col-md-6"><label class="labels">Country</label><input class="form-control"  name="addressCountry" [(ngModel)]="this.user.addressCountry" placeholder="country"></div>
                     </div>  
                     <div class="col-md-12">
                         <label class="labels">Gender</label>              
@@ -48,7 +48,7 @@
                             </div>
                     </div>
                     <div class="col-md-12"><label class="labels">Profession</label><input class="form-control" placeholder="profession" name="job" [(ngModel)]="this.user.job"></div>
-                    <div class="col-md-12"><label class="labels">Info about the company/faculty/school</label><input class="form-control" placeholder="info about the company/faculty/school" value="Faculty of Medicine, University of Novi Sad"></div>                
+                    <div class="col-md-12"><label class="labels">Info about the company/faculty/school</label><input class="form-control" placeholder="info about the company/faculty/school" name="bio" [(ngModel)]="this.user.bio"></div>                
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" (click)="save()">Save Profile</button></div>
             </div>

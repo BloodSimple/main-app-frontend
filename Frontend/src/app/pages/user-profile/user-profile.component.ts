@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressModel } from 'src/app/model/address';
+import { FormGroup } from '@angular/forms';
+// import { AddressModel } from 'src/app/model/address';
 import { UserModel } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
 
@@ -23,11 +24,10 @@ export class UserProfileComponent implements OnInit {
   addressNumber: string = '';
   addressCity: string = '';
   addressCountry: string = '';
-//  bio: string='';
+  bio: string='';
 //  role: string='';
 
   user= new UserModel();
-  address = new AddressModel();
 
   constructor(private userService: UserService) { }
 
@@ -36,8 +36,6 @@ export class UserProfileComponent implements OnInit {
     this.userService.getUserById("2310987760011").subscribe((response)  => {
       console.log(response);
       this.user = response;
-      this.address = response.address;
-      console.log(this.user);
   });
   }
 
@@ -46,7 +44,6 @@ export class UserProfileComponent implements OnInit {
     this.userService.updateUser(this.user).subscribe((user: UserModel) =>{      
           this.user = user;    
           console.log(user);
-
     });
   }
 }

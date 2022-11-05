@@ -1,5 +1,3 @@
-import { AddressModel } from "./address";
-
 export class UserModel {
     id?: string='';
     email?: string='';
@@ -9,7 +7,11 @@ export class UserModel {
     gender?: string='';
     phoneNumber?: string='';
     job?: string='';
-    address = new AddressModel();
-//   bio?: string='';
+    bio?: string='';
+    addressId?: string = '';
+    addressStreet?: string = '';
+    addressNumber?: string = '';
+    addressCity?: string = '';
+    addressCountry?: string = '';
 //    role?: string='';
 }
