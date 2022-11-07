@@ -8,13 +8,15 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
+import { SearchPipe } from './pages/medical-centers/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     UserProfileComponent,
-    MedicalCentersComponent
+    MedicalCentersComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

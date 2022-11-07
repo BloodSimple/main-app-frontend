@@ -4,7 +4,7 @@
     <br/>
 
     <div class="form-outline mb-4">
-        <input type="search" class="form-control" id="datatable-search-input" placeholder="Search by name or city...">
+        <input type="search" class="form-control" name="searchText" [(ngModel)]="searchText" placeholder="Search by name or city...">
     </div>
     <span class="filters">
     <select class="form-select form-select-md" aria-label=".form-select-sm example">
@@ -26,13 +26,13 @@
     </span>
     <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col" *ngFor="let medicalCenter of medicalCenters">
+        <div class="col" *ngFor="let medicalCenter of medicalCenters | search: searchText">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{this.medicalCenter.name}}</h5>
                 <p class="card-text">{{this.medicalCenter.description}}</p>
-                <p class="card-text">{{this.medicalCenter.address.street}} {{this.medicalCenter.address.number}}</p>
-                    <p class="card-text"> {{this.medicalCenter.address.city}}, {{this.medicalCenter.address.country}}</p>
+                <p class="card-text">{{this.medicalCenter.address.street}}  {{this.medicalCenter.address.number}}</p>
+                <p class="card-text"> {{this.medicalCenter.address.city}}, {{this.medicalCenter.address.country}}</p>
                 <p class="card-text">{{this.medicalCenter.grade}}</p>
             </div>
         </div>

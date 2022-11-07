@@ -16,6 +16,8 @@ export class MedicalCentersComponent implements OnInit {
   medicalCenter = new MedicalCenterModel();
   medicalCenters: MedicalCenterModel[] = [];
   address = new AddressModel();
+
+  searchText: any ='';
   
   constructor(private medicalCenterService: MedicalCenterService) { }
 
