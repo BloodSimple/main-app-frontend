@@ -5,5 +5,5 @@ export class MedicalCenterModel {
     name?: string='';
     address = new AddressModel();
     description?: string='';
-
+    grade?: number;
 }
