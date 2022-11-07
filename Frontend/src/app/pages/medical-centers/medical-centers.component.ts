@@ -18,7 +18,8 @@ export class MedicalCentersComponent implements OnInit {
   address = new AddressModel();
 
   searchText: any ='';
-  
+  selected: number = 0;
+
   constructor(private medicalCenterService: MedicalCenterService) { }
 
   ngOnInit(): void {
@@ -26,6 +27,15 @@ export class MedicalCentersComponent implements OnInit {
         this.medicalCenters = medicalCenters;  
         console.log(this.medicalCenters);
       });
+  }
+
+  onSelect() {
+    this.medicalCenters = this.medicalCenters.filter((item: any)=> item.grade == this.selected);
+    console.log(this.selected);
+  }
+
+  resetFilter() {
+    window.location.reload();
   }
 
 }
