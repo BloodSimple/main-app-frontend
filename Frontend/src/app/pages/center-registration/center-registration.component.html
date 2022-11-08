@@ -1,0 +1,107 @@
+
+<head>
+    <style>
+       
+     ::ng-deep .mat-form-field{
+         background-color: wheat;
+     }
+    
+     
+    
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    </head>
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col">
+                <div class="page-title  home text-center">
+                  <span class="heading-page"> <span style="color:#931F20">Center</span><span style="color:#5E1313 ">Registration</span>
+                  </span>
+                    <p class="mt20"> Register a new medical center.</p>
+                </div>
+                </div>
+                
+                </div>
+        <div class="row">
+            <div class="col-md-7">
+            <form (ngSubmit)="onSubmit()"  #regForm="ngForm"    style=" justify-items: center; visibility: visible;text-align: center; ">
+                   
+    
+                <div class="form-group">
+                    <label style>Center name</label> <br>
+                    <input name = "name"  id ="name" type="text" [(ngModel)]="center$.name" style="text-align: center;" class="forma-control form-control-lg" placeholder="Name" required #name="ngModel" >
+                </div>
+             
+                <div class="form-group">
+                    <label style>Description</label> <br>
+                    <input name = "description" type="text" [(ngModel)]="center$.description"  style="text-align: center;" class="forma-control form-control-lg" placeholder="Descriptrion"  required >
+                </div>
+
+                <div class="form-group">
+                    <label style>Street</label> <br>
+                    <input name = "street"  type="text" [(ngModel)]="centerAddress$.street" style="text-align: center;" class="forma-control form-control-lg" placeholder="Street"  required  >
+                </div>
+                <div class="form-group">
+                    <label style>Street number</label> <br>
+                    <input name = "str_num"  type="text" [(ngModel)]="centerAddress$.number" style="text-align: center;" class="forma-control form-control-lg" placeholder="Street number"  required   >
+                </div>
+                <div class="form-group">
+                    <label style>City</label> <br>
+                    <input name = "city"  type="text" [(ngModel)]="centerAddress$.city" style="text-align: center;" class="forma-control form-control-lg" placeholder="City"  required   >
+                </div>
+                <div class="form-group">
+                    <label style>Country</label> <br>
+                    <input name = " country"  type="text" [(ngModel)]="centerAddress$.country" style="text-align: center;" class="forma-control form-control-lg" placeholder="Country"  required   >
+                </div>
+                
+                <div class="form-group" style="margin-top:2ex">
+                    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="!regForm.valid"> REGISTER </button>
+                    </div>
+                
+            </form>   
+        </div>
+        <div class="col">
+                <div class="row" >
+                    <span class="small-heading-page"> <span style="color:#931F20">Assign</span><span style="color:#5E1313 ">Medical</span><span style="color:#931F20">Admin </span>
+                    </span>
+                  </div>
+                  <div class="row" style="align-items: center; text-align:center">
+                    <div class="col-md-3" >
+                        <button class="btn btn-info btn-lg" (click)="existingTrue()"> Existing  </button>
+                          
+                      </div>
+                      <div class="col-md-4">
+                        <button class="btn btn-info btn-lg" (click)="existingFalse()"> New profile </button>
+                          
+                      </div>
+                      <div class="row" *ngIf="existing==true" > 
+                        <table>
+                            <th >
+                            <button *ngFor="let a of existingAdmins$ ; let i = index" class="row" style="background-color: gray; border-radius: 10px !important;
+                            border: 1px solid gray !important; text-align: center; " (click)="setAdmin(a)">
+                                <div class="col"> {{a.name}}</div>
+                                <div class="col">{{a.surname}}</div>
+                                <div class="col">{{a.job}}</div>
+                                <div class="col">{{a.id}}</div>
+                        </button>
+                    </th>
+                        </table>
+                    </div>
+
+                  </div>
+                  
+
+                  
+
+        </div>
+        </div>
+        
+                </div>
+
+
+
+    
