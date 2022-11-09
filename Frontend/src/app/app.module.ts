@@ -9,6 +9,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { HttpClientModule } from '@angular/common/http';
 import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
 import { SearchPipe } from './pages/medical-centers/search.pipe';
+import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchPipe } from './pages/medical-centers/search.pipe';
     HomepageComponent,
     UserProfileComponent,
     MedicalCentersComponent,
-    SearchPipe
+    SearchPipe,
+    MedicalcenterProfileComponent
   ],
   imports: [
     BrowserModule,

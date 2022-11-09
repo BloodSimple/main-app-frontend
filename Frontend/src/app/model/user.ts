@@ -13,5 +13,5 @@ export class UserModel {
     addressNumber?: string = '';
     addressCity?: string = '';
     addressCountry?: string = '';
-//    role?: string='';
+    role?: string='';
 }
