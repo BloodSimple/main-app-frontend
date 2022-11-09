@@ -1,0 +1,87 @@
+<div class="registraionPageContainer">
+    <h1 >Registration</h1>
+
+
+    <hr>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <form id="regForm" action="/action_page.php">
+            <h3>Register user:</h3>
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">Name:
+              <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+              <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+            </div>
+            <div class="tab">Contact Info:
+              <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+              <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+            </div>
+            <div class="tab">Address:
+                <p><input placeholder="Country..." oninput="this.className = ''" name="country"></p>
+                <p><input placeholder="City..." oninput="this.className = ''" name="city"></p>
+                <p><input placeholder="Street..." oninput="this.className = ''" name="street"></p>
+                <p><input placeholder="Street number..." oninput="this.className = ''" name="streetNumber"></p>
+                <div style="height: 250px; background: url(../assets/images/map-placeholder.jpg) no-repeat center center; ">
+
+                </div>
+                <br>
+                <p style= "font-size: 12px; opacity: 0.7"> Longitude: xx.xxx</p>
+                <p style= "font-size: 12px; opacity: 0.7"> Latitude: yy.yyy</p>
+                <p style= "font-size: 12px; opacity: 1"> The map and the coordinates will be automatically generated, when the user filled the <i>Address</i> form.</p>
+
+
+            </div>
+            <!--
+            <div class="tab">Birthday:
+              <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+              <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+              <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+            </div>
+            -->
+            <div class="tab">Personal Info:
+                <p><input placeholder="(Personal) Identification Number..." oninput="this.className = ''" name="personalIdentificationNumber"></p>
+                <div class="wrapper d-flex justify-content-center" style="margin: auto !important;">
+                    <input type="radio" name="select" id="option-1" checked>
+                    <input type="radio" name="select" id="option-2">
+                    <label for="option-1" class="option option-1">
+                        <div class="dot"></div>
+                        <span>Male</span>
+                    </label>
+                    <label for="option-2" class="option option-2">
+                        <div class="dot"></div>
+                        <span>Female</span>
+                    </label>
+                </div>
+                <br>
+                <p><input placeholder="Current Job (optional) ..." oninput="this.className = ''" name="currentJob"></p>
+                <p><input placeholder="Highest Education Level (optional) ..." oninput="this.className = ''" name="highestEducationLevel"></p>
+    
+            </div>
+
+
+            <div class="tab">Login Info:
+              <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+              <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+              <p><input placeholder="Confirm Password..." oninput="this.className = ''" name="pword" type="confirm-password"></p>
+            </div>
+            <div style="overflow:auto;">
+              <div style="float:right;">
+                <button type="button" id="prevBtn" (click)="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" (click)="nextPrev(1)">Next</button>
+              </div>
+            </div>
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+          </form>
+
+
+
+    </div>
+
+</div>
