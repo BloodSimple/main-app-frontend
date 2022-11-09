@@ -11,6 +11,7 @@ import { CenterRegistrationComponent } from './pages/center-registration/center-
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MyFilterPipe } from './systemadmin-utils/myFilterPipe';
+import { UserSearchComponent } from './pages/user-search/user-search.component';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { MyFilterPipe } from './systemadmin-utils/myFilterPipe';
     AppComponent,
     HomepageComponent,
     SystemadminProfileComponent,
-    CenterRegistrationComponent
+    CenterRegistrationComponent,
+    UserSearchComponent, 
+    UserSearchComponent
   ],
   imports: [
     BrowserModule,

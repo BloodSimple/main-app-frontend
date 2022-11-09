@@ -19,6 +19,7 @@ export class CenterRegistrationComponent implements OnInit {
   public center$ = new MedicalCenterDTO( [], '', this.centerAddress$, '')
   public existingAdmins$ : UserDTO[] = []
   public existing : boolean = true
+  public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '')
 
   constructor(
     public service:SystemadminServiceService,

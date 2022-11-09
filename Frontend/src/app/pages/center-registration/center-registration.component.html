@@ -81,15 +81,39 @@
                       <div class="row" *ngIf="existing==true" > 
                         <table>
                             <th >
-                            <button *ngFor="let a of existingAdmins$ ; let i = index" class="row" style="background-color: gray; border-radius: 10px !important;
-                            border: 1px solid gray !important; text-align: center; " (click)="setAdmin(a)">
+                            <button  *ngFor="let a of existingAdmins$ ; let i = index" class=" row btn-lg btn-info "  style="background-color: gray; border-radius: 10px !important; width: 75%;
+                            border: 1px solid gray !important; text-align: center; "  (click)="setAdmin(a)">
                                 <div class="col"> {{a.name}}</div>
                                 <div class="col">{{a.surname}}</div>
                                 <div class="col">{{a.job}}</div>
-                                <div class="col">{{a.id}}</div>
+                               
                         </button>
                     </th>
                         </table>
+                    </div>
+
+                    <div class="row" *ngIf="existing==false" style="margin-left: -25%;" >
+                        <form (ngSubmit)="onSubmit()"  #regForm="ngForm"    style=" justify-items: center; visibility: visible;text-align: center; ">
+                            <div class="row" >
+                                <div class="col"  >
+                                    <div class="form-group2">
+                                        <label style>Admin name</label> <br>
+                                        <input name = "aname"  id ="aname" type="text" [(ngModel)]="adminMock$.name" style="text-align: center;" class="forma-control form-control-sm" placeholder="Name" required #name="ngModel" >
+                                    </div>
+                                </div>
+                                <div class="col" >
+                                    <div class="form-group2" >
+                                        <label style>Admin surname</label> <br>
+                                        <input name = "asurname"  id ="asurname" type="text" [(ngModel)]="adminMock$.surname" style="text-align: center;" class="forma-control form-control-sm" placeholder="Name" required #name="ngModel" >
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        
+                        
+                        
+                        </form>
+
                     </div>
 
                   </div>

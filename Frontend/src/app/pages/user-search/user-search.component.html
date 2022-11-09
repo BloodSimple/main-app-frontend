@@ -1,0 +1,43 @@
+<div class="overlay" style="align-items: center; text-align: center; margin-top: 5%;">
+<div class="container ">
+    <div class="heading-page" style="margin-bottom: 2%;">
+        <span style="color:#931F20">user</span><span style="color:#5E1313 ">search</span>
+        
+    </div>
+    <p class="mt20"> Search by name and surname, or any other property.</p>
+    <div >
+      <input
+        type="text"
+        (click)="fillSearch()"
+        placeholder="Search..."
+        [(ngModel)]="filterTerm"
+        style="width: 20%;"
+      />
+    </div>
+ 
+    <table class="table" style="text-align: center; margin-left: 30%; margin: auto;">
+      <thead class="thead-dark" class="small-heading-page" style="color: white; background-color: black;">
+        <tr class="row" style="margin: 100px;">
+          <th class="col" width="15%">ID</th>
+          <th class="col" width="15%">Name and surname</th>
+          <th class="col" width="15%">Email</th>
+          <th class="col" width="15%">Info</th>
+          <th class="col" width="15%">Job</th>
+          <th class="col" width="25%">Address</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of search$ | filter: filterTerm  " style="margin: 100px;"  >
+          <td>{{ user.id }}</td>
+          <td>{{ user.nameSurname }}</td>
+          <td>{{ user.email }}</td>
+          <td > {{ user.bio }}</td>
+          <td>{{ user.job }}</td>
+          <td>{{ user.address.street }} {{ user.address.number }}, {{ user.address.city }}  </td>
+        </tr>
+      </tbody>
+      
+    </table>
+  </div>
+</div>
