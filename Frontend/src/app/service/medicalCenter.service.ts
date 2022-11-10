@@ -13,4 +13,12 @@ export class MedicalCenterService {
     public getMedicalCenters(): Observable<any> {
         return this.http.get("http://localhost:8080/api/centers" + "/");
     }
+
+    public getMedicalCenterById(id: any): Observable<any> {
+        return this.http.get("http://localhost:8080/api/centers" + "/"+id);
+    }
+
+    public updateCenter(obj:any): Observable<any>{
+        return this.http.put("http://localhost:8080/api/centers/", obj);
+    }
 }

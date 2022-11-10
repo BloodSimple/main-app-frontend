@@ -6,4 +6,5 @@ export class MedicalCenterModel {
     address = new AddressModel();
     description?: string='';
     grade?: number;
+    medicalStaff?: any;
 }
