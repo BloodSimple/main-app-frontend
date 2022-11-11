@@ -23,7 +23,10 @@ input{
   text-align: center;
   
 }
-
+::ng-deep .mat-select-placeholder {
+  color: red !important;
+ background-color: red;
+}
 
 body {
     font-family: "Libre Baskerville", serif;

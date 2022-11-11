@@ -28,5 +28,8 @@ export class SystemadminServiceService {
   allUsers():Observable<UserDTO[]>{
     return this.http.get<UserDTO[]>(this.centerUrl + '/allusers')
   }
+  putAdmin(centerName:String, data:UserDTO){
+    return this.http.put(this.centerUrl + '/' + centerName + '/admin', data)
+  }
 
 }
