@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -14,6 +15,13 @@ import { MyFilterPipe } from './systemadmin-utils/myFilterPipe';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
 
 
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
+import { SearchPipe } from './pages/medical-centers/search.pipe';
+import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
+
+
 @NgModule({
   declarations: [MyFilterPipe,
     AppComponent,
@@ -22,6 +30,10 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
     CenterRegistrationComponent,
     UserSearchComponent, 
     UserSearchComponent
+    UserProfileComponent,
+    MedicalCentersComponent,
+    SearchPipe,
+    MedicalcenterProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +42,10 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
     RouterModule,
     Ng2SearchPipeModule, 
     FormsModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

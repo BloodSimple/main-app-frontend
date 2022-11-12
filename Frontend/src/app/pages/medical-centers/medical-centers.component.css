@@ -1,0 +1,13 @@
+.medicalCentersContainer {
+    padding: 25px 100px;
+}
+
+.form-select {
+    width: auto;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
