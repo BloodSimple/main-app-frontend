@@ -35,7 +35,10 @@ export class MedicalCentersComponent implements OnInit {
   }
 
   resetFilter() {
-    window.location.reload();
+    this.selected=0;
+    this.medicalCenterService.getMedicalCenters().subscribe((medicalCenters: MedicalCenterModel[]) => {
+      this.medicalCenters = medicalCenters;  
+      console.log(this.medicalCenters);
+    });
   }
-
 }
