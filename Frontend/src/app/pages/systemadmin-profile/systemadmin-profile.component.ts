@@ -41,9 +41,12 @@ export class SystemadminProfileComponent implements OnInit {
     })};
   }
   search(){
-    this.router.navigate(['/search_users'])
+    this.router.navigate(['/search-users'])
   }
   newCenter(){
-    this.router.navigate(['/new_center'])
+    this.router.navigate(['/new-center'])
+  }
+  registerAdmin(){
+    this.router.navigate(['/register-sysadmin'])
   }
 }
