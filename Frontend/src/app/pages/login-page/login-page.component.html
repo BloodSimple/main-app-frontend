@@ -3,6 +3,7 @@
     <nav aria-label="breadcrumb" style="font-size: 20px;">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+
         <li class="breadcrumb-item active" aria-current="page">Login</li>
       </ol>
     </nav>
@@ -11,14 +12,33 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        <form id="regForm" action="/action_page.php">
-            <h3>Login:</h3>
+      <!--
+      <form id="regForm" action="/action_page.php">
+      -->
+          <div class="container">
+            <div class="brand-logo"></div>
+            <div class="brand-title" style="color: #931F20;">Blood<span style="color: #5E1313;">Simple</span></div>
+            <!--
+              <h3>Login:</h3> 
+              -->
             <!-- One "tab" for each step in the form: -->
-            <div class="tab">Login Info:
-              <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-              <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+            <div class="tab inputs">
+              <label>EMAIL</label>
+              <input placeholder="example@test.com" oninput="this.className = ''" name="uname" type="email">
+              <label>PASSWORD</label>
+              <input placeholder="Min 6 charaters long" oninput="this.className = ''" name="pword" type="password">
+              <button type="submit">LOGIN</button>
             </div>
-          </form>
+          </div>
+          <!--
+        </form>
+      -->
+
+
+
+
+
+
     </div>
 
   
