@@ -7,7 +7,19 @@
       </ol>
     </nav>
   
-      <hr>
+    <hr>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <form id="regForm" action="/action_page.php">
+            <h3>Login:</h3>
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">Login Info:
+              <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+              <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+            </div>
+          </form>
+    </div>
 
   
   </div>
