@@ -49,6 +49,7 @@ export class MedicalAdminProfileComponent implements OnInit {
           this.user = user;
           this.dto.id = this.user.id;
           console.log(user);
+          alert("User uppdated.")
     });
   }
 
@@ -56,8 +57,9 @@ export class MedicalAdminProfileComponent implements OnInit {
     this.dto.currentpassword = this.currentpassword;
     this.dto.newpassword = this.newpassword;
     this.dto.repeatedpassword = this.repeatedpassword;
-      this.userService.updatePassword(this.dto).subscribe((response) =>{      
+      this.userService.updatePassword(this.dto).subscribe((response:String) =>{      
         console.log(response);
+
     });
   }
 
