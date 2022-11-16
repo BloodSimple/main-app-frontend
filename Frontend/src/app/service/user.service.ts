@@ -17,4 +17,8 @@ export class UserService {
     public getUserById(id: String): Observable<any> {
         return this.http.get("http://localhost:8080/api/users" + "/" + id);
     }
+
+    public updatePassword(obj:any): Observable<any>{
+        return this.http.put("http://localhost:8080/api/users/updatepassword", obj);
+    }
 }

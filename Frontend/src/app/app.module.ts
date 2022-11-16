@@ -16,6 +16,8 @@ import { MedicalCentersComponent } from './pages/medical-centers/medical-centers
 import { SearchPipe } from './pages/medical-centers/search.pipe';
 import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MedicalAdminProfileComponent } from './pages/medical-admin-profile/medical-admin-profile.component';
+import { AppointmentCreationComponent } from './pages/appointment-creation/appointment-creation.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { LoginComponent } from './pages/login/login.component';
     MedicalCentersComponent,
     SearchPipe,
     MedicalcenterProfileComponent,
-    LoginComponent
+    LoginComponent,
+    MedicalAdminProfileComponent,
+    AppointmentCreationComponent
   ],
   imports: [
     BrowserModule,
