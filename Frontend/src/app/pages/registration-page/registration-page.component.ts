@@ -28,7 +28,7 @@ export class RegistrationPageComponent implements OnInit {
         prevBtn.style.display = "inline";
       }
       if (n == (x.length - 1)) {
-        nextBtn.innerHTML = "Submit";
+        nextBtn.innerHTML = "Register";
       } else {
         nextBtn.innerHTML = "Next";
       }
