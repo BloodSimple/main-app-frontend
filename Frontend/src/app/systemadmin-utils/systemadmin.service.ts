@@ -11,7 +11,7 @@ export class SystemadminServiceService {
 
 
   readonly centerUrl = 'http://localhost:8080/api/centers'
-  readonly sysAdminUrl = 'http://localhost:8080/sysadmin'
+  readonly sysAdminUrl = 'http://localhost:8080/api/sysadmin'
 
 
    reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
