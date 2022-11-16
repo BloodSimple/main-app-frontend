@@ -19,7 +19,7 @@ body {
 }
 
 h3 {
-  text-align: center;  
+  text-align: center;
 }
 
 input {
@@ -64,7 +64,7 @@ button:hover {
   width: 15px;
   margin: 0 2px;
   background-color: #bbbbbb;
-  border: none;  
+  border: none;
   border-radius: 50%;
   display: inline-block;
   opacity: 0.5;
@@ -76,12 +76,12 @@ button:hover {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #5E1313;
+  background-color: #5e1313;
 }
 
 /* CHECKBOXES */
 
-.wrapper{
+.wrapper {
   display: inline-flex;
   background: #fff;
   height: 100px;
@@ -90,9 +90,9 @@ button:hover {
   justify-content: space-evenly;
   border-radius: 5px;
   padding: 20px 15px;
-  box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
-.wrapper .option{
+.wrapper .option {
   background: #fff;
   height: 100%;
   width: 100%;
@@ -106,14 +106,14 @@ button:hover {
   border: 2px solid lightgrey;
   transition: all 0.3s ease;
 }
-.wrapper .option .dot{
+.wrapper .option .dot {
   height: 20px;
   width: 20px;
   background: #d9d9d9;
   border-radius: 50%;
   position: relative;
 }
-.wrapper .option .dot::before{
+.wrapper .option .dot::before {
   position: absolute;
   content: "";
   top: 4px;
@@ -126,126 +126,109 @@ button:hover {
   transform: scale(1.5);
   transition: all 0.3s ease;
 }
-input[type="radio"]{
+input[type="radio"] {
   display: none;
 }
 #option-1:checked:checked ~ .option-1,
-#option-2:checked:checked ~ .option-2{
+#option-2:checked:checked ~ .option-2 {
   border-color: #0069d9;
   background: #0069d9;
 }
 #option-1:checked:checked ~ .option-1 .dot,
-#option-2:checked:checked ~ .option-2 .dot{
+#option-2:checked:checked ~ .option-2 .dot {
   background: #fff;
 }
 #option-1:checked:checked ~ .option-1 .dot::before,
-#option-2:checked:checked ~ .option-2 .dot::before{
+#option-2:checked:checked ~ .option-2 .dot::before {
   opacity: 1;
   transform: scale(1);
 }
-.wrapper .option span{
+.wrapper .option span {
   font-size: 20px;
   color: #808080;
 }
 #option-1:checked:checked ~ .option-1 span,
-#option-2:checked:checked ~ .option-2 span{
+#option-2:checked:checked ~ .option-2 span {
   color: #fff;
 }
-
 
 /* ADDED */
 
 .container {
-position: relative;
-width: 350px;
-min-height: 500px;
-border-radius: 20px;
-padding: 40px;
-box-sizing: border-box;
-background: #ecf0f3;
-box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  position: relative;
+  width: 350px;
+  min-height: 500px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
 
 .brand-logo {
-height: 100px;
-width: 100px;
-background-image: url('../../../assets/images/bloodsimple-brand-logo.svg');
-background-repeat: no-repeat;
-background-size: 80% 80%;
-background-position: center;
-margin: auto;
-border-radius: 50%;
-box-sizing: border-box;
-box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  height: 100px;
+  width: 100px;
+  background-image: url("../../../assets/images/bloodsimple-brand-logo.svg");
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+  background-position: center;
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
 }
 
 .brand-title {
-margin: 10px 0px -10px 0px;
-font-weight: 900;
-font-size: 1.8rem;
-letter-spacing: 1px;
-text-align: center;
+  margin: 10px 0px -10px 0px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .inputs {
-text-align: left;
-margin-top: 30px;
+  text-align: left;
+  margin-top: 30px;
 }
 
-label, input, button {
-display: block;
-width: 100%;
-padding: 0;
-border: none;
-outline: none;
-box-sizing: border-box;
+label,
+input,
+button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
 }
 
 label {
-margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 label:nth-of-type(2) {
-margin-top: 12px;
+  margin-top: 12px;
 }
 
 input::placeholder {
-color: gray;
+  color: gray;
 }
 
 input {
-background: #ecf0f3;
-padding: 10px;
-padding-left: 20px;
-height: 50px;
-font-size: 14px;
-border-radius: 50px;
-box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
 textarea::placeholder {
   color: gray;
-  }
-  
+}
+
 textarea {
-background: #ecf0f3;
-padding: 10px;
-padding-left: 20px;
-width: 100%;
-height: 50px;
-font-size: 14px;
-border-radius: 50px;
-border: none;
-resize: none;
-box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
-}
-
-textarea:focus {
-  outline: none;
-}
-
-select{
-
   background: #ecf0f3;
   padding: 10px;
   padding-left: 20px;
@@ -257,23 +240,45 @@ select{
   resize: none;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
-  
+
+textarea:focus {
+  outline: none;
+}
+
+select {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  border: none;
+  resize: none;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
 .button {
-color: white;
-margin-top: 20px;
-background: rgb(147,31,32);
-background: linear-gradient(90deg, rgba(147,31,32,1) 0%, rgba(94,19,19,1) 50%, rgba(147,31,32,1) 100%);  height: 40px;
-border-radius: 20px;
-cursor: pointer;
-font-weight: 900;
-/*box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;*/
-transition: 0.5s;
+  color: white;
+  margin-top: 20px;
+  background: rgb(147, 31, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(147, 31, 32, 1) 0%,
+    rgba(94, 19, 19, 1) 50%,
+    rgba(147, 31, 32, 1) 100%
+  );
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  /*box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;*/
+  transition: 0.5s;
 }
 
 .button:hover {
-box-shadow: none;
+  box-shadow: none;
 }
-
 
 /* pretty radio */
 label > input[type="radio"] {
@@ -292,9 +297,14 @@ label > input[type="radio"] + *::before {
   border-color: gray;
 }
 label > input[type="radio"]:checked + * {
-  color: #5E1313;
+  color: #5e1313;
 }
 label > input[type="radio"]:checked + *::before {
-  background: radial-gradient(#5E1313 0%, #5E1313 40%, transparent 50%, transparent);
-  border-color: #5E1313;
+  background: radial-gradient(
+    #5e1313 0%,
+    #5e1313 40%,
+    transparent 50%,
+    transparent
+  );
+  border-color: #5e1313;
 }
