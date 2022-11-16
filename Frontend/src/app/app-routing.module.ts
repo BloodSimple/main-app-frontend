@@ -9,6 +9,7 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
 import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path:'', component: HomepageComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path:'medical-center-profile', component: MedicalcenterProfileComponent},
   {path:'sysadmin', component: SystemadminProfileComponent},
   {path:'new_center', component :CenterRegistrationComponent},
-  {path:'search_users', component:UserSearchComponent}
+  {path:'search_users', component:UserSearchComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

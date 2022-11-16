@@ -15,6 +15,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
 import { SearchPipe } from './pages/medical-centers/search.pipe';
 import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/med
     UserProfileComponent,
     MedicalCentersComponent,
     SearchPipe,
-    MedicalcenterProfileComponent
+    MedicalcenterProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
