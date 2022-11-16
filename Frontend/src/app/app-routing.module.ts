@@ -6,6 +6,7 @@ import { RegistrationPageComponent } from './pages/registration-page/registratio
 import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
 
 const routes: Routes = [
   { path:'', component: HomepageComponent },
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path:'medical-centers', component: MedicalCentersComponent},
   { path:'registration-page', component: RegistrationPageComponent},
   { path:'medical-center-profile', component: MedicalcenterProfileComponent},
-  { path:'login-page', component: LoginPageComponent}
+  { path:'login-page', component: LoginPageComponent},
+  { path:'blood-donation-page', component: BloodDonationPageComponent},
+
 ];
 
 @NgModule({

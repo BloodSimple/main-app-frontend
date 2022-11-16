@@ -22,7 +22,19 @@
         <option value=2>2</option>
         <option value=1>1</option>
     </select>&nbsp;
-    <button type="button" class="btn btn-outline-primary" (click)="resetFilter()">Reset filter</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameAsc()">Sort By Name ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameDesc()">Sort By Name DESC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingAsc()">Sort By Rating ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingDesc()">Sort By Rating DESC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityAsc()">Sort By City ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityDesc()">Sort By City DESC</button>
+    </span>
+    <button type="button" class="btn btn-outline-primary" (click)="resetFilterAndSort()">Reset filter & sort</button>
+
+    <span>
+
+
+
     </span>
     <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4">

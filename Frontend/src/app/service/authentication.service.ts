@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { ILogInInfo } from '../model/authentication/ILogInfo';
 import { IResponse } from '../model/authentication/IResponse';
+import { LoginResponse } from '../model/LoginResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -19,20 +20,19 @@ export class AuthenticationService {
     console.log(' -- CHECKING username...');
     console.log(value);
     return this._http
-      .post<any>('https://localhost:8080/user', { username: value })
+      .post<any>('http://localhost:8080/user', { username: value })
       .pipe();
   }
 
-  logIn(username: string, password: string): Observable<ILogInInfo> {
-    var body = { username: username, password: password };
+  logIn(email: string, password: string) {
+    var body = { email: email, password: password };
     return this._http
-      .post<ILogInInfo>('https://localhost:8080/login', body)
-      .pipe();
+      .post<ILogInInfo>('http://localhost:8080/api/login', body)
   }
 
   sendPasswordRecoveryRequest(email: string): Observable<IResponse> {
     return this._http
-      .post<IResponse>('https://localhost:8080/passwordRecoveryRequest', {
+      .post<IResponse>('http://localhost:8080/passwordRecoveryRequest', {
         email: email,
       })
       .pipe();
@@ -44,7 +44,7 @@ export class AuthenticationService {
     confirmPassword: string
   ): Observable<IResponse> {
     return this._http
-      .post<IResponse>('https://localhost:8080/userPasswordRecovery', {
+      .post<IResponse>('http://localhost:8080/userPasswordRecovery', {
         code: code,
         password: password,
         confirmPassword: confirmPassword,
@@ -86,7 +86,7 @@ export class AuthenticationService {
 
   sendPasswordlessLoginRequest(email: string): Observable<IResponse> {
     return this._http
-      .post<IResponse>('https://localhost:8080/passwordlessLoginRequest', {
+      .post<IResponse>('http://localhost:8080/passwordlessLoginRequest', {
         email: email,
       })
       .pipe();
@@ -94,24 +94,33 @@ export class AuthenticationService {
 
   PasswordlessLoginRequest(code: string): Observable<ILogInInfo> {
     return this._http
-      .post<ILogInInfo>('https://localhost:8080/passwordlessLogin', {
+      .post<ILogInInfo>('http://localhost:8080/passwordlessLogin', {
         code: code,
       })
       .pipe();
   }
 
+  logout() {
+    var user = new LoginResponse();
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    window.location.href = '/';
+  }
+
   isUserLoggedIn() {
-    let username = localStorage.getItem('username');
-    let role = localStorage.getItem('userRole');
-    if (username == null || username == undefined) {
+    let user=this.getCurrentUser();
+    if (user== null || user.accessToken==undefined) {
       return false;
     } else {
-      if (role == 'user') return true;
-      /* // TODO: Kako treba da izgleda profil admina?
-      if(role == 'admin')
-           return true 
-      */
-      return false;
+      return this.getCurrentUser().role !== '';
+    }
+  }
+
+  getCurrentUser(): LoginResponse {
+    let currentUser = localStorage.getItem('currentUser');
+    if (currentUser != null) {
+      return JSON.parse(localStorage.getItem('currentUser')!);
+    } else {
+      return new LoginResponse();
     }
   }
 
@@ -129,5 +138,9 @@ export class AuthenticationService {
       };
       return headers;
     }
+  }
+
+  loginSetUser(loginResponse: LoginResponse) {
+    localStorage.setItem('currentUser', JSON.stringify(loginResponse));
   }
 }

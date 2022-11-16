@@ -24,6 +24,7 @@
               oninput="this.className = ''"
               name="uname"
               type="email"
+              [(ngModel)]="email"
             />
           </p>
           <label>Password</label>
@@ -33,9 +34,10 @@
               oninput="this.className = ''"
               name="pword"
               type="password"
+              [(ngModel)]="password"
             />
           </p>
-          <button type="submit" (click)="validateForm()">LOGIN</button>
+          <button type="submit" (click)="login()">LOGIN</button>
         </div>
       </div>
     </form>

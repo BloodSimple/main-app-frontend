@@ -34,7 +34,39 @@ export class MedicalCentersComponent implements OnInit {
     console.log(this.selected);
   }
 
-  resetFilter() {
+  sortByRatingAsc(){
+    this.medicalCenters.sort((a, b) => {
+      return b.grade - a.grade;
+    })
+  }
+  sortByRatingDesc() {
+    this.medicalCenters.sort((a, b) => {
+      return a.grade - b.grade;
+    })
+  }
+  sortByNameAsc() { 
+    this.medicalCenters.sort((a, b) => {
+      return b.name.localeCompare(a.name);
+    })
+  }
+  sortByNameDesc() {
+    this.medicalCenters.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    })
+  }
+  sortByCityAsc() { 
+    this.medicalCenters.sort((a, b) => {
+      return b.address.city.localeCompare(a.address.city);
+    })
+  }
+  sortByCityDesc() {
+    this.medicalCenters.sort((a, b) => {
+      return a.address.city.localeCompare(b.address.city);
+    })
+   }
+
+
+  resetFilterAndSort() {
     window.location.reload();
   }
 
