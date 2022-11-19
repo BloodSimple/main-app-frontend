@@ -2,7 +2,7 @@ import { AddressDTO } from "./AddressDTO";
 import { UserDTO } from "./UserDTO";
 
 export class UserSearchDTO{
-    id:string;
+    personalId:string;
     email:string;
     password:string;
     nameSurname:string;
@@ -24,6 +24,6 @@ export class UserSearchDTO{
         this.job=user.job;
         this.bio=user.bio;
         this.role=user.role;
-        this.id = user.id;
+        this.personalId = user.personalId;
     }
 }

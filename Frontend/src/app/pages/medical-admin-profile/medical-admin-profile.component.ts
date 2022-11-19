@@ -39,7 +39,7 @@ export class MedicalAdminProfileComponent implements OnInit {
     this.userService.getUserById("743199760011").subscribe((response)  => {
       console.log(response);
       this.user = response;
-      this.dto.id = this.user.id;
+      this.dto.id = this.user.personalId;
   });
   }
 
@@ -47,7 +47,7 @@ export class MedicalAdminProfileComponent implements OnInit {
 
     this.userService.updateUser(this.user).subscribe((user: UserModel) =>{      
           this.user = user;
-          this.dto.id = this.user.id;
+          this.dto.id = this.user.personalId;
           console.log(user);
           alert("User uppdated.")
     });

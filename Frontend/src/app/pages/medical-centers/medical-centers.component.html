@@ -1,6 +1,16 @@
 <div class="medicalCentersContainer">
-    <h1 >Medical Centers</h1>
-    <br/>
+
+    <nav aria-label="breadcrumb" style="font-size: 20px;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Medical Centers</li>
+        </ol>
+    </nav>
+
+    <hr>
+    <br><br>
+
+
     <div class="form-outline mb-2">
         <span style="display: flex; ">
             <input type="search" class="form-control" name="searchText" [(ngModel)]="searchText" placeholder="Search by name or location...">&nbsp;&nbsp;
@@ -22,7 +32,16 @@
             <option value=2>2</option>
             <option value=1>1</option>
         </select>
+
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameAsc()">Sort By Name ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameDesc()">Sort By Name DESC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingAsc()">Sort By Rating ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingDesc()">Sort By Rating DESC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityAsc()">Sort By City ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityDesc()">Sort By City DESC</button>
     </span>
+    <button type="button" class="btn btn-outline-primary" (click)="resetFilterAndSort()">Reset filter & sort</button>
+
     <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" *ngFor="let medicalCenter of medicalCenters">

@@ -1,0 +1,261 @@
+<div class="registrationPageContainer">
+  <nav aria-label="breadcrumb" style="font-size: 20px">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Registration</li>
+    </ol>
+  </nav>
+  <hr />
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <form id="regForm" animate [formGroup]="registerForm">
+      <div class="container">
+        <div class="brand-logo"></div>
+        <div class="brand-title" style="color: #931f20">
+          Blood<span style="color: #5e1313">Simple</span>
+        </div>
+        <div class="tab inputs">
+          <label>Personal Identification Number</label>
+          <p>
+            <input
+              placeholder="1234567890123"
+              oninput="this.className = ''"
+              name="personalId"
+              type="text"
+              [(ngModel)]="personalId"
+              formControlName="name"
+            />
+          </p>
+          <label for="email">E-mail</label>
+          <p>
+            <input
+              type="text"
+              formControlName="email"
+              [ngClass]="{
+                'is-invalid': submitted && registerForm.controls.email.errors
+              }"
+              class="form-control is-invalid input-text"
+              placeholder="Enter Email"
+              name="email"
+              required
+              [(ngModel)]="email"
+              placeholder="example@test.com"
+              oninput="this.className = ''"
+              type="email"
+            />
+          </p>
+
+          <label>Password</label>
+          <p>
+            <input
+              formControlName="password"
+              placeholder="Min 6 charaters long"
+              oninput="this.className = ''"
+              name="pword"
+              type="password"
+              [(ngModel)]="password"
+            />
+          </p>
+          <label>Confirm password</label>
+          <p>
+            <input
+              formControlName="confirmPassword"
+              placeholder="Passwords must match"
+              oninput="this.className = ''"
+              name="con-pword"
+              type="password"
+              [(ngModel)]="confirmPassword"
+            />
+          </p>
+        </div>
+        <div class="tab inputs">
+          <label>First name</label>
+          <p>
+            <input
+              formControlName="name"
+              [ngClass]="{
+                'is-invalid': submitted && registerForm.controls.name.errors
+              }"
+              class="form-control is-invalid input-text"
+              placeholder="Enter first name"
+              name="firstName"
+              [(ngModel)]="firstName"
+              placeholder="Enter your first name..."
+              oninput="this.className = ''"
+            />
+          </p>
+          <label>Last name</label>
+          <p>
+            <input
+              formControlName="name"
+              [ngClass]="{
+                'is-invalid': submitted && registerForm.controls.name.errors
+              }"
+              class="form-control is-invalid input-text"
+              placeholder="Enter last name"
+              name="lastName"
+              [(ngModel)]="lastName"
+              placeholder="Enter your last name..."
+              oninput="this.className = ''"
+            />
+          </p>
+          <label for="">Gender</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  formControlName="gender"
+                  placeholder=""
+                  name="gender"
+                  id="gender"
+                  [(ngModel)]="isGenderMale"
+                  [value]="true"
+                  checked
+                /><span>Male</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  formControlName="gender"
+                  placeholder=""
+                  name="gender"
+                  id="gender"
+                  [(ngModel)]="isGenderMale"
+                  [value]="false"
+                /><span>Female</span></label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="tab inputs">
+          <label>Date of Birth</label>
+          <p>
+            <input
+              class="input-text"
+              type="date"
+              value="2013-10-24T20:36:00"
+              step="1"
+              min="1850-01-01"
+              max="2022-01-01"
+              name="dateOfBirth"
+              [(ngModel)]="dateOfBirth"
+              formControlName="dateOfBirth"
+            />
+          </p>
+          <label>Current job</label>
+          <input
+            placeholder="Enter your job position..."
+            name="job"
+            type="text"
+            [(ngModel)]="job"
+            formControlName="name"
+          />
+          <label>Biography</label>
+          <p>
+            <textarea
+              name="text"
+              placeholder="(optional)"
+              oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+              name="bio"
+              [(ngModel)]="bio"
+              formControlName="name"
+            ></textarea>
+          </p>
+        </div>
+        <div class="tab inputs">
+          <label>Phone number</label>
+          <p>
+            <input
+              placeholder="phonenumber"
+              name="phoneNumber"
+              type="phone"
+              name="phone"
+              [(ngModel)]="phoneNumber"
+              formControlName="name"
+            />
+            />
+          </p>
+          <label>Country</label>
+          <p>
+            <input
+              placeholder="Enter your country..."
+              name="country"
+              type=""
+              name="country"
+              formControlName="name"
+              [(ngModel)]="addressCountry"
+            />
+          </p>
+          <label>City</label>
+          <p>
+            <input
+              formControlName="name"
+              placeholder="Enter your country..."
+              name="city"
+              type=""
+              name="city"
+              [(ngModel)]="addressCity"
+            />
+          </p>
+          <label>Street & Street number</label>
+          <div class="d-flex row">
+            <div class="col-9">
+              <p>
+                <input
+                  formControlName="name"
+                  placeholder="Enter your street and number..."
+                  type=""
+                  name="street"
+                  [(ngModel)]="addressStreet"
+                />
+              </p>
+            </div>
+            <div class="col">
+              <p>
+                <input
+                  formControlName="name"
+                  placeholder="XY"
+                  name="streetNumber"
+                  type=""
+                  [(ngModel)]="addressNumber"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow: auto">
+          <div class="d-flex flex-row justify-content-around" style="gap: 12px">
+            <button
+              type="button"
+              class="button"
+              id="prevBtn"
+              (click)="nextPrev(-1)"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              class="button"
+              id="nextBtn"
+              (click)="nextPrev(1)"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

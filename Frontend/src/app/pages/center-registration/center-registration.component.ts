@@ -63,7 +63,7 @@ export class CenterRegistrationComponent implements OnInit {
     
     );
     this.center_added=true
-    if (this.center$.admin?.id){
+    if (this.center$.admin?.personalId){
       this.router.navigate(['/sysadmin']);
     }
   }

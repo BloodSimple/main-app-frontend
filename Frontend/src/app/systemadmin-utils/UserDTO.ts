@@ -1,7 +1,7 @@
 import { AddressDTO } from "./AddressDTO";
 
 export class UserDTO{
-    id:string;
+    personalId:string;
     email:string;
     password:string;
     name:string;
@@ -13,7 +13,7 @@ export class UserDTO{
     bio:string;
     role:string;
 
-    constructor(id:string,email:string, password:string, name:string,
+    constructor(personalId:string,email:string, password:string, name:string,
         surname:string, gender:string,address:AddressDTO, phoneNumber:string,
         job:string, bio:string, role:string){
         this.email=email;
@@ -26,6 +26,6 @@ export class UserDTO{
         this.job=job;
         this.bio=bio;
         this.role=role;
-        this.id = id;
+        this.personalId = personalId;
     }
 }
