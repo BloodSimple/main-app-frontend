@@ -7,7 +7,6 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { SystemadminProfileComponent } from './pages/systemadmin-profile/systemadmin-profile.component';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
-import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { SystemadminRegisterComponent } from './pages/systemadmin-register/systemadmin-register.component';
 
@@ -24,7 +23,7 @@ const routes: Routes = [
   { path:'medical-admin-profile', component: MedicalAdminProfileComponent},
   { path:'create-appointment', component: AppointmentCreationComponent},
   {path:'sysadmin', component: SystemadminProfileComponent},
-  {path:'search_users', component:UserSearchComponent},
+  {path:'search-users', component:UserSearchComponent},
   { path: 'login', component: LoginComponent},
   {path:'sysadmin', component: SystemadminProfileComponent},
   {path:'new-center', component :CenterRegistrationComponent},
