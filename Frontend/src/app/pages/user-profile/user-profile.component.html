@@ -19,8 +19,8 @@
                     <div class="col-md-6"><label class="labels">Surname</label><input class="form-control" placeholder="surname" name="surname" [(ngModel)]="this.user.surname" required></div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-12"><label class="labels">JMBG</label><input class="form-control" disabled placeholder="jmbg" name="id" [(ngModel)]="this.user.personalId" required></div>
-                    <div class="col-md-12"><label class="labels">Email</label><input disabled class="form-control" placeholder="email" name="email" [(ngModel)]="this.user.email" required></div>
+                    <div class="col-md-12"><label class="labels">Personal Identification Number</label><input class="form-control" disabled placeholder="personalId" name="personalId" [(ngModel)]="this.user.personalId"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input disabled class="form-control" placeholder="email" name="email" [(ngModel)]="this.user.email"></div>
                     <!-- <div class="col-md-12"><label class="labels">Password</label><input type="password" class="form-control" placeholder="password" name="password" [(ngModel)]="this.user.password" minlength="3" required></div> -->
                     <div class="col-md-12"><label class="labels">Phone number</label><input class="form-control" placeholder="phone number" name="phoneNumber" [(ngModel)]="this.user.phoneNumber" pattern="[0-9]+" required></div>
                     <div class="row mt-2">
@@ -51,7 +51,7 @@
                     <div class="col-md-12"><label class="labels">Profession</label><input class="form-control" placeholder="profession" name="job" [(ngModel)]="this.user.job" required></div>
                     <div class="col-md-12"><label class="labels">Info about the company/faculty/school</label><input class="form-control" placeholder="info about the company/faculty/school" name="bio" [(ngModel)]="this.user.bio" required></div>                
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" [disabled]="profileForm.form.invalid" type="submit" (click)="save()">Save Profile</button></div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button"type="submit" [disabled]="profileForm.form.invalid"  (click)="save()">Save Profile</button></div>
                 </form>
             </div>
         </div>

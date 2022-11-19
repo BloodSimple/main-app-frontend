@@ -11,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-  id: string = '';
+  personalId: string = '';
   email: string = '';
   password: string = '';
   name: string = '';
@@ -35,6 +35,7 @@ export class UserProfileComponent implements OnInit {
     private userService: UserService) {}
 
   ngOnInit(): void {
+    console.log(this.user.personalId)
     this.activeUser = this.authenticationService.getCurrentUser();
     this.userService.getUserById(this.activeUser.personalId).subscribe((response) => {
       console.log(response);
