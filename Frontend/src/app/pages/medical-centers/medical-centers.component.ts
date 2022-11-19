@@ -34,8 +34,21 @@ export class MedicalCentersComponent implements OnInit {
     console.log(this.selected);
   }
 
-  resetFilter() {
-    window.location.reload();
+  reset() {
+    this.selected=0;
+    this.searchText = "";
+    this.medicalCenterService.getMedicalCenters().subscribe((medicalCenters: MedicalCenterModel[]) => {
+      this.medicalCenters = medicalCenters;  
+      console.log(this.medicalCenters);
+    });
   }
 
+  searchCenters(){
+    this.medicalCenters = this.medicalCenters.filter(el => 
+      (
+      (el.address.street + ' '+ el.address.number).toLowerCase().includes(this.searchText.trim().toLowerCase()) || 
+      el.address.city?.toLowerCase().includes(this.searchText.trim().toLowerCase()) || 
+      el.address.country?.toLowerCase().includes(this.searchText.trim().toLowerCase()) || 
+      el.name?.toLowerCase().includes(this.searchText.trim().toLowerCase())));
+  }
 }

@@ -1,0 +1,52 @@
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-1 border-right">
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Medical Center appointment creation</h4>
+                </div>
+                <form ngNativeValidate #profileForm="ngForm">
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">Apointment date and time</label>
+                        <input type="datetime-local" id="meeting-time" name="meeting-time" [(ngModel)]="this.datetime" required>
+                    </div>
+                  </div>
+               
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" [disabled]="profileForm.form.invalid" type="submit" (click)="createAppointment()">Create appointment</button></div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 border-right">
+            <div class="d-flex justify-content-between align-items-center mb-3 p-3 py-5">
+                <h4 class="text-right">Medical staff</h4>
+            </div>
+            <div >
+                
+                <!-- <ul *ngFor="let a of this.medicalCenter.medicalStaff">
+                    <li *ngIf="a.role == 'MEDICAL_ADMIN'">{{a.name}} {{a.surname}}</li>
+                </ul> -->
+
+                <ul *ngFor="let detectionSource of this.medicalStuffSelection">
+                    <li>
+
+                        <input id="detectionSource_{{detectionSource.id}}" type="checkbox" name="detectionSource_{{detectionSource.name}}{{detectionSource.surname}}" [(ngModel)]="detectionSource.isSelected">
+                                                    {{detectionSource.name}}  {{detectionSource.surname}}
+
+                    </li>
+
+                </ul>
+
+                <!-- <label *ngFor="let detectionSource of this.medicalCenter.medicalStaff" for="detectionSource_{{detectionSource.id}}" >
+                    <input id="detectionSource_{{detectionSource.id}}" type="checkbox" name="detectionSource_{{detectionSource.name}}" [(ngModel)]="detectionSource.isSelected">
+                                                    {{detectionSource.name}}
+                    
+                   </label> -->
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-// import { AddressModel } from 'src/app/model/address';
 import { UserModel } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
 

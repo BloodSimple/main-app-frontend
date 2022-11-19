@@ -30,6 +30,8 @@ export class MedicalcenterProfileComponent implements OnInit {
       this.medicalCenter = response;
       console.log("ide novi centar");    
       console.log(this.medicalCenter);
+
+      alert("Center uppdated.")
     });
 
   }
