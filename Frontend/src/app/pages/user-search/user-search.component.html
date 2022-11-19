@@ -16,17 +16,15 @@
     </div>
  
     <table class="table" style="text-align: center; margin-left: 30%; margin: auto;">
-      <thead class="thead-dark" class="small-heading-page" style="color: white; background-color: black;">
-        <tr class="row" style="margin: 100px;">
+        <tr  style="margin: 100px;color: white; background-color: black;">
           <th class="col" width="15%">ID</th>
           <th class="col" width="15%">Name and surname</th>
           <th class="col" width="15%">Email</th>
-          <th class="col" width="15%">Info</th>
+          <th class="col" width="25%">Info</th>
           <th class="col" width="15%">Job</th>
-          <th class="col" width="25%">Address</th>
+          <th class="col" width="35%">Address</th>
 
         </tr>
-      </thead>
       <tbody>
         <tr *ngFor="let user of search$ | filter: filterTerm  " style="margin: 100px;"  >
           <td>{{ user.id }}</td>

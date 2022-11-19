@@ -11,6 +11,8 @@ export class SystemadminServiceService {
 
 
   readonly centerUrl = 'http://localhost:8080/api/centers'
+  readonly sysAdminUrl = 'http://localhost:8080/api/sysadmin'
+
 
    reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
                                     .set('Accept', 'application/json');
@@ -30,6 +32,9 @@ export class SystemadminServiceService {
   }
   putAdmin(centerName:String, data:UserDTO){
     return this.http.put(this.centerUrl + '/' + centerName + '/admin', data)
+  }
+  registerSystemAdmin(data:UserDTO){
+    return this.http.post(this.sysAdminUrl + '/', data)
   }
 
 }
