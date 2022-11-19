@@ -1,0 +1,45 @@
+<div class="loginPageContainer">
+  <nav aria-label="breadcrumb" style="font-size: 20px">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+
+      <li class="breadcrumb-item active" aria-current="page">Login</li>
+    </ol>
+  </nav>
+
+  <hr />
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <form id="regForm" action="/action_page.php">
+      <div class="container">
+        <div class="brand-logo"></div>
+        <div class="brand-title" style="color: #931f20">
+          Blood<span style="color: #5e1313">Simple</span>
+        </div>
+        <div class="tab inputs">
+          <label>E-mail</label>
+          <p>
+            <input
+              placeholder="Enter your e-mail addresss..."
+              oninput="this.className = ''"
+              name="uname"
+              type="email"
+              [(ngModel)]="email"
+            />
+          </p>
+          <label>Password</label>
+          <p>
+            <input
+              placeholder="Enter your password..."
+              oninput="this.className = ''"
+              name="pword"
+              type="password"
+              [(ngModel)]="password"
+            />
+          </p>
+          <button type="submit" (click)="login()">LOGIN</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

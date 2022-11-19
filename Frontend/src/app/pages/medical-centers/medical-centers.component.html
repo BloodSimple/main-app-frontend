@@ -22,6 +22,42 @@
             <option value=2>2</option>
             <option value=1>1</option>
         </select>
+
+    <nav aria-label="breadcrumb" style="font-size: 20px;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Medical Centers</li>
+        </ol>
+    </nav>
+
+    <hr>
+
+    <div class="form-outline mb-4">
+        <input type="search" class="form-control" name="searchText" [(ngModel)]="searchText" placeholder="Search by name or city...">
+    </div>
+    <span class="filters">
+    <select class="form-select form-select-md" aria-label=".form-select-sm example" [(ngModel)]="selected"
+     (ngModelChange)="onSelect()"> 
+        <option selected disabled>All</option>
+        <option value=5>5</option>
+        <option value=4>4</option>
+        <option value=3>3</option>
+        <option value=2>2</option>
+        <option value=1>1</option>
+    </select>&nbsp;
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameAsc()">Sort By Name ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameDesc()">Sort By Name DESC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingAsc()">Sort By Rating ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingDesc()">Sort By Rating DESC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityAsc()">Sort By City ASC</button>
+    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityDesc()">Sort By City DESC</button>
+    </span>
+    <button type="button" class="btn btn-outline-primary" (click)="resetFilterAndSort()">Reset filter & sort</button>
+
+    <span>
+
+
+
     </span>
     <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4">

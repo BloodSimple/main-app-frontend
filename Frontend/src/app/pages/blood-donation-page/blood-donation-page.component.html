@@ -1,0 +1,29 @@
+<div class="bloodDonationPageContainer">
+    <nav aria-label="breadcrumb" style="font-size: 20px">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+  
+        <li class="breadcrumb-item active" aria-current="page">Donate</li>
+      </ol>
+    </nav>
+  
+    <hr />
+  
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <form id="regForm" action="/action_page.php">
+        <div class="container">
+          <div class="brand-logo"></div>
+          <div class="brand-title" style="color: #931f20">
+            Blood<span style="color: #5e1313">Simple</span>
+          </div>
+          <div class="tab inputs">
+            <p> {{activeUser.email}}</p>
+            <p> {{activeUser.name}}</p>
+            <p> {{activeUser.surname}}</p>
+            <p> {{activeUser.personalId}}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
