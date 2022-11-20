@@ -1,76 +1,85 @@
-<div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                <span class="font-weight-bold">{{this.user.name}}  {{this.user.surname}}</span>
-                <span class="text-black-50">{{this.user.email}}</span>
-                <span> </span>
+<div class="profileContainer">
+<nav aria-label="breadcrumb" style="font-size: 20px;">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+      <li class="breadcrumb-item active" aria-current="profile">Profile</li>
+    </ol>
+</nav>
+<hr>
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold">{{this.user.name}}  {{this.user.surname}}</span>
+                    <span class="text-black-50">{{this.user.email}}</span>
+                    <span> </span>
+                </div>
             </div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
-                </div>
-                <form ngNativeValidate #profileForm="ngForm">
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label><input class="form-control" placeholder="name" name="name" [(ngModel)]="this.user.name" required></div>
-                    <div class="col-md-6"><label class="labels">Surname</label><input class="form-control" placeholder="surname" name="surname" [(ngModel)]="this.user.surname" required></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-12"><label class="labels">Personal Identification Number</label><input class="form-control" disabled placeholder="personalId" name="personalId" [(ngModel)]="this.user.personalId"></div>
-                    <div class="col-md-12"><label class="labels">Email</label><input disabled class="form-control" placeholder="email" name="email" [(ngModel)]="this.user.email"></div>
-                    <!-- <div class="col-md-12"><label class="labels">Password</label><input type="password" class="form-control" placeholder="password" name="password" [(ngModel)]="this.user.password" minlength="3" required></div> -->
-                    <div class="col-md-12"><label class="labels">Phone number</label><input class="form-control" placeholder="phone number" name="phoneNumber" [(ngModel)]="this.user.phoneNumber" pattern="[0-9]+" required></div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <form ngNativeValidate #profileForm="ngForm">
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Address street</label><input class="form-control" placeholder="address street" name="addressStreet" [(ngModel)]="this.user.addressStreet" required></div>
-                        <div class="col-md-6"><label class="labels">Address number</label><input class="form-control" placeholder="address number" name="addressNumber" [(ngModel)]="this.user.addressNumber" required></div>
+                        <div class="col-md-6"><label class="labels">Name</label><input class="form-control" placeholder="name" name="name" [(ngModel)]="this.user.name" required></div>
+                        <div class="col-md-6"><label class="labels">Surname</label><input class="form-control" placeholder="surname" name="surname" [(ngModel)]="this.user.surname" required></div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">City</label><input class="form-control" placeholder="city"  name="addressCity" [(ngModel)]="this.user.addressCity" required></div>
-                        <div class="col-md-6"><label class="labels">Country</label><input class="form-control"  name="addressCountry" [(ngModel)]="this.user.addressCountry" placeholder="country" required></div>
-                    </div>  
+                        <div class="col-md-12"><label class="labels">Personal Identification Number</label><input class="form-control" disabled placeholder="personalId" name="personalId" [(ngModel)]="this.user.personalId"></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input disabled class="form-control" placeholder="email" name="email" [(ngModel)]="this.user.email"></div>
+                        <!-- <div class="col-md-12"><label class="labels">Password</label><input type="password" class="form-control" placeholder="password" name="password" [(ngModel)]="this.user.password" minlength="3" required></div> -->
+                        <div class="col-md-12"><label class="labels">Phone number</label><input class="form-control" placeholder="phone number" name="phoneNumber" [(ngModel)]="this.user.phoneNumber" pattern="[0-9]+" required></div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Address street</label><input class="form-control" placeholder="address street" name="addressStreet" [(ngModel)]="this.user.addressStreet" required></div>
+                            <div class="col-md-6"><label class="labels">Address number</label><input class="form-control" placeholder="address number" name="addressNumber" [(ngModel)]="this.user.addressNumber" required></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">City</label><input class="form-control" placeholder="city"  name="addressCity" [(ngModel)]="this.user.addressCity" required></div>
+                            <div class="col-md-6"><label class="labels">Country</label><input class="form-control"  name="addressCountry" [(ngModel)]="this.user.addressCountry" placeholder="country" required></div>
+                        </div>  
+                        <div class="col-md-12">
+                            <label class="labels">Gender</label>              
+                                <div class="col-auto">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="radioBtn" id="MALE" name="gender" value="MALE" [(ngModel)]="this.user.gender">
+                                        <label class="form-check-label" for="MALE">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="radioBtn" id="FEMALE" name="gender" value="FEMALE" [(ngModel)]="this.user.gender">
+                                        <label class="form-check-label" for="FEMALE">Female</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="radioBtn" id="I_WOULD_RATHER_NOT_SAY" name="gender" value="I_WOULD_RATHER_NOT_SAY" [(ngModel)]="this.user.gender">
+                                        <label class="form-check-label" for="I_WOULD_RATHER_NOT_SAY">I would rather not say</label>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-md-12"><label class="labels">Profession</label><input class="form-control" placeholder="profession" name="job" [(ngModel)]="this.user.job" required></div>
+                        <div class="col-md-12"><label class="labels">Info about the company/faculty/school</label><input class="form-control" placeholder="info about the company/faculty/school" name="bio" [(ngModel)]="this.user.bio" required></div>                
+                    </div>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button"type="submit" [disabled]="profileForm.form.invalid"  (click)="save()">Save Profile</button></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <span>Loyalty program</span>
+                    </div><br>
                     <div class="col-md-12">
-                        <label class="labels">Gender</label>              
-                            <div class="col-auto">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radioBtn" id="MALE" name="gender" value="MALE" [(ngModel)]="this.user.gender">
-                                    <label class="form-check-label" for="MALE">Male</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radioBtn" id="FEMALE" name="gender" value="FEMALE" [(ngModel)]="this.user.gender">
-                                    <label class="form-check-label" for="FEMALE">Female</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radioBtn" id="I_WOULD_RATHER_NOT_SAY" name="gender" value="I_WOULD_RATHER_NOT_SAY" [(ngModel)]="this.user.gender">
-                                    <label class="form-check-label" for="I_WOULD_RATHER_NOT_SAY">I would rather not say</label>
-                                </div>
-                            </div>
+                        <label class="labels">Total points</label>
+                        <input type="text" disabled class="form-control" placeholder="total points" value="156">
+                    </div> <br>
+                    <div class="col-md-12">
+                        <label class="labels">User category</label>
+                        <input type="text" disabled class="form-control" placeholder="user category" value="Silver">
+                    </div><br>
+                    <div class="col-md-12">
+                        <label class="labels">Benefits</label>
+                        <input type="text" disabled class="form-control" placeholder="benefits" value="30% discount in Maxi stores">
                     </div>
-                    <div class="col-md-12"><label class="labels">Profession</label><input class="form-control" placeholder="profession" name="job" [(ngModel)]="this.user.job" required></div>
-                    <div class="col-md-12"><label class="labels">Info about the company/faculty/school</label><input class="form-control" placeholder="info about the company/faculty/school" name="bio" [(ngModel)]="this.user.bio" required></div>                
-                </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button"type="submit" [disabled]="profileForm.form.invalid"  (click)="save()">Save Profile</button></div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience">
-                    <span>Loyalty program</span>
-                </div><br>
-                <div class="col-md-12">
-                    <label class="labels">Total points</label>
-                    <input type="text" disabled class="form-control" placeholder="total points" value="156">
-                </div> <br>
-                <div class="col-md-12">
-                    <label class="labels">User category</label>
-                    <input type="text" disabled class="form-control" placeholder="user category" value="Silver">
-                </div><br>
-                <div class="col-md-12">
-                    <label class="labels">Benefits</label>
-                    <input type="text" disabled class="form-control" placeholder="benefits" value="30% discount in Maxi stores">
                 </div>
             </div>
         </div>

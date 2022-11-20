@@ -78,10 +78,6 @@ export class MedicalCentersComponent implements OnInit {
     });
   }
 
-  resetFilterAndSort() {
-    window.location.reload();
-  }
-
   searchCenters() {
     this.medicalCenters = this.medicalCenters.filter(
       (el) =>

@@ -4,6 +4,7 @@ import { LoginResponse } from 'src/app/model/LoginResponse';
 import { UserModel } from 'src/app/model/user';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-profile',
@@ -47,6 +48,16 @@ export class UserProfileComponent implements OnInit {
     this.userService.updateUser(this.user).subscribe((user: UserModel) => {
       this.user = user;
       console.log(user);
+      Swal.fire({
+        icon: 'success',
+        title: 'Yippee!',
+        text: 'Successfull profile update!',
+        background: '#1e2126',
+        color: '#c4c4c4',
+        showCancelButton: false,
+        showConfirmButton: false,
+        timer: 2000,
+      });
     });
   }
 }

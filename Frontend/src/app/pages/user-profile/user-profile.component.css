@@ -2,6 +2,10 @@ body {
     background: #931F20;
 }
 
+.profileContainer {
+    padding: 25px 100px;
+}
+
 .form-control:focus {
     box-shadow: none;
     border-color: #1009a1;
