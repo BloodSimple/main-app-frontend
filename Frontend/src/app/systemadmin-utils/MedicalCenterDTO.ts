@@ -6,15 +6,15 @@ export class MedicalCenterDTO{
     name:string;
     address:AddressDTO;
     description:string;
-    admin:UserDTO | undefined;
+    admin:Array<UserDTO>;
     medicalStaff:Array<UserDTO>;
 
     constructor(medicalStaff:Array<UserDTO>,
-        name:string, address:AddressDTO, description:string ){
+        name:string, address:AddressDTO, description:string, admin:Array<UserDTO> ){
         this.name=name;
         this.address=address;
         this.description=description;
-       
+       this.admin=admin;
         this.medicalStaff=medicalStaff;
         // this.id = id;
     }

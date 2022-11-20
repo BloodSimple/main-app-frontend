@@ -15,9 +15,9 @@ export class CenterRegistrationComponent implements OnInit {
   public centers$ : MedicalCenterDTO[] = []
   public userAddress$ = new AddressDTO('', '', '', '', 0, 0)
   public centerAddress$ = new AddressDTO('', '', '', '', 0, 0)
-  //public admin$ = new UserDTO('0','','','','','',this.userAddress$,'','','','')
-  public admin$ : UserDTO|undefined
-  public center$ = new MedicalCenterDTO( [], '', this.centerAddress$, '')
+  public admin$ = new UserDTO('0','','','','','',this.userAddress$,'','','','')
+  //public admin$ : UserDTO|undefined
+  public center$ = new MedicalCenterDTO( [], '', this.centerAddress$, '', [])
   public existingAdmins$ : UserDTO[] = []
   public existing : boolean = true
   public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '')
@@ -32,12 +32,14 @@ export class CenterRegistrationComponent implements OnInit {
   ngOnInit(): void {
     
      this.service.admins().subscribe(data=>
-      this.existingAdmins$=data)
+     this.existingAdmins$=data)
      
   }
 
   setAdmin(admin: UserDTO):void{
     this.admin$ = admin
+    console.log(this.admin$)
+
   }
 
 
@@ -53,7 +55,16 @@ export class CenterRegistrationComponent implements OnInit {
     this.existing = true
   }
   createCenter():void{
-    this.center$.admin=this.admin$
+    if(this.admin$.personalId!='0'){
+    this.center$.admin.push(this.admin$)
+    this.service.putAdmin(this.center$.name, this.admin$).subscribe(
+      res=>{        
+        //this.router.navigate(['/sysadmin']);
+      }, err => {   console.log(err);
+    }      
+    );
+  }
+    
     this.center$.address = this.centerAddress$;
     this.service.registerCenter(this.center$).subscribe(
       res=>{        
@@ -63,7 +74,7 @@ export class CenterRegistrationComponent implements OnInit {
     
     );
     this.center_added=true
-    if (this.center$.admin?.personalId){
+    if (this.admin$.personalId != '0'){
       this.router.navigate(['/sysadmin']);
     }
   }
@@ -71,7 +82,7 @@ export class CenterRegistrationComponent implements OnInit {
     this.adminMock$.role = 'MEDICAL_ADMIN'
     this.adminMock$.gender = this.gender
     this.admin$ = this.adminMock$
-    this.center$.admin = this.admin$
+    this.center$.admin.push(this.admin$)
     this.service.putAdmin(this.center$.name, this.admin$).subscribe(
       res=>{        
         //this.router.navigate(['/sysadmin']);
