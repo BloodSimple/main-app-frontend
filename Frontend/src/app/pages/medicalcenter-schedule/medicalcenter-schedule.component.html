@@ -1,0 +1,58 @@
+<head>
+    <style>
+        .e-schedule .e-month-view .e-work-cells {
+    position: relative;
+  }
+  
+  .e-schedule .templatewrap {
+    text-align: center;
+    position: absolute;
+    width: 10%;
+  }
+  
+  .e-schedule .templatewrap img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .e-schedule .caption {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+    </style>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+
+<button (click)="init2()" [disabled]="!clickable">
+    LOAD
+</button>
+<!-- <button (click)="init3(1)">checked</button> -->
+<div class="row" style="height: 100%;">
+<div style="width: 65%; margin-left:5%; margin-top: 5%;" class="col-lg-10">
+<ejs-schedule height="70%" width="100%" [eventSettings]="eventObject" [currentView]="view" [views]="views" [showQuickInfo]="true"  > 
+    <e-views>       
+        <e-view option="Day"></e-view>
+        <e-view option="Week"></e-view>
+        <e-view option="Month"></e-view>
+      </e-views>
+<!--       
+      <ng-template #cellTemplate let-data>
+        <div class="templatewrap" [innerHTML]="getCellContent(data.date)"></div>
+      </ng-template> -->
+
+      <ng-template #quickInfoTemplatesHeader let-data >
+        <div style="align-items: center;text-align: center;">
+            <table > <tr style="align-items: center;text-align: center;"> 
+                <td style="color:white; font-size: 20px;"> {{data.user.name}}</td>
+                <td style="color: white;font-size: 20px;"> {{data.user.surname}} </td> </tr> </table>
+        </div>
+      </ng-template>
+</ejs-schedule>
+</div>
+<div class="col">
+
+</div></div>

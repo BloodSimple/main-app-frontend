@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { MedicalCenterDTO } from './MedicalCenterDTO';
 import { UserDTO } from './UserDTO';
+import { AppointmentDTO } from './AppointmentDTO';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,7 @@ export class SystemadminServiceService {
 
   readonly centerUrl = 'http://localhost:8080/api/centers'
   readonly sysAdminUrl = 'http://localhost:8080/api/sysadmin'
+  readonly scheduleUrl = 'http://localhost:8080/api/centers'
 
 
    reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
@@ -35,6 +37,12 @@ export class SystemadminServiceService {
   }
   registerSystemAdmin(data:UserDTO){
     return this.http.post(this.sysAdminUrl + '/', data)
+  }
+  viewSchedule():Observable<AppointmentDTO[]>{
+    return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/1/schedule')
+  }
+  getUsersForAppointment(id:number):Observable<UserDTO[]>{
+    return this.http.get<UserDTO[]>(this.scheduleUrl+'/1/schedule/'+id)
   }
 
 }
