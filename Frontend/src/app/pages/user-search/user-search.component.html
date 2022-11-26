@@ -27,7 +27,7 @@
         </tr>
       <tbody>
         <tr *ngFor="let user of search$ | filter: filterTerm  " style="margin: 100px;"  >
-          <td>{{ user.id }}</td>
+          <td>{{ user.personalId }}</td>
           <td>{{ user.nameSurname }}</td>
           <td>{{ user.email }}</td>
           <td > {{ user.bio }}</td>

@@ -49,4 +49,7 @@ export class SystemadminProfileComponent implements OnInit {
   registerAdmin(){
     this.router.navigate(['/register-sysadmin'])
   }
+  admins(){
+    this.router.navigate(['/admins'])
+  }
 }

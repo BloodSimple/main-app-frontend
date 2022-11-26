@@ -41,6 +41,12 @@ export class SystemadminServiceService {
   viewSchedule():Observable<AppointmentDTO[]>{
     return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/2/schedule')
   }
+  allAdmins():Observable<UserDTO[]>{
+    return this.http.get<UserDTO[]>(this.sysAdminUrl+'/')
+  }
+  public updateUser(u:UserDTO): Observable<any>{
+    return this.http.put("http://localhost:8080/api/users/", u);
+}
   // getUsersForAppointment(id:number):Observable<UserDTO[]>{
   //   return this.http.get<UserDTO[]>(this.scheduleUrl+'/1/schedule/'+id)
   // }

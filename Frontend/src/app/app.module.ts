@@ -25,6 +25,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
 import { MedicalcenterScheduleComponent } from './pages/medicalcenter-schedule/medicalcenter-schedule.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, YearService, Year } from '@syncfusion/ej2-angular-schedule';
+import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.component';
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -46,6 +47,7 @@ import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthS
     LoginPageComponent,
     BloodDonationPageComponent,
     MedicalcenterScheduleComponent,
+    SysadminListComponent,
   ],
   imports: [
     BrowserModule,
