@@ -1,0 +1,36 @@
+<div class="makeAppointmentContainer">
+
+    <nav aria-label="breadcrumb" style="font-size: 20px;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Make an Appointment</li>
+        </ol>
+    </nav>
+    <hr>
+    <span class="search">
+        <input type="datetime-local" min={{this.dateFormat}} placeholder="Enter date and time" style="font-size: 18px; margin-right: 6px; border-radius: 0.25rem; background-color: #ededee;">
+        <button type="button" class="btn btn-primary" style="font-size: 15px;" (click)="search()">Search</button>
+    </span>&nbsp;
+    <span class="sort">
+
+        <button type="button" class="btn btn-outline-primary" style="font-size: 15px; margin-right: 6px;" (click)="sortByRatingAsc()">Sort By Rating ASC</button>
+        <button type="button" class="btn btn-outline-primary" style="font-size: 15px;" (click)="sortByRatingDesc()">Sort By Rating DESC</button>
+
+    </span>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let medicalCenter of medicalCenters">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{this.medicalCenter.name}}</h5>
+                <p class="card-text">{{this.medicalCenter.address.street}}  {{this.medicalCenter.address.number}}</p>
+                <p class="card-text"> {{this.medicalCenter.address.city}}, {{this.medicalCenter.address.country}}</p>
+                <p class="card-text">{{this.medicalCenter.grade}}</p>
+                <div class="footer">
+                    <button type="button" class="btn btn-outline-primary" style="font-size: 15px;">Schedule</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

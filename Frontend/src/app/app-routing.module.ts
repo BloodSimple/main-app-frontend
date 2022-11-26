@@ -17,6 +17,7 @@ import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/med
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
+import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'medical-center-profile', component: MedicalcenterProfileComponent },
   { path: 'login-page', component: LoginPageComponent },
   { path: 'blood-donation-page', component: BloodDonationPageComponent },
+  { path: 'make-appointment', component: MakeAppointmentComponent}
 ];
 
 @NgModule({
