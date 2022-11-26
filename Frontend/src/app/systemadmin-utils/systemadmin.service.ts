@@ -39,10 +39,10 @@ export class SystemadminServiceService {
     return this.http.post(this.sysAdminUrl + '/', data)
   }
   viewSchedule():Observable<AppointmentDTO[]>{
-    return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/1/schedule')
+    return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/2/schedule')
   }
-  getUsersForAppointment(id:number):Observable<UserDTO[]>{
-    return this.http.get<UserDTO[]>(this.scheduleUrl+'/1/schedule/'+id)
-  }
+  // getUsersForAppointment(id:number):Observable<UserDTO[]>{
+  //   return this.http.get<UserDTO[]>(this.scheduleUrl+'/1/schedule/'+id)
+  // }
 
 }
