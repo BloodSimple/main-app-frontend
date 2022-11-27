@@ -19,6 +19,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
 import { MedicalcenterScheduleComponent } from './pages/medicalcenter-schedule/medicalcenter-schedule.component';
 import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.component';
+import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadmin-center-list.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -38,7 +39,9 @@ const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent },
   { path: 'blood-donation-page', component: BloodDonationPageComponent },
   { path:'medical-center-schedule', component: MedicalcenterScheduleComponent},
-  { path:'admins', component: SysadminListComponent}
+  { path:'admins', component: SysadminListComponent},
+  { path:'sysadmin-centers', component: SysadminCenterListComponent}
+
 
 
 ];

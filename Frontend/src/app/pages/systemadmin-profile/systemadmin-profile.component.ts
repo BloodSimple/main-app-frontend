@@ -52,4 +52,7 @@ export class SystemadminProfileComponent implements OnInit {
   admins(){
     this.router.navigate(['/admins'])
   }
+  centers(){
+    this.router.navigate(['/sysadmin-centers'])
+  }
 }
