@@ -10,6 +10,7 @@ export class AppointmentScheduleDTO{
     user:UserDTO
     bloodType:string
     amountOfBlood : number
+    reserved: boolean
 
     constructor(a:AppointmentDTO ){
         this.user = a.user;
@@ -19,5 +20,6 @@ export class AppointmentScheduleDTO{
         this.medicalCenter = a.medicalCenter
         this.bloodType = a.bloodType
         this.amountOfBlood = a.amountOfBlood
+        this.reserved = a.reserved;
     }
 }

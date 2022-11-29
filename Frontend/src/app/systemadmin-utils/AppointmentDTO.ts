@@ -8,10 +8,11 @@ export class AppointmentDTO{
     medicalCenter:MedicalCenterDTO;
     user : UserDTO; 
     bloodType: string;
-    amountOfBlood:number
+    amountOfBlood:number;
+    reserved: boolean;
 
  
-    constructor(startTime:Date, amountOfBlood:number, bloodType:string, user:UserDTO, duration:number, medicalCenter:MedicalCenterDTO, id:number){
+    constructor(startTime:Date, amountOfBlood:number, bloodType:string, user:UserDTO, duration:number, medicalCenter:MedicalCenterDTO, id:number, reserved: boolean){
         this.id = id;
         this.startTime = startTime;
         this.duration=duration;
@@ -19,5 +20,6 @@ export class AppointmentDTO{
         this.user = user;
         this.bloodType = bloodType;
         this.amountOfBlood = amountOfBlood
+        this.reserved = reserved;
     }
 }

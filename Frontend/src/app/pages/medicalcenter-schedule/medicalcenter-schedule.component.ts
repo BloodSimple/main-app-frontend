@@ -94,7 +94,15 @@ export class MedicalcenterScheduleComponent implements OnInit {
           }
         this.clickable=false
         
+  }
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }
- }
 
 
