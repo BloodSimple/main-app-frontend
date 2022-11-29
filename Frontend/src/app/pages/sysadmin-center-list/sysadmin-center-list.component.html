@@ -1,0 +1,157 @@
+<div class="overlay" style="align-items: center; text-align: center; margin-top: 5%;">
+    
+        <div class="heading-page" style="margin-bottom: 2%;margin-left: 0;">
+            <span style="color:#931F20">Medical</span><span style="color:#5E1313 ">centers</span>
+            
+        </div>
+        <p class="mt20"> Assign medical administrator to a specific center.</p>
+        <div >
+          <input
+            type="text"
+            placeholder="Search..."
+            [(ngModel)]="filterTerm"
+            style="width: 20%; margin-left: 7%;"
+          />
+        </div>
+        <div class="row">
+        <div class="col" >
+        <div style="margin-left: 10%;">
+        <table style="text-align: center; margin:auto;border-radius: 1;;width: 1000px;">
+           
+          <tbody>
+            <tr *ngFor="let c of centers$ | filter: filterTerm  "   >
+              
+              <button (click)="selectedCenter(c)" class="btn btn-info btn-lg btn-block" style="color: black;background-color: rgba(240, 247, 243, 0.952);">
+                <td width="300px; ">{{ c.name}}</td>
+              <td width="600px" >{{ c.description }}</td>
+              <td width="500px">{{ c.address.street }} {{ c.address.number }}, {{ c.address.city }}  </td>
+            </button>
+            </tr>
+          </tbody>
+          
+        </table></div>
+    </div>
+    <div class="col" style="margin-left:20%">
+            <div class="row" >
+               
+              </div>
+              <div class="row" style="align-items: center; text-align:center">
+        
+          
+       
+
+                <div class="row" *ngIf="show==true" style="margin-left: -25%;" [hidden]="!show" >
+                    <div style="margin-left:auto;">Create new administrator profile and assign it to this center.</div>
+
+                    <form (ngSubmit)="assignAdmin()"  #regForm="ngForm"    style=" justify-items: center; visibility: visible;text-align: center; ">
+                        <div class="row" >
+                            <div class="col"  >
+                                <div class="form-group2">
+                                    <label style>Admin name</label> <br>
+                                    <input name = "aname"  id ="aname" type="text" [(ngModel)]="adminMock$.name" style="text-align: center;" class="forma-control form-control-sm" placeholder="Name" required #name="ngModel" >
+                                </div>
+                            </div>
+                            <div class="col" >
+                                <div class="form-group2" >
+                                    <label style>Admin surname</label> <br>
+                                    <input name = "asurname"  id ="asurname" type="text" [(ngModel)]="adminMock$.surname" style="text-align: center;" class="forma-control form-control-sm" placeholder="Surname" required #name="ngModel" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="col"  >
+                                <div class="form-group2">
+                                    <label style>Email</label> <br>
+                                    <input name = "email"  id ="email" type="text" [(ngModel)]="adminMock$.email" style="text-align: center;" class="forma-control form-control-sm" placeholder="Email address" required #name="ngModel" >
+                                </div>
+                            </div>
+                            <div class="col" >
+                                <div class="form-group2" >
+                                    <label style>Password</label> <br>
+                                    <input name = "password"  id ="paassword" type="text" [(ngModel)]="adminMock$.password" style="text-align: center;" class="forma-control form-control-sm" placeholder="For first login" required #name="ngModel" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <div class="form-group2" >
+                                <label style>Id</label> <br>
+                                <input name = "aid"  id ="aid" type="text" [(ngModel)]="adminMock$.personalId" style="text-align: center; width: 65%;" class="forma-control form-control-sm" placeholder="jmbg" required #name="ngModel" >
+                            </div>
+                             </div>
+                             <div class="row"> 
+                                <div class="form-group2" >
+                                    <label style>Phone number</label> <br>
+                                    <input name = "phone"  id ="phone" type="text" [(ngModel)]="adminMock$.phoneNumber" style="text-align: center; width: 65%;" class="forma-control form-control-sm" placeholder="Phone number" required #name="ngModel" >
+                                </div>
+                                 </div>
+                            <div class="row">
+                                    <div class="form-group" style="text-align: center; align-content: center; font-size: 2.2ex; margin-top: 1ex; margin-bottom: 1ex;">
+                                        <label style="margin-right: 1ex;"> Female </label>
+                                        <input name = "sex" class="form-check-input" type="radio" name="sex" id="female" checked style="margin-right: 9ex;" (click)="gender='FEMALE'" >
+                                        
+                                        <input name = "sex2" class="form-check-input" type="radio" name="sex" id="male" (click)="gender='MALE'"  >
+                                        <label style="margin-left: 1ex;">   Male </label>
+                            </div>
+                                 </div>
+                       <div class="row" >
+                            <div class="col"  >
+                                <div class="form-group2">
+                                    <label style>Street</label> <br>
+                                    <input name = "astreet"  id ="astreet" type="text" [(ngModel)]="adminMock$.address.street" style="text-align: center;" class="forma-control form-control-sm" placeholder="Street" required #name="ngModel" >
+                                </div>
+                            </div>
+                            <div class="col" >
+                                <div class="form-group2" >
+                                    <label style>Street number</label> <br>
+                                    <input name = "asnum"  id ="asnum" type="text" [(ngModel)]="adminMock$.address.number" style="text-align: center;" class="forma-control form-control-sm" placeholder="Street number" required #name="ngModel" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="col"  >
+                                <div class="form-group2">
+                                    <label style>City</label> <br>
+                                    <input name = "acity"  id ="acity" type="text" [(ngModel)]="adminMock$.address.city" style="text-align: center;" class="forma-control form-control-sm" placeholder="City" required #name="ngModel" >
+                                </div>
+                            </div>
+                            <div class="col" >
+                                <div class="form-group2" >
+                                    <label style>Country</label> <br>
+                                    <input name = "acountry"  id ="acountry" type="text" [(ngModel)]="adminMock$.address.country" style="text-align: center;" class="forma-control form-control-sm" placeholder="Country" required #name="ngModel" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="col"  >
+                                <div class="form-group2">
+                                    <label style>Job</label> <br>
+                                    <input name = "job"  id ="job" type="text" [(ngModel)]="adminMock$.job" style="text-align: center;" class="forma-control form-control-sm" placeholder="Current job" required #name="ngModel" >
+                                </div>
+                            </div>
+                            <div class="col" >
+                                <div class="form-group2" >
+                                    <label style>Biography</label> <br>
+                                    <textarea name = "biography"  id ="biography" type="text" [(ngModel)]="adminMock$.bio" style="text-align: center;height :20px;" class="forma-control form-control-sm" placeholder="More information"  required #name="ngModel" >
+                                    </textarea>
+                                    </div>
+                            </div>
+                        </div>
+                    
+                    
+                        <div class="form-group" style="margin-top:2ex">
+                            <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="!regForm.valid"> ASSIGN ADMIN </button>
+                            </div>
+                        
+                    </form>  
+
+                </div>
+
+              </div>
+              
+
+              
+
+
+    </div>
+</div>
+    </div>

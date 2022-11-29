@@ -23,7 +23,10 @@ import { AppointmentCreationComponent } from './pages/appointment-creation/appoi
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
-
+import { MedicalcenterScheduleComponent } from './pages/medicalcenter-schedule/medicalcenter-schedule.component';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, YearService, Year } from '@syncfusion/ej2-angular-schedule';
+import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.component';
+import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadmin-center-list.component';
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -44,6 +47,9 @@ import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-do
     MedicalcenterProfileComponent,
     LoginPageComponent,
     BloodDonationPageComponent,
+    MedicalcenterScheduleComponent,
+    SysadminListComponent,
+    SysadminCenterListComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,8 +61,10 @@ import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-do
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ScheduleModule, RecurrenceEditorModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [DayService, WeekService, MonthService, YearService],
+  bootstrap: [AppComponent]
+
 })
 export class AppModule {}
