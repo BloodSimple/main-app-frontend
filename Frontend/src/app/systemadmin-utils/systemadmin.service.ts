@@ -51,4 +51,7 @@ export class SystemadminServiceService {
   //   return this.http.get<UserDTO[]>(this.scheduleUrl+'/1/schedule/'+id)
   // }
 
+  createAppointment(a:AppointmentDTO):Observable<any>{
+    return this.http.post(this.scheduleUrl+'/defineAppointment', a);
+  }
 }

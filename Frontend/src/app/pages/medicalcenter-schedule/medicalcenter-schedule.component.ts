@@ -8,6 +8,8 @@ import { AppointmentScheduleDTO } from 'src/app/systemadmin-utils/AppointmentSch
 import { UserDTO } from 'src/app/systemadmin-utils/UserDTO';
 import { timeInterval } from 'rxjs';
 import { async } from '@angular/core/testing';
+import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
+import { MedicalCenterModel } from 'src/app/model/medicalCenter';
 
 
 
@@ -26,11 +28,15 @@ export class MedicalcenterScheduleComponent implements OnInit {
   public view : View = 'Month'
   public views: View[] = ["Day", "Week", "Month"]
   public statusData: string[] = ['New', 'Requested', 'Confirmed'];
+
+  currentDate: string;
+
   constructor(
     public service:SystemadminServiceService,
-    public  router: Router,
-
-    ) {}
+    public  router: Router
+    ) {
+      this.currentDate = new Date().toISOString().slice(0, 10);
+    }
 
     private eventData: DataManager = new DataManager({
       url: 'https://js.syncfusion.com/demos/ejservices/api/Schedule/LoadData',
@@ -44,8 +50,14 @@ export class MedicalcenterScheduleComponent implements OnInit {
     }
 
   async ngOnInit(): Promise<any> {
-    this.service.viewSchedule().subscribe(data=>
-      this.appointments=data);
+  
+    this.service.viewSchedule().subscribe(data=>{
+      this.appointments=data;
+      console.log('drugo');
+      console.log(data);
+      console.log(this.appointments);
+    });
+
       //this.init3(1)
       //this.init2()
       // let sch : AppointmentScheduleDTO[] = [];
@@ -100,7 +112,16 @@ export class MedicalcenterScheduleComponent implements OnInit {
   openPopup() {
     this.displayStyle = "block";
   }
+
   closePopup() {
+    this.displayStyle = "none";
+  }
+
+  define() {
+    // this.service.createAppointment(this.appointments).subscribe(data=>{
+
+    //   console.log(data);
+    // });
     this.displayStyle = "none";
   }
 }

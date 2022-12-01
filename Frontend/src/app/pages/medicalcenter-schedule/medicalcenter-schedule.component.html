@@ -1,6 +1,5 @@
 <head>
     <style>
-      @import '~bootstrap/dist/css/bootstrap.min.css';
       .modal-dialog {
           display: flex;
           flex-direction: column;
@@ -81,23 +80,52 @@
       <div class="modal-body">
         <div class="row mt-2">
           <!-- Validate input -->
-            <div><label class="labels">Start date and time</label><input class="form-control"></div>
-            <div><label class="labels">Duration [min]</label><input class="form-control"></div>
-            <!-- <div>
-              <label class="labels">Duration</label>
+          
+            <div>
+              <label class="labels">Start date</label><br>
+              <input class="form-control" type="date" [min]="currentDate"/>
+            </div>
+             <div>
+              <label class="labels">Start time</label>
               <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value=7 selected>7:00</option>
+                <option value=8>8:00</option>
+                <option value=9>9:00</option>
+                <option value=10>10:00</option>
+                <option value=11>11:00</option>
+                <option value=12>12:00</option>
+                <option value=13>13:00</option>
               </select>
-            </div> -->
+            </div>
+            <div>
+              <label class="labels">Duration [min]</label>
+              <select class="form-select" aria-label="Default select example">
+                <option value=10 selected>10 min</option>
+                <option value=20>15 min</option>
+                <option value=20>20 min</option>
+                <option value=30>30 min</option>
+                <option value=30>45 min</option>
+                <option value=30>60 min</option>
+              </select>
+            </div>
+            <div>
+              <label class="labels">Assign staff</label>
+              <form>
+                <!-- <div *ngFor="let staff of this.schedule"> -->
+                <div>
+                   <input type="checkbox"> Mika Mikic
+                   <input type="checkbox"> Toma Mikic
+                </div>
+             </form>
+            </div>
+            <div >
+          </div>
          </div>
   
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" 
-                (click)="closePopup()">
+                (click)="define()">
           Save
         </button>
         <button type="button" class="btn btn-danger" 
