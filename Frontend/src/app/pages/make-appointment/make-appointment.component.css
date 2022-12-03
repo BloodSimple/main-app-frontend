@@ -10,8 +10,9 @@
 
 .search {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
+    margin-bottom: 1%;
 }
 
 .footer {

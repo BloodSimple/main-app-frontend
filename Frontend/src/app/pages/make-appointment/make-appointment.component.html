@@ -7,15 +7,29 @@
         </ol>
     </nav>
     <hr>
-    <span class="search">
-        <input type="datetime-local" min={{this.dateFormat}} placeholder="Enter date and time" style="font-size: 18px; margin-right: 6px; border-radius: 0.25rem; background-color: #ededee;">
-        <button type="button" class="btn btn-primary" style="font-size: 15px;" (click)="search()">Search</button>
-    </span>&nbsp;
+    <div >
+        <span class="search">
+            <div>
+                <label class="labels">Start date</label><br>
+                <input class="form-control" type="date" [min]="currentDate" [(ngModel)]="startDate"/>
+            </div>&nbsp;
+            <div>
+                <label>Hour</label>
+                <select class="form-select" [(ngModel)]="selectedHour" required >
+                    <option *ngFor="let hour of hours" [value]="hour.name">
+                    {{hour.name}}
+                    </option>
+                </select>
+            </div>&nbsp;
+            <!-- <input type="datetime-local" min={{this.dateFormat}} placeholder="Enter date and time" style="font-size: 18px; margin-right: 6px; border-radius: 0.25rem; background-color: #ededee;"> -->
+            <div>
+                <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+            </div>
+        </span>
+    </div> 
     <span class="sort">
-
         <button type="button" class="btn btn-outline-primary" style="font-size: 15px; margin-right: 6px;" (click)="sortByRatingAsc()">Sort By Rating ASC</button>
         <button type="button" class="btn btn-outline-primary" style="font-size: 15px;" (click)="sortByRatingDesc()">Sort By Rating DESC</button>
-
     </span>
     <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -27,10 +41,465 @@
                 <p class="card-text"> {{this.medicalCenter.address.city}}, {{this.medicalCenter.address.country}}</p>
                 <p class="card-text">{{this.medicalCenter.grade}}</p>
                 <div class="footer">
-                    <button type="button" class="btn btn-outline-primary" style="font-size: 15px;">Schedule</button>
+                    <button type="button" class="btn btn-outline-primary" style="font-size: 15px;" (click)="openPopupQuestionnaire()">Schedule</button>
                 </div>
             </div>
         </div>
         </div>
     </div>
+
+    <div
+        class="modal"
+        tabindex="-1"
+        role="dialog"
+        [ngStyle]="{'display':displayStyle}" style="display: block !important;">
+        <div class="modal-dialog" role="document" style="max-width: 1200px !important">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="overflow-y: initial !important">Fill out the Questionnaire</h4>
+            </div>
+            <div class="modal-body" style=" height:84vh;
+            overflow-y: auto;">
+
+            <div class="container mt-3">
+     
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Question</th>
+                            <th>Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste do sada dobrovoljno davali krv ili komponente krvi?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste ikada bili odbijeni kao davalac krvi ili komponente krvi?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>
+                                <div>
+                                    <label>Da li se trenutno osecate zdravim, sposobnim i odmornim da date krv ili komponente krvi?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio" checked/>Da
+                                <input type="radio"/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste nesto jeli pre dolaska na davanje krvi ili komponente krvi?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>
+                                <div>
+                                    <label>Da li se bavite opasnim zanimanjem ili hobijem?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>
+                                <div>
+                                    <label>Da li redovno (svakodnevno) uzimate bilo kakve lekove?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste poslednja 2-3 dana uzimali bilo kakve lekove (npr. Brufen, Kafetin, Analgin...)?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>
+                                <div>
+                                    <label>Da li stalno uzimate Aspitin (Cardiopirin)? Da li ste ga uzimali u poslednjih 5 dana?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste do sada ispitivani ili leceni u bolnici ili ste trenutno na ispitivanju ili bolovanju?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste vadili zub u proteklih 7 dana?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>11</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste u poslednjih 7 do 10 dana imali temperaturu preko 38, kijavicu, prehladu ili uzimali antibiotike?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>12</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste primili bilo koju vakcinu ili serum u proteklih 12 meseci?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>13</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste u proteklih 6 meseci naglo izgubili na tezini?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>14</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste imali ubode krpelja u proteklih 12 meseci ili ste se zbog toga javljali lekaru?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>15</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste ikada leceni od epilepsije (padavice), secerne bolesti, astme, tuberkuloze, infarkta, mozdanog udara,
+                                        malignih oboljenja, mentalnih bolesti ili malarije?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>16</th>
+                            <td>
+                                <div>
+                                    <label>Da li bolujete od neke druge hronicne bolesti: srca, pluca, bubrega, jetre, zeluca i creva,
+                                        kostiju i zglobova, nervnog sistema, krvi i krvnih sudova?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>17</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste ikada imali problema sa stitastom zlezdom, hipofizom i/ili primali hormone?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>18</th>
+                            <td>
+                                <div>
+                                    <label>Da li imate neke promene na kozi ili bolujete od alergije?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>19</th>
+                            <td>
+                                <div>
+                                    <label>Da li dugo krvarite posle povrede ili spontano dobijate modrice?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>20</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste u proteklih 6 meseci:</label>
+                                </div>
+                                <div>
+                                    <label>a)imali neku operaciju ili primili krv?</label>
+                                </div>
+                                <div>
+                                    <label>b)putovali ili ziveli u inostranstvu?</label>
+                                </div>
+                                <div>
+                                    <label>c)imali akupunkturu, pirsing ili tetovazu?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <div></div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>21</th>
+                            <td>
+                                <div>
+                                    <label>Da ste pili alkohol u poslednjih 6 sati?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>22</th>
+                            <td>
+                                <div>
+                                    <label>Oblici rizicnog stanja i ponasanja:</label>
+                                </div>
+                                <div>
+                                    <label>a)Da li ste bolovali ili bolujete od hepatitisa?</label>
+                                </div>
+                                <div>
+                                    <label>b)Da li ste bili u kontaktu ili zivite sa osobom obolelom od hepatitisa?</label>
+                                </div>
+                                <div>
+                                    <label>c)Da li mislite da je postojala mogucnost da se zarazite HIV-om?</label>
+                                </div>
+                                <div>
+                                    <label>d)Da li ste ikada koristili bilo koju vrstu droge?</label>
+                                </div>
+                                <div>
+                                    <label>e)Da li ste ikada koristili preparate koji se zvanicno ne izdaju na recept i/ili preparate za bodi bilding?</label>
+                                </div>
+                                <div>
+                                    <label>f)Da li ste ikada za pruzanje seksualnih usloga uzimali novac ili drogu?</label>
+                                </div>
+                                <div>
+                                    <label>g)Da li znate na koje sve nacine ste mogli izloziti sebe riziku od zaraznih, krvlju prenosivih bolesti?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <div></div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                            </td>
+                    
+                        </tr>
+                        <tr>
+                            <th>23</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste imali seksualne odnose tokom proteklih 6 meseci bez zastite:</label>
+                                </div>
+                                <div>
+                                    <label>a)sa osobom koja je HIV pozitivna?</label>
+                                </div>
+                                <div>
+                                    <label>b)sa osobom koja ima ili je imala hepatitis?</label>
+                                </div>
+                                <div>
+                                    <label>c)sa osobom koja je ikada za pruzanje seksualnih usluga uzimala novac ili drogu?</label>
+                                </div>
+                                <div>
+                                    <label>d)sa osobom koja je ikada koristila bilo koju vrstu droge na bilo koji nacin?</label>
+                                </div>
+                                <div>
+                                    <label>e)sa osobom cije Vas je dotadasnej seksualno ponasanje moglo dovesti u rizik dobijanja seksualno prenosive bolesti?</label>
+                                </div>
+                                <div>
+                                    <label>f)da li ste Vi imali analne seksualne odnose tokom proteklih 6 meseci?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <div></div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                                <div>
+                                    <input type="radio"/>Da
+                                <input type="radio" checked/>Ne</div>
+                            </td>
+                    
+                        </tr>
+                        <tr style="display: flex; align-items: center; text-align: center;"><strong style="color:red;">Za zene</strong><tr>
+                        <tr>
+                            <th>24</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste u drugom stanju?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>25</th>
+                            <td>
+                                <div>
+                                    <label>Da li trenutno imate menstruaciju?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>26</th>
+                            <td>
+                                <div>
+                                    <label>Da li ste u poslednjih 6 meseci imali porodjaj ili prekid trudnoce?</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio"/>Da
+                                <input type="radio" checked/>Ne
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+         
+            </div>
+        
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" 
+                        (click)="closePopup()">
+                Send
+                </button>
+                <button type="button" class="btn btn-danger" 
+                        (click)="closePopup()">
+                Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
