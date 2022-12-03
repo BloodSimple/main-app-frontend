@@ -77,12 +77,12 @@ export class MedicalcenterScheduleComponent implements OnInit {
     public medicalCenterService: MedicalCenterService
     ) {
       this.currentDate = new Date().toISOString().slice(0, 10);
-    //   this.medicalCenterService.getMedicalCenterDTOById(1).subscribe((response)  => {
-    //     // console.log(response);
-    //     console.log(JSON.stringify(response));
-    //     this.medicalCenter = response;
-        
-    // });
+      //TODO: Dobavi id centra
+      this.medicalCenterService.getMedicalCenterDTOById(1).subscribe((response)  => {
+        console.log(response);
+        // console.log(JSON.stringify(response));
+        this.medicalStaff = response.medicalStaff;   
+      });
     }
 
     private eventData: DataManager = new DataManager({
@@ -217,7 +217,6 @@ export class MedicalcenterScheduleComponent implements OnInit {
       medicalCenterId: 1
     }
 
-    console.log(body);
     const app= new AppointmentDTO(new Date(body.startTime), new UserModel(), body.duration, 1, this.medicalStaff);
 
      this.service.createAppointment(app).subscribe(data=>{

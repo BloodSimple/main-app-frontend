@@ -120,18 +120,11 @@
             </div>
             <div>
               <label class="labels">Assign staff</label>
-              <form>
-                <!-- <div *ngFor="let staff of this.schedule"> -->
-                <div>
-                   <input type="checkbox"> Mika Mikic
-                   <input type="checkbox"> Toma Mikic
-                </div>
-             </form>
-            </div>
-            <div >
-          </div>
-         </div>
-  
+              <div *ngFor="let staff of medicalStaff" #medicalStaff>
+                <input type="checkbox"> {{staff.name}} {{staff.surname}}
+              </div>
+            </div> 
+         </div> 
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary" 
