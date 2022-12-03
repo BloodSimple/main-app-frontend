@@ -1,25 +1,39 @@
 import { MedicalCenterDTO } from "./MedicalCenterDTO";
 import { UserDTO } from "./UserDTO";
+import { UserModel } from "../model/user";
 
 export class AppointmentDTO{
-    id: number;
+    // id: number;
     startTime:Date;
     duration:number;
-    medicalCenter:MedicalCenterDTO;
-    user : UserDTO; 
-    bloodType: string;
-    amountOfBlood:number;
-    reserved: boolean;
 
- 
-    constructor(startTime:Date, amountOfBlood:number, bloodType:string, user:UserDTO, duration:number, medicalCenter:MedicalCenterDTO, id:number, reserved: boolean){
-        this.id = id;
+    //ne treba mi?
+    // medicalCenter:MedicalCenterDTO;
+    user : UserModel; 
+    // bloodType: string;
+    // amountOfBlood:number;
+
+    //dodati staff koji ce biti na terminu
+    medicalCenterId: number;
+    medicalStaff: UserModel[];
+
+    constructor(startTime:Date, 
+        // amountOfBlood:number, bloodType:string, 
+        user:UserModel, 
+        duration: number,
+        // medicalCenter:MedicalCenterDTO, 
+        // id:number,
+        medicalCenterId: number, medicalStaff:UserModel[]
+         ){
+        // this.id = id;
         this.startTime = startTime;
         this.duration=duration;
-        this.medicalCenter=medicalCenter;   
+        this.medicalCenterId = medicalCenterId;
+        this.medicalStaff = medicalStaff;
+        // this.medicalCenter=medicalCenter;   
         this.user = user;
-        this.bloodType = bloodType;
-        this.amountOfBlood = amountOfBlood
-        this.reserved = reserved;
+        // this.bloodType = bloodType;
+        // this.amountOfBlood = amountOfBlood
     }
+
 }

@@ -1,18 +1,27 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ɵisListLikeIterable } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemadminServiceService } from 'src/app/systemadmin-utils/systemadmin.service';
 import { CallbackFunction, EventRenderedArgs, EventSettingsModel, View } from '@syncfusion/ej2-angular-schedule';
 import {DataManager, WebApiAdaptor} from '@syncfusion/ej2-data'
 import { AppointmentDTO } from 'src/app/systemadmin-utils/AppointmentDTO';
 import { AppointmentScheduleDTO } from 'src/app/systemadmin-utils/AppointmentScheduleDTO';
-import { UserDTO } from 'src/app/systemadmin-utils/UserDTO';
-import { timeInterval } from 'rxjs';
-import { async } from '@angular/core/testing';
+
 import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
-import { MedicalCenterModel } from 'src/app/model/medicalCenter';
+import { formatDate } from '@angular/common';
+import { MedicalCenterDTO } from 'src/app/systemadmin-utils/MedicalCenterDTO';
+import { UserModel } from 'src/app/model/user';
+import { UserDTO } from 'src/app/systemadmin-utils/UserDTO';
 
 
+interface hour {
+  id?: number,
+  name?: string
+}
 
+// interface duration {
+//   id?: number,
+//   name?: number
+// }
 
 @Component({
   selector: 'app-medicalcenter-schedule',
@@ -31,11 +40,49 @@ export class MedicalcenterScheduleComponent implements OnInit {
 
   currentDate: string;
 
+  hours : hour[] = [
+    {id: 1, name:"07"},
+    {id: 2, name:"08"},
+    {id: 3, name:"09"},
+    {id: 4, name:"10"},
+    {id: 5, name:"11"},
+    {id: 6, name:"12"},
+    {id: 7, name:"13"}
+  ];
+
+  duration: number = 10;
+  // durations : duration[] = [
+  //   {id: 1, name:10},
+  //   {id: 2, name:15},
+  //   {id: 3, name:20},
+  //   {id: 4, name:30},
+  //   {id: 5, name:45},
+  //   {id: 6, name:50}
+  // ];
+
+  selectedHour?: hour;
+  // selectedDuration?: duration;
+
+  startDate = Date();
+  // medicalCenter = new MedicalCenterDTO(
+  //   id: 1,
+
+  // );
+
+  medicalStaff: UserModel[] = [];
+
   constructor(
     public service:SystemadminServiceService,
-    public  router: Router
+    public  router: Router,
+    public medicalCenterService: MedicalCenterService
     ) {
       this.currentDate = new Date().toISOString().slice(0, 10);
+    //   this.medicalCenterService.getMedicalCenterDTOById(1).subscribe((response)  => {
+    //     // console.log(response);
+    //     console.log(JSON.stringify(response));
+    //     this.medicalCenter = response;
+        
+    // });
     }
 
     private eventData: DataManager = new DataManager({
@@ -118,10 +165,65 @@ export class MedicalcenterScheduleComponent implements OnInit {
   }
 
   define() {
-    // this.service.createAppointment(this.appointments).subscribe(data=>{
+   
+    const format = "yyyy-MM-ddTHH:mm:ss";
+    const startTime = new Date(this.startDate);
+    console.log(startTime);
 
-    //   console.log(data);
-    // });
+    switch ( this.selectedHour ) {
+      case "07":
+        startTime.setHours(8);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        break;
+      case "08":
+        startTime.setHours(9);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        break;
+      case "09":
+        startTime.setHours(10);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        break;
+      case "10":
+        startTime.setHours(11);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        break;
+      case "11":
+        startTime.setHours(12);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        break;
+      case "12":
+        startTime.setHours(13);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        break;
+      case "13":
+        startTime.setHours(14);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        break;
+      default: 
+            break;
+   }
+
+    const body = {
+      startTime: formatDate(startTime, format, "en-US"),
+      // duration: this.selectedDuration?.name,
+      duration: this.duration,
+      medicalCenterId: 1
+    }
+
+    console.log(body);
+    const app= new AppointmentDTO(new Date(body.startTime), new UserModel(), body.duration, 1, this.medicalStaff);
+
+     this.service.createAppointment(app).subscribe(data=>{
+
+      console.log(data);
+    });
     this.displayStyle = "none";
   }
 }

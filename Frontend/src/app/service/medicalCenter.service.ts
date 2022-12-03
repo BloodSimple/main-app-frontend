@@ -21,4 +21,9 @@ export class MedicalCenterService {
     public updateCenter(obj:any): Observable<any>{
         return this.http.put("http://localhost:8080/api/centers/", obj);
     }
+
+    public getMedicalCenterDTOById(id: any): Observable<any> {
+        return this.http.get("http://localhost:8080/api/centers/dto" + "/"+id);
+    }
+
 }
