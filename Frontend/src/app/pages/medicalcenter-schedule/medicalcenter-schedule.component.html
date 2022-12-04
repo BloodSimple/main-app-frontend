@@ -73,6 +73,7 @@
   role="dialog"
   [ngStyle]="{'display':displayStyle}">
   <div class="modal-dialog" role="document">
+    <form ngNativeValidate #appointmentForm="ngForm">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Define appointment</h4>
@@ -83,7 +84,7 @@
           
             <div>
               <label class="labels">Start date</label><br>
-              <input class="form-control" type="date" [min]="currentDate" [(ngModel)]="startDate"/>
+              <input class="form-control" type="date" [min]="currentDate" name="startDate" [(ngModel)]="startDate" required/>
             </div>
               <!-- <label class="labels">Start time</label>
               <select class="form-select" aria-label="Default select example" [(ngModel)]="">
@@ -96,7 +97,7 @@
                 <option value=13>13:00</option> -->
             <div>
               <label>Hour</label>
-              <select class="form-select" [(ngModel)]="selectedHour" required >
+              <select class="form-select" [(ngModel)]="selectedHour" name="selectedHour" required>
                   <option *ngFor="let hour of hours" [value]="hour.name">
                     {{hour.name}}
                   </option>
@@ -104,7 +105,7 @@
             </div>
             <div>
               <label class="labels">Duration [min]</label>
-              <select class="form-select" aria-label="Default select example"  [(ngModel)]="this.duration">
+              <select class="form-select" aria-label="Default select example"  [(ngModel)]="this.duration" name="duration" required>
                 <option [value]=10 selected>10 min</option>
                 <option [value]=15>15 min</option>
                 <option [value]=20>20 min</option>
@@ -121,14 +122,14 @@
             <div>
               <label class="labels">Assign staff</label>
               <div *ngFor="let staff of medicalStaff" #medicalStaff>
-                <input type="checkbox"> {{staff.name}} {{staff.surname}}
+                <input type="checkbox" name="medicalStaff" checked required> {{staff.name}} {{staff.surname}}
               </div>
             </div> 
-         </div> 
+         </div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary" 
-                (click)="define()">
+                (click)="define()" [disabled]="appointmentForm.form.invalid">
           Save
         </button>
         <button type="button" class="btn btn-danger" 
@@ -137,6 +138,7 @@
         </button>
       </div>
     </div>
+  </form>
   </div>
 </div>
 
