@@ -24,6 +24,7 @@ import { AppointmentCreationComponent } from './pages/appointment-creation/appoi
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
 import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
+import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MakeAppointmentComponent } from './pages/make-appointment/make-appointm
     LoginPageComponent,
     BloodDonationPageComponent,
     MakeAppointmentComponent,
+    MyAppointmentsComponent,
   ],
   imports: [
     BrowserModule,
