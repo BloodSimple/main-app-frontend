@@ -11,6 +11,7 @@ import { formatDate } from '@angular/common';
 import { MedicalCenterDTO } from 'src/app/systemadmin-utils/MedicalCenterDTO';
 import { UserModel } from 'src/app/model/user';
 import { UserDTO } from 'src/app/systemadmin-utils/UserDTO';
+import Swal from 'sweetalert2';
 
 
 interface hour {
@@ -220,7 +221,16 @@ export class MedicalcenterScheduleComponent implements OnInit {
     const app= new AppointmentDTO(new Date(body.startTime), new UserModel(), body.duration, 1, this.medicalStaff);
 
      this.service.createAppointment(app).subscribe(data=>{
-
+      Swal.fire({
+        icon: 'success',
+        title: 'Yippee!',
+        text: 'Defined appointment!',
+        background: '#1e2126',
+        color: '#c4c4c4',
+        showCancelButton: false,
+        showConfirmButton: false,
+        timer: 2000,
+      });
       console.log(data);
     });
     this.displayStyle = "none";
