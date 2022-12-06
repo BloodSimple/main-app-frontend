@@ -5,14 +5,29 @@ import { CallbackFunction, EventRenderedArgs, EventSettingsModel, View } from '@
 import {DataManager, WebApiAdaptor} from '@syncfusion/ej2-data'
 import { AppointmentDTO } from 'src/app/systemadmin-utils/AppointmentDTO';
 import { AppointmentScheduleDTO } from 'src/app/systemadmin-utils/AppointmentScheduleDTO';
-
 import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
 import { formatDate } from '@angular/common';
-import { MedicalCenterDTO } from 'src/app/systemadmin-utils/MedicalCenterDTO';
 import { UserModel } from 'src/app/model/user';
-import { UserDTO } from 'src/app/systemadmin-utils/UserDTO';
 import Swal from 'sweetalert2';
 
+class StaffAppointment {
+  personalId?: string='';
+  email?: string='';
+  password?: string='';
+  name?: string='';
+  surname?: string='';
+  gender?: string='';
+  phoneNumber?: string='';
+  job?: string='';
+  bio?: string='';
+  addressId?: string = '';
+  addressStreet?: string = '';
+  addressNumber?: string = '';
+  addressCity?: string = '';
+  addressCountry?: string = '';
+  role?: string='';
+  checked: boolean=false;
+}
 
 interface hour {
   id?: number,
@@ -65,12 +80,8 @@ export class MedicalcenterScheduleComponent implements OnInit {
   // selectedDuration?: duration;
 
   startDate = Date();
-  // medicalCenter = new MedicalCenterDTO(
-  //   id: 1,
-
-  // );
-
   medicalStaff: UserModel[] = [];
+  staffAppointment: StaffAppointment [] = [];
 
   constructor(
     public service:SystemadminServiceService,
@@ -81,8 +92,28 @@ export class MedicalcenterScheduleComponent implements OnInit {
       //TODO: Dobavi id centra
       this.medicalCenterService.getMedicalCenterDTOById(1).subscribe((response)  => {
         console.log(response);
-        // console.log(JSON.stringify(response));
-        this.medicalStaff = response.medicalStaff;   
+        // this.medicalStaff = response.medicalStaff; 
+        for(let med of response.medicalStaff){
+          let object = new StaffAppointment();
+          object.personalId= med.personalId;
+          object.email=med.email;
+          object.password=med.password;
+          object.name=med.name;
+          object.surname=med.surname;
+          object.gender=med.gender;
+          object.phoneNumber=med.phoneNumber;
+          object.job=med.job;
+          object.bio=med.bio;
+          object.addressId=med.addressId;
+          object.addressStreet=med.addressStreet;
+          object.addressNumber=med.addressNumber;
+          object.addressCity=med.addressCity;
+          object.addressCountry=med.addressCountry;
+          object.role=med.role;
+          object.checked=false;
+
+          this.staffAppointment.push(object);
+        }  
       });
     }
 
@@ -218,6 +249,12 @@ export class MedicalcenterScheduleComponent implements OnInit {
       medicalCenterId: 1
     }
 
+    for(let inAppointmentStaff of this.staffAppointment){
+      if(inAppointmentStaff.checked === true){
+        this.medicalStaff.push(inAppointmentStaff);
+      }
+    }
+    console.log(this.medicalStaff);
     const app= new AppointmentDTO(new Date(body.startTime), new UserModel(), body.duration, 1, this.medicalStaff);
 
      this.service.createAppointment(app).subscribe(data=>{
@@ -234,6 +271,8 @@ export class MedicalcenterScheduleComponent implements OnInit {
       console.log(data);
     });
     this.displayStyle = "none";
+    window.location.reload();
+    this.init2();
   }
 }
 

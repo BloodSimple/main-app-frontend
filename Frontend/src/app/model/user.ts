@@ -14,4 +14,5 @@ export class UserModel {
     addressCity?: string = '';
     addressCountry?: string = '';
     role?: string='';
+    // checked?: boolean = false;
 }

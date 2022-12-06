@@ -79,9 +79,7 @@
         <h4 class="modal-title">Define appointment</h4>
       </div>
       <div class="modal-body">
-        <div class="row mt-2">
-          <!-- Validate input -->
-          
+        <div class="row mt-2">      
             <div>
               <label class="labels">Start date</label><br>
               <input class="form-control" type="date" [min]="currentDate" name="startDate" [(ngModel)]="startDate" required/>
@@ -121,8 +119,8 @@
             </div>
             <div>
               <label class="labels">Assign staff</label>
-              <div *ngFor="let staff of medicalStaff" #medicalStaff>
-                <input type="checkbox" name="medicalStaff" checked required> {{staff.name}} {{staff.surname}}
+              <div *ngFor="let staff of staffAppointment; let i = index">
+                <input type="checkbox" value="staff.id" [(ngModel)]="staff.checked" name="'staff'+i" multiple> {{staff.name}} {{staff.surname}}
               </div>
             </div> 
          </div>
@@ -156,9 +154,15 @@
 
       <ng-template #quickInfoTemplatesHeader let-data >
         <div style="align-items: center;text-align: center;">
-            <table > <tr style="align-items: center;text-align: center;"> 
+            <table > 
+              <tr style="align-items: center;text-align: center;"> 
                 <td style="color:white; font-size: 20px;"> {{data.user?.name}} </td>
-                <td style="color: white;font-size: 20px;"> {{data.user?.surname}} </td> </tr> </table>
+                <td style="color: white;font-size: 20px;"> {{data.user?.surname}} </td>  
+              </tr>
+              <tr style="align-items: left;text-align: left;" *ngFor="let med of data.medicalStaff"> 
+                <td style="color:white; font-size: 15px;">Staff: {{med?.name}} {{med?.surname}}</td>
+              </tr>
+            </table>
         </div>
       </ng-template>
 </ejs-schedule>
