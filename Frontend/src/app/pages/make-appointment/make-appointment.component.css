@@ -1,0 +1,22 @@
+.makeAppointmentContainer {
+    padding: 25px 100px;
+}
+
+.sort {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.search {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 1%;
+}
+
+.footer {
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end;
+}

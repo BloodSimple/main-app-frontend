@@ -20,6 +20,8 @@ import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-do
 import { MedicalcenterScheduleComponent } from './pages/medicalcenter-schedule/medicalcenter-schedule.component';
 import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.component';
 import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadmin-center-list.component';
+import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
+import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -40,7 +42,9 @@ const routes: Routes = [
   { path: 'blood-donation-page', component: BloodDonationPageComponent },
   { path:'medical-center-schedule', component: MedicalcenterScheduleComponent},
   { path:'admins', component: SysadminListComponent},
-  { path:'sysadmin-centers', component: SysadminCenterListComponent}
+  { path:'sysadmin-centers', component: SysadminCenterListComponent},
+  { path: 'make-appointment', component: MakeAppointmentComponent},
+  { path: 'my-appointments', component: MyAppointmentsComponent }
 
 
 

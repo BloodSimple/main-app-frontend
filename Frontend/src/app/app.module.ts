@@ -27,6 +27,8 @@ import { MedicalcenterScheduleComponent } from './pages/medicalcenter-schedule/m
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, YearService, Year } from '@syncfusion/ej2-angular-schedule';
 import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.component';
 import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadmin-center-list.component';
+import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
+import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments.component';
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -50,6 +52,8 @@ import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadm
     MedicalcenterScheduleComponent,
     SysadminListComponent,
     SysadminCenterListComponent,
+    MakeAppointmentComponent,
+    MyAppointmentsComponent,
   ],
   imports: [
     BrowserModule,

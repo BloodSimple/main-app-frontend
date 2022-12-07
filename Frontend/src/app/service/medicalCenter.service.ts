@@ -26,4 +26,8 @@ export class MedicalCenterService {
         return this.http.get("http://localhost:8080/api/centers/dto" + "/"+id);
     }
 
+    public getMedicalCenterWithAppointments(startTime: any): Observable<any>{
+        return this.http.get("http://localhost:8080/api/centers/freeAppointments"+ '?startTime=' + startTime);
+    }
+
 }
