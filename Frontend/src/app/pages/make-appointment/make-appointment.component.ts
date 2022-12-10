@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MedicalCenterModel } from 'src/app/model/medicalCenter';
 import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
 import { formatDate } from '@angular/common';
+import { AuthenticationService } from 'src/app/service/authentication.service';
+import { UserModel } from 'src/app/model/user';
+import { LoginResponse } from 'src/app/model/LoginResponse';
+import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 interface hour {
   id?: number,
@@ -33,11 +38,19 @@ export class MakeAppointmentComponent implements OnInit {
   selectedHour?: hour;
   startDate = Date();
 
-  constructor(private medicalCenterService: MedicalCenterService) {
+  user = new UserModel();
+  activeUser: LoginResponse = new LoginResponse();
+
+  dateAndTime: string ='';
+  
+  constructor(
+    private medicalCenterService: MedicalCenterService,
+    private authenticationService: AuthenticationService,
+    private userService: UserService) {
     this.currentDate = new Date().toISOString().slice(0, 10);
    }
   ngOnInit(): void {   
-         
+    this.activeUser = this.authenticationService.getCurrentUser();
   }
 
   search(){                           //Give user only medical center with free appointments
@@ -89,6 +102,7 @@ export class MakeAppointmentComponent implements OnInit {
    
    const startDateTime = formatDate(startTime, format, "en-US")
    console.log(startDateTime);
+   this.dateAndTime = startDateTime;
     this.medicalCenterService
     .getMedicalCenterWithAppointments(startDateTime).subscribe((medicalCenters: MedicalCenterModel[]) => {
       this.medicalCenters = medicalCenters;
@@ -104,5 +118,26 @@ export class MakeAppointmentComponent implements OnInit {
     this.medicalCenters.sort((a, b) => {
       return a.grade - b.grade;
     });
+  }
+
+  schedule(medicalCenterId: any, startTime: any, personalId: any){
+    console.log(medicalCenterId);
+    console.log(startTime);
+    console.log(personalId);
+   
+    this.userService.scheduleAppointment(medicalCenterId, startTime, personalId).subscribe((appointment: any) => {
+      console.log(appointment);
+      Swal.fire({
+        icon: 'success',
+        title: 'Yippee!',
+        text: 'Appointment reservation successful!',
+        background: '#1e2126',
+        color: '#c4c4c4',
+        showCancelButton: false,
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    })
+
   }
 }

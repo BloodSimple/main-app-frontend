@@ -1,4 +1,4 @@
-import { HttpClient} from "@angular/common/http";
+import { HttpClient, HttpParams} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -20,5 +20,9 @@ export class UserService {
 
     public updatePassword(obj:any): Observable<any>{
         return this.http.put("http://localhost:8080/api/users/updatepassword", obj);
+    }
+
+    public scheduleAppointment(medicalCenterId: any, startTime: any, personalId: any): Observable<any>{
+        return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, null);
     }
 }
