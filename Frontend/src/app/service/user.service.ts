@@ -25,4 +25,8 @@ export class UserService {
     public scheduleAppointment(medicalCenterId: any, startTime: any, personalId: any): Observable<any>{
         return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, null);
     }
+
+    public getAppointmentsByUser(id: any): Observable<any>{
+        return this.http.get("http://localhost:8080/api/centers/myAppointments" + "/" + id);
+    }
 }
