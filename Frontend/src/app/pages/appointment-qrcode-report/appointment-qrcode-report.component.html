@@ -1,0 +1,34 @@
+<div class="overlay" style="align-items: center; text-align: center; margin-top: 5%;">
+    <div class="container ">
+        <div class="heading-page" style="margin-bottom: 2%;">
+            <span style="color:#931F20">appointment</span><span style="color:#5E1313 ">report</span>
+            
+        </div>
+        <p class="mt20"> Upload appointment QR code to begin filling the report. </p>
+        <div class="row" >
+            <div class="text-center">
+                <input class="form-control" type="file" 
+                        (change)="onChange($event)">
+              
+                <button (click)="readqr()" [disabled]="uploaded" 
+                    class="btn btn-success" style="background-color:#5E1313 ;">
+                    Upload
+                </button>
+            </div>
+              </div>
+              <div class="row">
+                <div class="col">{{data[5]}}</div>
+              </div>
+              <div class="row">
+                <div class="col">{{data[0]}}</div>
+                
+                <div class="col">{{data[1]}}</div>
+              </div>
+              <div class="row">
+                <div class="col">{{data[2]}}</div>
+              </div>
+              <div class="row">
+                <div class="col">{{data[3]}}</div>
+              </div>
+      </div>
+    </div>

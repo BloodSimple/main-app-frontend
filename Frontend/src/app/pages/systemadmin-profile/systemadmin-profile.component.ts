@@ -55,4 +55,7 @@ export class SystemadminProfileComponent implements OnInit {
   centers(){
     this.router.navigate(['/sysadmin-centers'])
   }
+  report(){
+    this.router.navigate(['/appointment-report'])
+  }
 }
