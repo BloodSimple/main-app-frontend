@@ -127,16 +127,61 @@ export class MakeAppointmentComponent implements OnInit {
    
     this.userService.scheduleAppointment(medicalCenterId, startTime, personalId).subscribe((appointment: any) => {
       console.log(appointment);
-      Swal.fire({
-        icon: 'success',
-        title: 'Yippee!',
-        text: 'Appointment reservation successful!',
-        background: '#1e2126',
-        color: '#c4c4c4',
-        showCancelButton: false,
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      if(appointment.response == "Six months haven't passed since your last blood donation."){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: "Six months haven't passed since your last blood donation.",
+          background: '#1e2126',
+          color: '#c4c4c4',
+          showCancelButton: false,
+          showConfirmButton: false,
+          timer: 2000,
+         });
+      }else if(appointment.response == "You should take questionnaire before blood donation."){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'You should take questionnaire before blood donation.',
+          background: '#1e2126',
+          color: '#c4c4c4',
+          showCancelButton: false,
+          showConfirmButton: false,
+          timer: 2000,
+         });
+      }else if(appointment.response == "You should take questionnaire again..."){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'You should take questionnaire again...',
+          background: '#1e2126',
+          color: '#c4c4c4',
+          showCancelButton: false,
+          showConfirmButton: false,
+          timer: 2000,
+         });
+      }else {
+        Swal.fire({
+          icon: 'success',
+          title: 'Yippee!',
+          text: 'Appointment reservation successful!',
+          background: '#1e2126',
+          color: '#c4c4c4',
+          showCancelButton: false,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+      // Swal.fire({
+      //   icon: 'success',
+      //   title: 'Yippee!',
+      //   text: 'Appointment reservation successful!',
+      //   background: '#1e2126',
+      //   color: '#c4c4c4',
+      //   showCancelButton: false,
+      //   showConfirmButton: false,
+      //   timer: 2000,
+      // });
     })
 
   }

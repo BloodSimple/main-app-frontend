@@ -258,6 +258,7 @@ export class MedicalcenterScheduleComponent implements OnInit {
     const app= new AppointmentDTO(new Date(body.startTime), new UserModel(), body.duration, 1, this.medicalStaff);
 
      this.service.createAppointment(app).subscribe(data=>{
+
       Swal.fire({
         icon: 'success',
         title: 'Yippee!',
@@ -271,7 +272,7 @@ export class MedicalcenterScheduleComponent implements OnInit {
       console.log(data);
     });
     this.displayStyle = "none";
-    window.location.reload();
+    //window.location.reload();
     this.init2();
   }
 }
