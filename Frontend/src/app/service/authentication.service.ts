@@ -104,6 +104,8 @@ export class AuthenticationService {
     var user = new LoginResponse();
     localStorage.setItem('currentUser', JSON.stringify(user));
     window.location.href = '/';
+    localStorage.setItem("jwt", '')
+
   }
 
   isUserLoggedIn() {
@@ -142,5 +144,6 @@ export class AuthenticationService {
 
   loginSetUser(loginResponse: LoginResponse) {
     localStorage.setItem('currentUser', JSON.stringify(loginResponse));
+    localStorage.setItem("jwt", loginResponse.accessToken)
   }
 }
