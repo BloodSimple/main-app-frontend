@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams} from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -10,23 +10,39 @@ import { Observable } from "rxjs";
 export class UserService {
     constructor(private http: HttpClient){ }
 
+    reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
+                                   .set('Accept', 'application/json');
+
     public updateUser(obj:any): Observable<any>{
-        return this.http.put("http://localhost:8080/api/users/", obj);
+        this.reqHeader = this.getHeaders();
+        return this.http.put("http://localhost:8080/api/users/", obj, {headers: this.reqHeader});
     }
 
     public getUserById(id: String): Observable<any> {
-        return this.http.get("http://localhost:8080/api/users" + "/" + id);
+        this.reqHeader = this.getHeaders();
+        return this.http.get("http://localhost:8080/api/users" + "/" + id, {headers: this.reqHeader});
     }
 
     public updatePassword(obj:any): Observable<any>{
-        return this.http.put("http://localhost:8080/api/users/updatepassword", obj);
+        this.reqHeader = this.getHeaders();
+        return this.http.put("http://localhost:8080/api/users/updatepassword", obj, {headers: this.reqHeader});
     }
 
     public scheduleAppointment(medicalCenterId: any, startTime: any, personalId: any): Observable<any>{
-        return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, null);
+        this.reqHeader = this.getHeaders();
+        return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, null, {headers: this.reqHeader});
     }
 
     public getAppointmentsByUser(id: any): Observable<any>{
-        return this.http.get("http://localhost:8080/api/centers/myAppointments" + "/" + id);
+        this.reqHeader = this.getHeaders();
+        return this.http.get("http://localhost:8080/api/centers/myAppointments" + "/" + id, {headers: this.reqHeader});
+    }
+
+    getHeaders() {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
+        });
+        return headers;
     }
 }
