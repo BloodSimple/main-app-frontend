@@ -45,6 +45,8 @@ export class LoginPageComponent implements OnInit {
 
   }
 
+  
+
   successfulLogin(loginResponse: LoginResponse) {
     this.authenticationService.loginSetUser(loginResponse);
   }

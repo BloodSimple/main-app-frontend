@@ -1,5 +1,28 @@
+<div [hidden]="!first_login">
+    <div class="row" style="align-items: center; text-align:center">
+        <div><span class="heading-page"> <span style="color:#931F20">Change</span><span style="color:#5E1313 ">Password</span>
+        </span></div>        
+    </div>
+    <div class="row" style="text-align: center; margin:auto;align-items: center;margin-top:5%">
+        <div><span class="heading-page-sm"> <span style="color:#931F20">Enter</span><span style="color:#5E1313 ">Password</span>
+        </span></div>        </div>
+    <div class="row" style="text-align: center;">
+    <input [(ngModel)]="newPass1" type="text" style="width:30%; margin:auto"> 
+    </div>
+    <div class="row" style="text-align: center; margin:auto;align-items: center;">
+        <div><span class="heading-page-sm"> <span style="color:#931F20">Enter</span><span style="color:#5E1313 ">Again</span>
+        </span></div>        </div>
+    <div class="row" style="text-align: center;">
+    <input [(ngModel)]="newPass2" type="text" style="width:30%; margin:auto"> 
+    </div>
+    <div class="row" style="text-align: center;">
+        <button (click)="savepass()" class="btn-info"  style="width:20%; margin:auto; margin-top: 1%;">Save password </button>
 
-<div class="col-md-10" style="width: 100%;">
+        </div>
+        <div class="row" style="text-align: center;" [hidden]="okPass"> <div style="color: red;"> Passwords do not match!</div></div>
+    
+</div>
+<div class="col-md-10" style="width: 100%;" [hidden]="first_login" >
 <main class="site-wrapper" >
     
     <div class="pt-table desktop-768">
