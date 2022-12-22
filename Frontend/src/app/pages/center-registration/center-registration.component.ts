@@ -15,12 +15,12 @@ export class CenterRegistrationComponent implements OnInit {
   public centers$ : MedicalCenterDTO[] = []
   public userAddress$ = new AddressDTO('', '', '', '', 0, 0)
   public centerAddress$ = new AddressDTO('', '', '', '', 0, 0)
-  public admin$ = new UserDTO('0','','','','','',this.userAddress$,'','','','')
+  public admin$ = new UserDTO('0','','','','','',this.userAddress$,'','','','', true)
   //public admin$ : UserDTO|undefined
   public center$ = new MedicalCenterDTO( [], '', this.centerAddress$, '', [])
   public existingAdmins$ : UserDTO[] = []
   public existing : boolean = true
-  public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '')
+  public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '', true)
  public gender = 'FEMALE'
  public center_added = false
   constructor(

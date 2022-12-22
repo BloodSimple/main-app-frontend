@@ -29,6 +29,10 @@ export class SystemadminServiceService {
     this.reqHeader = this.getHeaders()
     return this.http.get<UserDTO[]>(this.centerUrl + '/selectadmin', {headers:this.reqHeader})
   }
+  getAdmin(mail:String):Observable<UserDTO>{
+    this.reqHeader = this.getHeaders()
+    return this.http.get<UserDTO>(this.sysAdminUrl + '/mail/' + mail, {headers:this.reqHeader})
+  }
   registerCenter(data:MedicalCenterDTO){
     this.reqHeader = this.getHeaders()
     return this.http.post(this.centerUrl + '/', data, {headers:this.reqHeader})
@@ -47,16 +51,16 @@ export class SystemadminServiceService {
   }
   viewSchedule():Observable<AppointmentDTO[]>{
     this.reqHeader = this.getHeaders()
-    return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/2/schedule', {headers:this.reqHeader})
+    return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'//schedule', {headers:this.reqHeader})
   }
   allAdmins():Observable<UserDTO[]>{
     this.reqHeader = this.getHeaders()
 
     return this.http.get<UserDTO[]>(this.sysAdminUrl+'/', {headers:this.reqHeader})
   }
-  public updateUser(u:UserDTO): Observable<any>{
+  public updateUser(u:any): Observable<any>{
     this.reqHeader = this.getHeaders()
-    return this.http.put("http://localhost:8080/api/", u, {headers:this.reqHeader});
+    return this.http.put(this.sysAdminUrl+'/',  JSON.stringify(u), {headers:this.reqHeader});
 }
   public  upload(file:any):Observable<any> {  
     const formData = new FormData(); 

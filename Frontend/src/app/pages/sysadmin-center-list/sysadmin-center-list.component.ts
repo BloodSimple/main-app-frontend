@@ -23,9 +23,9 @@ export class SysadminCenterListComponent implements OnInit {
   public center$ = new MedicalCenterDTO( [], '', this.centerAddress$, '', [])
 
   public userAddress$ = new AddressDTO('', '', '', '', 0, 0)
-  public admin$ = new UserDTO('0','','','','','',this.userAddress$,'','','','')
+  public admin$ = new UserDTO('0','','','','','',this.userAddress$,'','','','', true)
   //public admin$ : UserDTO|undefined
-  public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '')
+  public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '', true)
  public gender = 'FEMALE'
  public center_added = false
   constructor(

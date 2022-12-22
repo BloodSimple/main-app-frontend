@@ -20,6 +20,7 @@ export class HomepageComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout()
+    
   }
 
 }

@@ -12,7 +12,7 @@ import { UserDTO } from 'src/app/systemadmin-utils/UserDTO';
 export class SystemadminRegisterComponent implements OnInit {
 
   public userAddress$ = new AddressDTO('', '', '', '', 0, 0)
-  public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '')
+  public adminMock$ = new UserDTO('', '', '', '', '', '', this.userAddress$, '', '', '', '', true)
   public gender = 'FEMALE'
 
   constructor(public service:SystemadminServiceService,

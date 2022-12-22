@@ -105,6 +105,7 @@ export class AuthenticationService {
     localStorage.setItem('currentUser', JSON.stringify(user));
     window.location.href = '/';
     localStorage.setItem("jwt", '')
+    localStorage.setItem('mail', JSON.stringify(user.email))
 
   }
 
@@ -145,5 +146,7 @@ export class AuthenticationService {
   loginSetUser(loginResponse: LoginResponse) {
     localStorage.setItem('currentUser', JSON.stringify(loginResponse));
     localStorage.setItem("jwt", loginResponse.accessToken)
+    localStorage.setItem('mail', (loginResponse.email))
+
   }
 }
