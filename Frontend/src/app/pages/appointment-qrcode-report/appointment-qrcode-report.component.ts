@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { iif, map, Observable, of, switchMap } from 'rxjs';
+import { AppointmentDTO } from 'src/app/systemadmin-utils/AppointmentDTO';
 import { SystemadminServiceService } from 'src/app/systemadmin-utils/systemadmin.service';
 @Component({
   selector: 'app-appointment-qrcode-report',
@@ -15,6 +16,7 @@ export class AppointmentQrcodeReportComponent implements OnInit {
   loading: boolean = false; // Flag variable
   data : any
   proceed = false;
+  appointment:any
   file = new File(["foo"], "foo.txt", {
     type: "text/plain",
   });
@@ -40,16 +42,22 @@ export class AppointmentQrcodeReportComponent implements OnInit {
    (res)=>{
     this.data = res
     console.log(res)
-    this.proceed = true
    }
    )  
     }
    )
    //await this.findAppointment(this.data)
+   this.proceed = true
+
 }
 
 async findAppointment(data:any){
-  this.service.proceedToReport(data).subscribe((res)=>console.log(res));
+  this.service.proceedToReport(data).subscribe((res:AppointmentDTO)=>{
+    this.appointment = res;
+    console.log(res);
+    console.log(this.appointment)
+  });
+ 
 }
 
 
