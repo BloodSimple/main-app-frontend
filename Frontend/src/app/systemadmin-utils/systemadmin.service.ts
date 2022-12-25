@@ -63,14 +63,21 @@ export class SystemadminServiceService {
     return this.http.put(this.sysAdminUrl+'/',  JSON.stringify(u), {headers:this.reqHeader});
 }
   public  upload(file:any):Observable<any> {  
+    this.reqHeader = this.getToken()
     const formData = new FormData(); 
     formData.append("image", file);      
-    return this.http.post('http://localhost:8080/upload/image', formData, { observe: 'response' })
+    return this.http.post('http://localhost:8080/upload/image', formData,  { observe: 'response', headers:this.reqHeader })
 }
   public readQR(file:String):Observable<any>{
-    return this.http.get<any>(this.readQRurl+file)
+    this.reqHeader = this.getToken()
+    return this.http.get<any>(this.readQRurl+file, {headers:this.reqHeader})
 
   }
+  public proceedToReport(data:any):Observable<any>{
+    this.reqHeader = this.getHeaders()
+    return this.http.get<any>(this.readQRurl +  data[2] + '/'+data[3], {headers:this.reqHeader})
+  }
+
   // getUsersForAppointment(id:number):Observable<UserDTO[]>{
   //   return this.http.get<UserDTO[]>(this.scheduleUrl+'/1/schedule/'+id)
   // }
@@ -78,6 +85,14 @@ export class SystemadminServiceService {
    
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
+    });
+    return headers;
+  }
+  getToken() {
+   
+    const headers = new HttpHeaders({
+      //'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
     });
     return headers;

@@ -25,7 +25,6 @@
               <th class="col" width="15%">Info</th>
               <th class="col" width="15%">Job</th>
               <th class="col" width="20%">Address</th>
-              <th class="col">Password</th>
             </tr>
           <tbody>
             <tr *ngFor="let user of admins$ | filter: filterTerm  " style="margin: 100px;"  >
@@ -36,12 +35,8 @@
               <td > {{ user.bio }}</td>
               <td>{{ user.job }}</td>
               <td>{{ user.address.street }} {{ user.address.number }}, {{ user.address.city }}  </td>
-              <td>
-                <input [(ngModel)]="user.password"/> 
-              </td>
-              <td> 
-                <button (click)="save(user)"> Save </button>
-              </td>
+          
+            
             </tr>
           </tbody>
           

@@ -14,6 +14,7 @@ export class AppointmentQrcodeReportComponent implements OnInit {
   uploaded = false;
   loading: boolean = false; // Flag variable
   data : any
+  proceed = false;
   file = new File(["foo"], "foo.txt", {
     type: "text/plain",
   });
@@ -39,10 +40,16 @@ export class AppointmentQrcodeReportComponent implements OnInit {
    (res)=>{
     this.data = res
     console.log(res)
+    this.proceed = true
    }
    )  
     }
    )
+   //await this.findAppointment(this.data)
+}
+
+async findAppointment(data:any){
+  this.service.proceedToReport(data).subscribe((res)=>console.log(res));
 }
 
 
