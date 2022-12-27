@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { iif, map, Observable, of, switchMap } from 'rxjs';
 import { AppointmentDTO } from 'src/app/systemadmin-utils/AppointmentDTO';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { SystemadminServiceService } from 'src/app/systemadmin-utils/systemadmin.service';
 @Component({
   selector: 'app-appointment-qrcode-report',
   templateUrl: './appointment-qrcode-report.component.html',
-  styleUrls: ['./appointment-qrcode-report.component.css']
+  styleUrls: ['./appointment-qrcode-report.component.css'],
+  
 })
 export class AppointmentQrcodeReportComponent implements OnInit {
 
@@ -17,6 +20,22 @@ export class AppointmentQrcodeReportComponent implements OnInit {
   data : any
   proceed = false;
   appointment:any
+  //report properties
+  public bloodType:String = 'A'
+  public doctorNote:String=''
+  public copperSulphate : number = 0
+  public hemoglobineMeter : number = 0
+  public approved : String = 'true';
+  approvedBool = true
+  public denialReason : String = ''
+  public leftHand = 'true'
+  public startHour : number = 0
+  public startMinutes : number = 0
+  public endHour : number = 0
+  public endMinutes : number = 0  
+  public interuptionReason : String = ''
+
+  //
   file = new File(["foo"], "foo.txt", {
     type: "text/plain",
   });
@@ -26,6 +45,7 @@ export class AppointmentQrcodeReportComponent implements OnInit {
   ) { }
 
     ngOnInit(): void {
+      console.log(this.bloodType)
     }
   
     // On file Select
@@ -47,18 +67,28 @@ export class AppointmentQrcodeReportComponent implements OnInit {
     }
    )
    //await this.findAppointment(this.data)
-   this.proceed = true
+   //this.proceed = true
 
 }
 
 async findAppointment(data:any){
   this.service.proceedToReport(data).subscribe((res:AppointmentDTO)=>{
     this.appointment = res;
+    this.proceed = true
     console.log(res);
     console.log(this.appointment)
   });
  
 }
+test(){
+  console.log(this.bloodType)
+}
 
+onSubmit(){
 
+}
+notApproved(){
+  this.approved='false'
+  this.approvedBool = false
+}
 }

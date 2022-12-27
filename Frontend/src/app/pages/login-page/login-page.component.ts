@@ -34,7 +34,7 @@ export class LoginPageComponent implements OnInit {
         console.log(data)
         if (data) {
           this.successfulLogin(data)  
-          window.location.href = '/';
+          window.location.href = '/sysadmin';
         }
       }, (err) => {
         alert(err)

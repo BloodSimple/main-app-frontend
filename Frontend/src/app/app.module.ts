@@ -60,7 +60,6 @@ import { AppointmentQrcodeReportComponent } from './pages/appointment-qrcode-rep
     RouterModule,
     Ng2SearchPipeModule,
     FormsModule,
-    FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     ScheduleModule, RecurrenceEditorModule,
