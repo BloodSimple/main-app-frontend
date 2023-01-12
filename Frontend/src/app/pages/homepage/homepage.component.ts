@@ -16,6 +16,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeUser = this.authenticationService.getCurrentUser()
+    console.log(this.activeUser)
   }
 
   logout() {

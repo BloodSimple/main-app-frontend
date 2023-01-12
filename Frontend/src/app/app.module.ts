@@ -29,6 +29,7 @@ import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.compo
 import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadmin-center-list.component';
 import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
 import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments.component';
+import { DonationFormComponent } from './pages/donation-form/donation-form.component';
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -54,6 +55,7 @@ import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments
     SysadminCenterListComponent,
     MakeAppointmentComponent,
     MyAppointmentsComponent,
+    DonationFormComponent,
   ],
   imports: [
     BrowserModule,
