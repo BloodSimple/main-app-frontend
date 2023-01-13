@@ -127,7 +127,7 @@ export class AuthenticationService {
 
   getHeaders() {
     if (this.isUserLoggedIn()) {
-      const userToken = localStorage.getItem('userToken');
+      const userToken = localStorage.getItem('jwt');
       const headers = {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + userToken,

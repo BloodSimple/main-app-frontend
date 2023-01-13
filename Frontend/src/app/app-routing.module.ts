@@ -22,6 +22,7 @@ import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.compo
 import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadmin-center-list.component';
 import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
 import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments.component';
+import { DonationFormComponent } from './pages/donation-form/donation-form.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path:'admins', component: SysadminListComponent},
   { path:'sysadmin-centers', component: SysadminCenterListComponent},
   { path: 'make-appointment', component: MakeAppointmentComponent},
-  { path: 'my-appointments', component: MyAppointmentsComponent }
+  { path: 'my-appointments', component: MyAppointmentsComponent },
+  { path: 'donation-form', component: DonationFormComponent}
 
 
 
