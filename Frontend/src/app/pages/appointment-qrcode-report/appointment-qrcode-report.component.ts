@@ -5,6 +5,7 @@ import { AppointmentDTO } from 'src/app/systemadmin-utils/AppointmentDTO';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SystemadminServiceService } from 'src/app/systemadmin-utils/systemadmin.service';
+import { ReportDTO } from 'src/app/systemadmin-utils/reportDTO';
 @Component({
   selector: 'app-appointment-qrcode-report',
   templateUrl: './appointment-qrcode-report.component.html',
@@ -34,8 +35,13 @@ export class AppointmentQrcodeReportComponent implements OnInit {
   public endHour : number = 0
   public endMinutes : number = 0  
   public interuptionReason : String = ''
+  //equipment
+  public bloodBags:number = 0
+  public syringes : number = 0
+  public needles : number = 0
 
   //
+  public report: ReportDTO|undefined
   file = new File(["foo"], "foo.txt", {
     type: "text/plain",
   });
@@ -90,5 +96,33 @@ onSubmit(){
 notApproved(){
   this.approved='false'
   this.approvedBool = false
+}
+
+
+generateReport(){
+ this.report = new ReportDTO()
+ this.report.appointment = this.appointment
+ if(this.approved == 'true')  
+  this.report.approved = true
+  else
+    this.report.approved = false
+ this.report.bloodType = this.bloodType
+ this.report.copperSulphate = this.copperSulphate
+ this.report.hemoglobinometer = this.hemoglobineMeter
+ this.report.denialReason = this.denialReason
+ this.report.doctorNote = this.doctorNote
+ if (this.leftHand == 'true')
+  this.report.leftHand = true
+  else 
+    this.report.leftHand = false
+ this.report.stopReason = this.interuptionReason
+ this.report.startTime = new Date()
+ this.report.startTime.setHours(this.startHour)
+ this.report.startTime.setMinutes(this.startMinutes)
+ this.report.endTime = new Date()
+ this.report.endTime.setHours(this.endHour)
+ this.report.endTime.setMinutes(this.endMinutes)
+
+ //this.endTime = new Date(new Date(this.startTime).getTime() +  a.duration*60000)
 }
 }

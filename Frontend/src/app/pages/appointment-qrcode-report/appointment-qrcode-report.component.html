@@ -15,7 +15,8 @@
                     Upload
                 </button></div>
             </div>
-            <div [hidden]="!uploaded">
+            <!-- [hidden]="!uploaded" -->
+            <div >
               
               <div class="row">
                 <div class="col">{{data[5]}}</div>
@@ -40,19 +41,21 @@
                  <div [hidden]="!proceed" style="background-color: white;" style="margin-left:20%">
                   
                   <div class="row" >
-                    Blood type: <input   class="form-control"  required=""  [(ngModel)]="bloodType" style="width: 4%; margin-left:2%"/>    
+                    <div class="col"> Blood type: </div>
+                     <div class="col"><input  style="margin-right:10%" class="form-control"  required=""  [(ngModel)]="bloodType" style="width: 14%; margin-left:2%"/>    </div>
                    </div>
                   <div class="row"> 
-                    Note for the doctor:  <input   class="form-control"  required=""  [(ngModel)]="doctorNote" style="width: 24%; margin-left:2%"/>
+                    <div class="col">
+                    Note for the doctor:</div><div class="col">  <input   class="form-control"  required=""  [(ngModel)]="doctorNote" style="width: 74%; margin-left:2%"/></div>
+                  </div>
+                  <div class="row"> <div class="col">
+                    Copper Sulphate levels: </div> <div class="col"> <input   type='number' class="form-control"  required=""  [(ngModel)]="copperSulphate" style="width: 14%; margin-left:2%"/></div>
+                  </div>
+                  <div class="row"><div class="col">
+                    Hemoglobinometer levels: </div> <div class="col"><input    type='number' class="form-control"  required=""  [(ngModel)]="hemoglobineMeter" style="width: 14%; margin-left:2%"/></div>
                   </div>
                   <div class="row">
-                    Copper Sulphate levels: <input   type='number' class="form-control"  required=""  [(ngModel)]="copperSulphate" style="width: 6%; margin-left:2%"/>
-                  </div>
-                  <div class="row">
-                    Hemoglobinometer levels: <input   type='number' class="form-control"  required=""  [(ngModel)]="hemoglobineMeter" style="width: 6%; margin-left:2%"/>
-                  </div>
-                  <div class="row">
-                    <div class="form-group" style="text-align: center; align-content: center; font-size: 2.2ex; margin-top: 1ex; margin-bottom: 1ex;">
+                    <div class="form-group" style="text-align: center; align-content: center; font-size: 2.2ex; margin-top: 1ex; margin-bottom: 1ex; margin-left:-5ex">
                         <label style="margin-right: 1ex;"> Approved </label>
                         <input  class="form-check-input" type="radio" name="approval" id="approved" checked style="margin-right: 9ex;" (click)="approved='true'" >
                         
@@ -60,12 +63,21 @@
                         <label style="margin-left: 1ex;">   Not approved </label>
             </div>
                  </div>
-                 <div class="row" [hidden]="approvedBool">
-                  Disapproval reason: <input   type='text' class="form-control"  required=""  [(ngModel)]="denialReason" style="width: 30%; margin-left:2%"/>
+                 <div class="row" [hidden]="approvedBool"> <div class="col">
+                  Disapproval reason:</div><div class="col"> <input   type='text' class="form-control"  required=""  [(ngModel)]="denialReason" style="width: 74%; margin-left:2%"/></div>
                 </div>
                 <!-- OPREMA MOZDA PRE VADJENJA? -->
+                <div class="row"><div class="col">
+                    Blood bags:</div> <div class="col"><input   type='number' class="form-control"  required=""  [(ngModel)]="bloodBags " style="width: 14%; margin-left:2%"/></div>
+                  </div>
+                  <div class="row"><div class="col">
+                    Needles:</div> <div class="col"><input   type='number' class="form-control"  required=""  [(ngModel)]="needles " style="width: 14%; margin-left:2%"/></div>
+                  </div>
+                  <div class="row"><div class="col">
+                    Syringes:</div> <div class="col"><input   type='number' class="form-control"  required=""  [(ngModel)]="syringes " style="width: 14%; margin-left:2%"/></div>
+                  </div>
                 <div class="row">
-                  <div class="form-group" style="text-align: center; align-content: center; font-size: 2.2ex; margin-top: 1ex; margin-bottom: 1ex;">
+                  <div class="form-group" style="text-align: center; align-content: center; font-size: 2.2ex; margin-top: 1ex; margin-bottom: 1ex; margin-left: -6ex">
                       <label style="margin-right: 1ex;"> Left hand </label>
                       <input  class="form-check-input" type="radio" name="hand" id="lefthand" checked style="margin-right: 9ex;" (click)="leftHand='true'" >
                       
@@ -73,21 +85,25 @@
                       <label style="margin-left: 1ex;">   Right hand </label>
           </div>
                </div>
-                <div class="row" >
-                  Donation start:  <input   type='number' class="form-control"  required=""  [(ngModel)]="startHour" style="width: 4%; margin-left:2%"/> H, 
-                  <input   type='number' class="form-control"  required=""  [(ngModel)]="startMinutes" style="width: 4%; margin-left:2%"/> M
+                <div class="row"  > <div class="col">
+                  Donation start:  </div>  <div class="col">  <div class="row"><input   type='number' class="form-control"  required=""  [(ngModel)]="startHour" style="width: 18%; margin-left:4%"/> H, </div>
+                   <div class="row"> <input   type='number' class="form-control"  required=""  [(ngModel)]="startMinutes" style="width: 18%; margin-left:4%"/> M  </div></div>
                 </div>
-                <div class="row" >
-                  Donation end:  <input   type='number' class="form-control"  required=""  [(ngModel)]="endHour" style="width: 4%; margin-left:2%"/> H, 
-                  <input   type='number' class="form-control"  required=""  [(ngModel)]="endMinutes" style="width: 4%; margin-left:2%"/> M
-                </div>
+                <div class="row" > <div class="col">
+                  Donation end:  </div> <div class="col"> <div class="row"><input   type='number' class="form-control"  required=""  [(ngModel)]="endHour" style="width: 18%; margin-left:4%"/> H, </div> 
+                 <div class="row"> <input   type='number' class="form-control"  required=""  [(ngModel)]="endMinutes" style="width: 18%; margin-left:4%"/> M </div>
+                </div></div>
                 <div class="row">
-                  Interuption reason: <input   type='text' placeholder="Leave blank if there was no interuption" class="form-control"  required=""  [(ngModel)]="interuptionReason" style="width: 30%; margin-left:2%"/>
-                </div>
-
+                  <div class="col">
+                  Interuption reason: </div> <div class="col"> <input   type='text' placeholder="Leave blank if there was no interuption" class="form-control"  required=""  [(ngModel)]="interuptionReason" style="width: 80%; margin-left:2%"/>
+                </div></div>
 
 
               </div>
+              
+              <div class="row" style="align-items: center;text-align:center" ><div>
+                <button  (click)="generateReport()" style="width: 20%; margin-top:5%"
+                 class="btn btn-success" style="background-color:#5E1313 ;">Proceed to report</button></div></div>
                  </form>
             </div>
             
