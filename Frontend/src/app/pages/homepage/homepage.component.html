@@ -27,7 +27,7 @@
             </div>
             <div class="hexagon-menu clear">
               <!-- Medical Centers - For ALL -->
-              <div class="hexagon-item"> 
+              <div class="hexagon-item" *ngIf="!activeUser.email || (activeUser.email && (activeUser.role !=='MEDICAL_ADMIN'))"> 
                 <div class="hex-item">
                   <div></div>
                   <div></div>
@@ -170,12 +170,12 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a class="hex-content" routerLink="/make-appointment">
+                <a class="hex-content" routerLink="/medical-center-schedule">
                   <span class="hex-content-inner">
                     <span class="icon">
                       <i class="fa fa-universal-access"></i>
                     </span>
-                    <span class="title">Donate</span>
+                    <span class="title">Schedule</span>
                   </span>
                   <svg
                     viewBox="0 0 173.20508075688772 200"
@@ -191,7 +191,7 @@
                   </svg>
                 </a>
               </div>
-              <!-- Donate - For USER -->
+              <!-- Donate - For USER --MAKE APPOINTMENT-->
               <div *ngIf="activeUser.email && activeUser.role ==='USER'" class="hexagon-item">                 
                 <div class="hex-item">
                   <div></div>
@@ -224,8 +224,8 @@
                   </svg>
                 </a>
               </div>
-              <!-- Profile - For ALL -->
-              <div *ngIf="activeUser.email" class="hexagon-item">
+              <!-- Profile - For USER -->
+              <div *ngIf="activeUser.email && activeUser.role ==='USER'" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
                   <div></div>

@@ -15,12 +15,12 @@ export class UserService {
 
     public updateUser(obj:any): Observable<any>{
         this.reqHeader = this.getHeaders();
-        return this.http.put("http://localhost:8080/api/users/", obj, {headers: this.reqHeader});
+        return this.http.put("http://localhost:8080/api/users/profile", obj, {headers: this.reqHeader});
     }
 
     public getUserById(id: String): Observable<any> {
         this.reqHeader = this.getHeaders();
-        return this.http.get("http://localhost:8080/api/users" + "/" + id, {headers: this.reqHeader});
+        return this.http.get("http://localhost:8080/api/users/profile" + "/" + id, {headers: this.reqHeader});
     }
 
     public updatePassword(obj:any): Observable<any>{
