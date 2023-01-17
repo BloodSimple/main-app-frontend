@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DonationFormService } from 'src/app/service/donation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-donation-form',
@@ -12,7 +14,7 @@ export class DonationFormComponent implements OnInit {
   donationForm!: FormGroup;
   currentTab=0;
   submitted=false;
-  constructor(private _donationFormSerivce: DonationFormService) { }
+  constructor(private _donationFormSerivce: DonationFormService, private router: Router) { }
 
   q1: boolean = false;
   q2: boolean = false;
@@ -167,8 +169,30 @@ submitDonationForm(){
 this._donationFormSerivce.saveDonationForm(donationForm).subscribe(
   (response) => {
     console.log(response);
+    Swal.fire({
+      icon: 'success',
+      title: 'Yippee!',
+      text: 'Donation form filled successfully!',
+      background: '#1e2126',
+      color: '#c4c4c4',
+      showCancelButton: false,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    this.router.navigate(['/make-appointment'])
   }, (error) => {
     console.log(error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Something went wrong. Please try again...',
+      background: '#1e2126',
+      color: '#c4c4c4',
+      showCancelButton: false,
+      showConfirmButton: false,
+      timer: 2000,
+     });
+     this.router.navigate(['/donation-form'])
   }
 )
 

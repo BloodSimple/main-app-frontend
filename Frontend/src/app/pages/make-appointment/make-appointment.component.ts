@@ -7,6 +7,7 @@ import { UserModel } from 'src/app/model/user';
 import { LoginResponse } from 'src/app/model/LoginResponse';
 import { UserService } from 'src/app/service/user.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 interface hour {
   id?: number,
@@ -46,7 +47,8 @@ export class MakeAppointmentComponent implements OnInit {
   constructor(
     private medicalCenterService: MedicalCenterService,
     private authenticationService: AuthenticationService,
-    private userService: UserService) {
+    private userService: UserService,
+    private router: Router) {
     this.currentDate = new Date().toISOString().slice(0, 10);
    }
   ngOnInit(): void {   
@@ -149,6 +151,7 @@ export class MakeAppointmentComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000,
          });
+         this.router.navigate(['/donation-form'])
       }else if(appointment.response == "You should take questionnaire again..."){
         Swal.fire({
           icon: 'error',
@@ -160,6 +163,7 @@ export class MakeAppointmentComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000,
          });
+         this.router.navigate(['/donation-form'])
       }else {
         Swal.fire({
           icon: 'success',
@@ -172,16 +176,6 @@ export class MakeAppointmentComponent implements OnInit {
           timer: 2000,
         });
       }
-      // Swal.fire({
-      //   icon: 'success',
-      //   title: 'Yippee!',
-      //   text: 'Appointment reservation successful!',
-      //   background: '#1e2126',
-      //   color: '#c4c4c4',
-      //   showCancelButton: false,
-      //   showConfirmButton: false,
-      //   timer: 2000,
-      // });
     })
 
   }
