@@ -42,19 +42,18 @@ const routes: Routes = [
   { path: 'blood-donation-page', component: BloodDonationPageComponent },
   // Appointment and schedule pages
   { path: 'my-appointments', component: MyAppointmentsComponent },
+  // TODO: New my-appointments page for MEDICAL_STAFF
   { path: 'make-appointment', component: MakeAppointmentComponent },
-  { path: 'create-appointment', component: AppointmentCreationComponent },
-  {
-    path: 'medical-center-schedule',
-    component: MedicalcenterScheduleComponent,
-  },
-  // Create new medical center and register new sysadmin
+  // TODO: Delete this page later
+        { path: 'create-appointment', component: AppointmentCreationComponent },
+  { path: 'medical-center-schedule', component: MedicalcenterScheduleComponent },
+  // Sysadmin pages
   { path: 'new-center', component: CenterRegistrationComponent },
   { path: 'register-sysadmin', component: SystemadminRegisterComponent },
-  // Other pages
-  { path: 'search-users', component: UserSearchComponent },
   { path: 'admins', component: SysadminListComponent },
   { path: 'sysadmin-centers', component: SysadminCenterListComponent },
+  // Other pages
+  { path: 'search-users', component: UserSearchComponent },
 ];
 
 @NgModule({
