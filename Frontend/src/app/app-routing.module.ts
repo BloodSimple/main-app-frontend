@@ -25,31 +25,36 @@ import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments
 import { DonationFormComponent } from './pages/donation-form/donation-form.component';
 
 const routes: Routes = [
+  // Homepage and medical centers page
   { path: '', component: HomepageComponent },
-  { path: 'profile', component: UserProfileComponent },
   { path: 'medical-centers', component: MedicalCentersComponent },
+  // Profile pages for different users
+  { path: 'user-profile', component: UserProfileComponent },
   { path: 'medical-center-profile', component: MedicalcenterProfileComponent },
   { path: 'medical-admin-profile', component: MedicalAdminProfileComponent },
-  { path: 'create-appointment', component: AppointmentCreationComponent },
   { path: 'sysadmin', component: SystemadminProfileComponent },
-  { path: 'search-users', component: UserSearchComponent },
+  // Registration page and login page
+  { path: 'registration-page', component: RegistrationPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'sysadmin', component: SystemadminProfileComponent },
+  { path: 'login-page', component: LoginPageComponent },
+  // Donation pages
+  { path: 'donation-form', component: DonationFormComponent },
+  { path: 'blood-donation-page', component: BloodDonationPageComponent },
+  // Appointment and schedule pages
+  { path: 'my-appointments', component: MyAppointmentsComponent },
+  { path: 'make-appointment', component: MakeAppointmentComponent },
+  { path: 'create-appointment', component: AppointmentCreationComponent },
+  {
+    path: 'medical-center-schedule',
+    component: MedicalcenterScheduleComponent,
+  },
+  // Create new medical center and register new sysadmin
   { path: 'new-center', component: CenterRegistrationComponent },
   { path: 'register-sysadmin', component: SystemadminRegisterComponent },
-  { path: 'registration-page', component: RegistrationPageComponent },
-  { path: 'medical-center-profile', component: MedicalcenterProfileComponent },
-  { path: 'login-page', component: LoginPageComponent },
-  { path: 'blood-donation-page', component: BloodDonationPageComponent },
-  { path:'medical-center-schedule', component: MedicalcenterScheduleComponent},
-  { path:'admins', component: SysadminListComponent},
-  { path:'sysadmin-centers', component: SysadminCenterListComponent},
-  { path: 'make-appointment', component: MakeAppointmentComponent},
-  { path: 'my-appointments', component: MyAppointmentsComponent },
-  { path: 'donation-form', component: DonationFormComponent}
-
-
-
+  // Other pages
+  { path: 'search-users', component: UserSearchComponent },
+  { path: 'admins', component: SysadminListComponent },
+  { path: 'sysadmin-centers', component: SysadminCenterListComponent },
 ];
 
 @NgModule({

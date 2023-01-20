@@ -181,12 +181,10 @@ export class RegistrationPageComponent implements OnInit {
       role: 'USER',
       dateOfBirth: this.dateOfBirth,
     };
-    console.log(this.personalId)
-
-
-    console.log("STIGLI SMO DO OVDE 1")
+    console.log(this.personalId);
+    console.log('STIGLI SMO DO OVDE 1');
     this.authenticationService.register(person).subscribe((response) => {
-      console.log("STIGLI SMO DO OVDE 2")
+      console.log('STIGLI SMO DO OVDE 2');
       if (response.error != '' && response.error != undefined) {
         console.log(response.error);
         Swal.fire({
@@ -206,15 +204,8 @@ export class RegistrationPageComponent implements OnInit {
       showConfirmButton: false,
       timer: 2000,
       footer: 'You will be redirected to the homepage...',
-    }).then(function () {
-     // window.location.href = '';
     });
-    /*}*/
-   // this.close();
-  }
-
-  close(): any {
-    this.close();
+    window.location.href = '/';
   }
 
   // TAB Functions:

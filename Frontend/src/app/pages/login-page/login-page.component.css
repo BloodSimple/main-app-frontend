@@ -1,162 +1,159 @@
 .loginPageContainer {
-    padding: 25px 100px;
+  padding: 25px 100px;
 }
 
-
-
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #f1f1f1;
-  }
-  
-  #regForm {
-    margin: 40px auto;
-    font-family: "Open Sans", sans-serif;
-    padding: 40px;
-    width: 70%;
-    min-width: 300px;
-  }
-  
-  h3 {
-    text-align: center;  
-  }
-  
-  input {
-    padding: 10px;
-    width: 100%;
-    font-size: 17px;
-    font-family: "Open Sans", sans-serif;
-    border: 1px solid #aaaaaa;
-  }
-  
-  /* Mark input boxes that gets an error on validation: */
-  input.invalid {
-    background-color: #ffdddd;
-  }
-  
-  /* Hide all steps by default: */
-  .tab {
-    display: none;
-  }
-  
-  button {
-    background-color: #04AA6D;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 17px;
-    font-family: "Open Sans", sans-serif;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  #prevBtn {
-    background-color: #bbbbbb;
-  }
-  
-  /* Make circles that indicate the steps of the form: */
-  .step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbbbbb;
-    border: none;  
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
-  }
-  
-  .step.active {
-    opacity: 1;
-  }
-  
-  /* Mark the steps that are finished and valid: */
-  .step.finish {
-    background-color: #04AA6D;
-  }
+  box-sizing: border-box;
+}
 
-  /* CHECKBOXES */
+body {
+  background-color: #f1f1f1;
+}
 
-  .wrapper{
-    display: inline-flex;
-    background: #fff;
-    height: 100px;
-    width: 400px;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 5px;
-    padding: 20px 15px;
-    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
-  }
-  .wrapper .option{
-    background: #fff;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 0 10px;
-    border: 2px solid lightgrey;
-    transition: all 0.3s ease;
-  }
-  .wrapper .option .dot{
-    height: 20px;
-    width: 20px;
-    background: #d9d9d9;
-    border-radius: 50%;
-    position: relative;
-  }
-  .wrapper .option .dot::before{
-    position: absolute;
-    content: "";
-    top: 4px;
-    left: 4px;
-    width: 12px;
-    height: 12px;
-    background: #0069d9;
-    border-radius: 50%;
-    opacity: 0;
-    transform: scale(1.5);
-    transition: all 0.3s ease;
-  }
-  input[type="radio"]{
-    display: none;
-  }
-  #option-1:checked:checked ~ .option-1,
-  #option-2:checked:checked ~ .option-2{
-    border-color: #0069d9;
-    background: #0069d9;
-  }
-  #option-1:checked:checked ~ .option-1 .dot,
-  #option-2:checked:checked ~ .option-2 .dot{
-    background: #fff;
-  }
-  #option-1:checked:checked ~ .option-1 .dot::before,
-  #option-2:checked:checked ~ .option-2 .dot::before{
-    opacity: 1;
-    transform: scale(1);
-  }
-  .wrapper .option span{
-    font-size: 20px;
-    color: #808080;
-  }
-  #option-1:checked:checked ~ .option-1 span,
-  #option-2:checked:checked ~ .option-2 span{
-    color: #fff;
-  }
+#regForm {
+  margin: 40px auto;
+  font-family: "Open Sans", sans-serif;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
 
+h3 {
+  text-align: center;
+}
 
-  /* ADDED */
-  
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #04aa6d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04aa6d;
+}
+
+/* CHECKBOXES */
+
+.wrapper {
+  display: inline-flex;
+  background: #fff;
+  height: 100px;
+  width: 400px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 20px 15px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
+.wrapper .option {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+.wrapper .option .dot {
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before {
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: #0069d9;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+input[type="radio"] {
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2 {
+  border-color: #0069d9;
+  background: #0069d9;
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot {
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span {
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span {
+  color: #fff;
+}
+
+/* ADDED */
+
 .container {
   position: relative;
   width: 350px;
@@ -171,7 +168,7 @@
 .brand-logo {
   height: 100px;
   width: 100px;
-  background-image: url('../../../assets/images/bloodsimple-brand-logo.svg');
+  background-image: url("../../../assets/images/bloodsimple-brand-logo.svg");
   background-repeat: no-repeat;
   background-size: 80% 80%;
   background-position: center;
@@ -194,7 +191,9 @@
   margin-top: 30px;
 }
 
-label, input, button {
+label,
+input,
+button {
   display: block;
   width: 100%;
   padding: 0;
@@ -228,8 +227,14 @@ input {
 button {
   color: white;
   margin-top: 20px;
-  background: rgb(147,31,32);
-  background: linear-gradient(90deg, rgba(147,31,32,1) 0%, rgba(94,19,19,1) 50%, rgba(147,31,32,1) 100%);  height: 40px;
+  background: rgb(147, 31, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(147, 31, 32, 1) 0%,
+    rgba(94, 19, 19, 1) 50%,
+    rgba(147, 31, 32, 1) 100%
+  );
+  height: 40px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 900;
@@ -240,5 +245,3 @@ button {
 button:hover {
   box-shadow: none;
 }
-
-

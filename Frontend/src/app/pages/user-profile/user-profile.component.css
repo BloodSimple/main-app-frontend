@@ -1,52 +1,52 @@
 body {
-    background: #931F20;
+  background: #931f20;
 }
 
 .profileContainer {
-    padding: 25px 100px;
+  padding: 25px 100px;
 }
 
 .form-control:focus {
-    box-shadow: none;
-    border-color: #1009a1;
+  box-shadow: none;
+  border-color: #1009a1;
 }
 
 .profile-button {
-    background: #931F20;
-    box-shadow: none;
-    border: none
+  background: #931f20;
+  box-shadow: none;
+  border: none;
 }
 
 .profile-button:hover {
-    background: #944647;
+  background: #944647;
 }
 
 .profile-button:focus {
-    background: #931F20;
-    box-shadow: none
+  background: #931f20;
+  box-shadow: none;
 }
 
 .profile-button:active {
-    background: #931F20;
-    box-shadow: none
+  background: #931f20;
+  box-shadow: none;
 }
 
 .back:hover {
-    color: #931F20;
-    cursor: pointer
+  color: #931f20;
+  cursor: pointer;
 }
 
 .labels {
-    font-size: 12px
+  font-size: 12px;
 }
 
 .form-check-label {
-    font-size: 14px
+  font-size: 14px;
 }
 
 .add-experience:hover {
-    background: #931F20;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #931F20;
+  background: #931f20;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #931f20;
 }

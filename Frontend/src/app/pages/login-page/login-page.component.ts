@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LoginResponse } from 'src/app/model/LoginResponse';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
-
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -13,8 +12,8 @@ export class LoginPageComponent implements OnInit {
 
   currentTab = 0;
 
-  email = ""
-  password = ""
+  email = '';
+  password = '';
 
   ngOnInit(): void {
     this.showTab(this.currentTab); // Display the current tab
@@ -30,19 +29,21 @@ export class LoginPageComponent implements OnInit {
 
   login() {
     if (this.email != '' && this.password != '') {
-      this.authenticationService.logIn(this.email, this.password).subscribe( (data: any) => {
-        console.log(data)
-        if (data) {
-          this.successfulLogin(data)  
-          window.location.href = '/';
+      this.authenticationService.logIn(this.email, this.password).subscribe(
+        (data: any) => {
+          console.log(data);
+          if (data) {
+            this.successfulLogin(data);
+            window.location.href = '/';
+          }
+        },
+        (err) => {
+          alert(err);
         }
-      }, (err) => {
-        alert(err)
-      });
+      );
     } else {
-      alert("Fill all fileds!")
+      alert('Fill all fileds!');
     }
-
   }
 
   successfulLogin(loginResponse: LoginResponse) {

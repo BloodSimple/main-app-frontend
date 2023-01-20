@@ -26,6 +26,10 @@ export class UserProfileComponent implements OnInit {
   addressCity: string = '';
   addressCountry: string = '';
   bio: string = '';
+
+  filledDonationForm: boolean = false;
+  howLongAgoWasDonationFormFilled: string = '';
+  donationFormDate: Date = new Date();
   //  role: string='';
 
   user = new UserModel();
@@ -33,15 +37,26 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private userService: UserService) {}
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.user.personalId)
+    console.log(this.user.personalId);
     this.activeUser = this.authenticationService.getCurrentUser();
-    this.userService.getUserById(this.activeUser.personalId).subscribe((response) => {
-      console.log(response);
-      this.user = response;
-    });
+    this.userService
+      .getUserById(this.activeUser.personalId)
+      .subscribe((response) => {
+        console.log(response);
+        this.user = response;
+        if (response.donationForm != null) {
+          this.filledDonationForm = true;
+          this.donationFormDate = new Date(response.donationForm.date);
+          this.howLongAgoWasDonationFormFilled = this.formatPostDates(
+            this.donationFormDate.getTime()
+          );
+          console.log('date: ' + this.donationFormDate);
+        }
+      });
   }
 
   save(): void {
@@ -59,5 +74,62 @@ export class UserProfileComponent implements OnInit {
         timer: 2000,
       });
     });
+  }
+
+  isRecentDate(date: Date): boolean {
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
+    return date >= sixMonthsAgo;
+  }
+
+  formatPostDates(date: number) {
+    var now = new Date().getTime();
+    var seconds = Math.floor((now - date) / 1000);
+    var interval = seconds / 31536000;
+    if (interval > 1) {
+      let num = Math.floor(interval);
+      if (num <= 1) {
+        return num + ' year ago';
+      }
+      return num + ' years ago';
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      let num = Math.floor(interval);
+      if (num <= 1) {
+        return num + ' month ago';
+      }
+      return num + ' months ago';
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      let num = Math.floor(interval);
+      if (num <= 1) {
+        return num + ' day ago';
+      }
+      return num + ' days ago';
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      let num = Math.floor(interval);
+      if (num <= 1) {
+        return num + ' day ago';
+      }
+      return num + ' days ago';
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      let num = Math.floor(interval);
+      if (num <= 1) {
+        return num + ' minute ago';
+      }
+      return num + ' minutes ago';
+    }
+    if (seconds >= 1) {
+      return Math.floor(seconds) + ' seconds ago';
+    } else {
+      return 'just now';
+    }
   }
 }

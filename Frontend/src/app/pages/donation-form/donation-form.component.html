@@ -1,257 +1,1249 @@
 <div class="donationFormContainer">
-    <nav aria-label="breadcrumb" style="font-size: 20px">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Donation Form</li>
-      </ol>
-    </nav>
-    <hr />
-    <div class="row row-cols-3 row-cols-md-3 g-4">
-      <form id="donationForm" animate>
-        <div class="container">
-          <div class="brand-logo"></div>
-          <div class="brand-title" style="color: #931f20">
-            Blood<span style="color: #5e1313">Simple</span>
-          </div>
-          <div class="tab inputs">
-            <label> 1. Have you ever voluntarily donated blood or blood components? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q1" id="q1" [(ngModel)]="q1" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q1" id="q1" [(ngModel)]="q1" [value]="false" /><span>No</span></label> </div>
+  <nav aria-label="breadcrumb" style="font-size: 20px">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Donation Form</li>
+    </ol>
+  </nav>
+  <hr />
+  <div class="row row-cols-3 row-cols-md-3 g-4">
+    <form id="donationForm" animate>
+      <div class="container">
+        <div class="brand-logo"></div>
+        <div class="brand-title" style="color: #931f20">
+          Blood<span style="color: #5e1313">Simple</span>
+        </div>
+        <div class="tab inputs">
+          <label>
+            1. Have you ever voluntarily donated blood or blood components?
+          </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q1"
+                  id="q1"
+                  [(ngModel)]="q1"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
             </div>
-            <label> 2. Have you ever been rejected as a blood or blood component donor?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q2" id="q2" [(ngModel)]="q2" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q2" id="q2" [(ngModel)]="q2" [value]="false" /><span>No</span></label> </div>
-            </div>
-            <label> 3. Do you currently feel healthy, fit and rested to donate blood or blood components?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q3" id="q3" [(ngModel)]="q3" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q3" id="q3" [(ngModel)]="q3" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 4. Did you eat anything before coming to donate blood or blood components??</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q4" id="q4" [(ngModel)]="q4" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q4" id="q4" [(ngModel)]="q4" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 5. Do you have a dangerous occupation or hobby?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q5" id="q5" [(ngModel)]="q5" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q5" id="q5" [(ngModel)]="q5" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-          </div>          
-          <div class="tab inputs">
-            <label> 6. Do you take any medications regularly (daily)?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q6" id="q6" [(ngModel)]="q6" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q6" id="q6" [(ngModel)]="q6" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 7. Have you taken any medicines (eg Brufen, Cafetin, Analgin...) in the last 2-3 days?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q7" id="q7" [(ngModel)]="q7" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q7" id="q7" [(ngModel)]="q7" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 8. Do you regularly take Aspirin (Cardiopirin)? Have you taken it in the last 5 days?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q8" id="q8" [(ngModel)]="q8" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q8" id="q8" [(ngModel)]="q8" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 9. Have you ever been examined or treated in a hospital or are you currently undergoing examination or sick leave?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q9" id="q9" [(ngModel)]="q9" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q9" id="q9" [(ngModel)]="q9" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 10. Have you had a tooth extracted in the past 7 days?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-                <div class="col"> <label><input class="radio" type="radio" name="q10" id="q10" [(ngModel)]="q10" [value]="true"/><span>Yes</span></label> </div>
-                <div class="col"> <label><input class="radio" type="radio" name="q10" id="q10" [(ngModel)]="q10" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-           
-          </div>
-          <div class="tab inputs">
-            <label> 11. In the last 7 to 10 days, have you had a temperature over 38C, a sneeze, a cold, or taken antibiotics?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q11" id="q11" [(ngModel)]="q11" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q11" id="q11" [(ngModel)]="q11" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 12. Have you received any vaccine or serum in the past 12 months?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q12" id="q12" [(ngModel)]="q12" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q12" id="q12" [(ngModel)]="q12" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 13. Have you suddenly lost weight in the last 6 months?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q13" id="q13" [(ngModel)]="q13" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q13" id="q13" [(ngModel)]="q13" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 14. Have you had tick bites in the past 12 months and have you seen a doctor?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q14" id="q14" [(ngModel)]="q14" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q14" id="q14" [(ngModel)]="q14" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 15. Have you ever been treated for epilepsy, diabetes, asthma, tuberculosis, heart attack, stroke, malignant diseases, mental diseases or malaria?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q15" id="q15" [(ngModel)]="q15" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q15" id="q15" [(ngModel)]="q15" [value]="false" checked/><span>No</span></label> </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q1"
+                  id="q1"
+                  [(ngModel)]="q1"
+                  [value]="false"
+                /><span>No</span></label
+              >
             </div>
           </div>
-          <div class="tab inputs">
-            <label> 16. Do you suffer from any other chronic disease: heart, lungs, kidneys, liver, stomach and intestines, bones and joints,nervous system, blood and blood vessels?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q16" id="q16" [(ngModel)]="q16" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q16" id="q16" [(ngModel)]="q16" [value]="false" checked/><span>No</span></label> </div>
+          <label>
+            2. Have you ever been rejected as a blood or blood component
+            donor?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q2"
+                  id="q2"
+                  [(ngModel)]="q2"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
             </div>
-            <label> 17. Have you ever had thyroid, pituitary, and/or hormone problems?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q17" id="q17" [(ngModel)]="q17" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q17" id="q17" [(ngModel)]="q17" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 18. Do you have any changes in your skin or suffer from allergies?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q18" id="q18" [(ngModel)]="q18" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q18" id="q18" [(ngModel)]="q18" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> 19. Do you bleed for a long time after an injury or do you bruise spontaneously?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q19" id="q19" [(ngModel)]="q19" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q19" id="q19" [(ngModel)]="q19" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-          </div>
-          <div class="tab inputs">
-            <p> 20. In the past 6 months, have you: </p>
-            <label> a) had an operation or received blood?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q20a" id="q20a" [(ngModel)]="q20a" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q20a" id="q20a" [(ngModel)]="q20a" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> b) traveled or lived abroad?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q20b" id="q20b" [(ngModel)]="q20b" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q20b" id="q20b" [(ngModel)]="q20b" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> c) had acupuncture, piercing or tattoo?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q20c" id="q20c" [(ngModel)]="q20c" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q20c" id="q20c" [(ngModel)]="q20c" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <hr>
-            <label> 21. Have you drunk alcohol in the last 6 hours?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q20c" id="q20c" [(ngModel)]="q20c" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q20c" id="q20c" [(ngModel)]="q20c" [value]="false" checked/><span>No</span></label> </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q2"
+                  id="q2"
+                  [(ngModel)]="q2"
+                  [value]="false"
+                /><span>No</span></label
+              >
             </div>
           </div>
-          <div class="tab inputs">
-            <p> 22. Forms of risky conditions and behaviors: </p>
-            <label> a) Have you suffered or are you suffering from hepatitis (jaundice) A, B or C?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q22a" id="q22a" [(ngModel)]="q22a" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q22a" id="q22a" [(ngModel)]="q22a" [value]="false" checked/><span>No</span></label> </div>
+          <label>
+            3. Do you currently feel healthy, fit and rested to donate blood or
+            blood components?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q3"
+                  id="q3"
+                  [(ngModel)]="q3"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
             </div>
-            <label> b) Have you been in contact with or live with a person suffering from hepatitis (jaundice)? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q22b" id="q22b" [(ngModel)]="q22b" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q22b" id="q22b" [(ngModel)]="q22b" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> c) Do you think there was a possibility of contracting HIV?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q22c" id="q22c" [(ngModel)]="q22c" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q22c" id="q22c" [(ngModel)]="q22c" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> d) Have you ever used any type of drug?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q22d" id="q22d" [(ngModel)]="q22d" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q22d" id="q22d" [(ngModel)]="q22d" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> e) Have you ever used over-the-counter preparations and/or bodybuilding preparations (steroids)?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q22e" id="q22e" [(ngModel)]="q22e" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q22e" id="q22e" [(ngModel)]="q22e" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> f) Have you ever taken money or drugs for providing sexual services?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q22f" id="q22f" [(ngModel)]="q22f" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q22f" id="q22f" [(ngModel)]="q22f" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> g) Do you know all the ways you could have exposed yourself to the risk of infectious, blood-borne diseases?</label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q22g" id="q22g" [(ngModel)]="q22g" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q22g" id="q22g" [(ngModel)]="q22g" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <hr>
-          </div>
-          <div class="tab inputs">
-            <p> 23. Have you had unprotected sex during the past 6 months: </p>
-            <label> a) with a person who is HIV positive? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q23a" id="q23a" [(ngModel)]="q23a" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q23a" id="q23a" [(ngModel)]="q23a" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> b) with a person who has or had hepatitis B or C? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q23b" id="q23b" [(ngModel)]="q23b" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q23b" id="q23b" [(ngModel)]="q23b" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> c) with a person who has ever taken money or drugs for providing sexual services? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q23c" id="q23c" [(ngModel)]="q23c" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q23c" id="q23c" [(ngModel)]="q23c" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> d) with a person who has ever used any type of drug in any way? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q23d" id="q23d" [(ngModel)]="q23d" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q23d" id="q23d" [(ngModel)]="q23d" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> e) with a person whose previous sexual behavior could put you at risk of contracting a sexually transmitted disease? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q23e" id="q23e" [(ngModel)]="q23e" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q23e" id="q23e" [(ngModel)]="q23e" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> f) have you had anal sex during the past 6 months? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q23f" id="q23f" [(ngModel)]="q23f" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q23f" id="q23f" [(ngModel)]="q23f" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <hr>
-          </div>
-          <div class="tab inputs">
-            <p> For women: </p>
-            <label> Are you in another state? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q24" id="q24" [(ngModel)]="q24" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q24" id="q24" [(ngModel)]="q24" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> Are you currently on your period? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q25" id="q25" [(ngModel)]="q25" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q25" id="q25" [(ngModel)]="q25" [value]="false" checked/><span>No</span></label> </div>
-            </div>
-            <label> In the last 6 months, have you given birth or had a termination of pregnancy? </label>
-            <div class="d-flex row justify-content-center" style="gap: 15px">
-              <div class="col"> <label><input class="radio" type="radio" name="q26" id="q26" [(ngModel)]="q26" [value]="true"/><span>Yes</span></label> </div>
-              <div class="col"> <label><input class="radio" type="radio" name="q26" id="q26" [(ngModel)]="q26" [value]="false" checked/><span>No</span></label> </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q3"
+                  id="q3"
+                  [(ngModel)]="q3"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
             </div>
           </div>
-
-          <div style="overflow: auto">
-            <div class="d-flex flex-row justify-content-around" style="gap: 12px">
-              <button type="button" class="button" id="prevBtn" (click)="nextPrev(-1)"> Previous</button>
-              <button type="button" class="button" id="nextBtn" (click)="nextPrev(1)"> Next</button>
+          <label>
+            4. Did you eat anything before coming to donate blood or blood
+            components??</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q4"
+                  id="q4"
+                  [(ngModel)]="q4"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q4"
+                  id="q4"
+                  [(ngModel)]="q4"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
             </div>
           </div>
-  
-          <div style="text-align: center; margin-top: 40px">
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
+          <label> 5. Do you have a dangerous occupation or hobby?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q5"
+                  id="q5"
+                  [(ngModel)]="q5"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q5"
+                  id="q5"
+                  [(ngModel)]="q5"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
           </div>
         </div>
-      </form>
-    </div>
+        <div class="tab inputs">
+          <label> 6. Do you take any medications regularly (daily)?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q6"
+                  id="q6"
+                  [(ngModel)]="q6"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q6"
+                  id="q6"
+                  [(ngModel)]="q6"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            7. Have you taken any medicines (eg Brufen, Cafetin, Analgin...) in
+            the last 2-3 days?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q7"
+                  id="q7"
+                  [(ngModel)]="q7"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q7"
+                  id="q7"
+                  [(ngModel)]="q7"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            8. Do you regularly take Aspirin (Cardiopirin)? Have you taken it in
+            the last 5 days?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q8"
+                  id="q8"
+                  [(ngModel)]="q8"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q8"
+                  id="q8"
+                  [(ngModel)]="q8"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            9. Have you ever been examined or treated in a hospital or are you
+            currently undergoing examination or sick leave?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q9"
+                  id="q9"
+                  [(ngModel)]="q9"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q9"
+                  id="q9"
+                  [(ngModel)]="q9"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label> 10. Have you had a tooth extracted in the past 7 days?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q10"
+                  id="q10"
+                  [(ngModel)]="q10"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q10"
+                  id="q10"
+                  [(ngModel)]="q10"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="tab inputs">
+          <label>
+            11. In the last 7 to 10 days, have you had a temperature over 38C, a
+            sneeze, a cold, or taken antibiotics?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q11"
+                  id="q11"
+                  [(ngModel)]="q11"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q11"
+                  id="q11"
+                  [(ngModel)]="q11"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            12. Have you received any vaccine or serum in the past 12
+            months?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q12"
+                  id="q12"
+                  [(ngModel)]="q12"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q12"
+                  id="q12"
+                  [(ngModel)]="q12"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            13. Have you suddenly lost weight in the last 6 months?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q13"
+                  id="q13"
+                  [(ngModel)]="q13"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q13"
+                  id="q13"
+                  [(ngModel)]="q13"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            14. Have you had tick bites in the past 12 months and have you seen
+            a doctor?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q14"
+                  id="q14"
+                  [(ngModel)]="q14"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q14"
+                  id="q14"
+                  [(ngModel)]="q14"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            15. Have you ever been treated for epilepsy, diabetes, asthma,
+            tuberculosis, heart attack, stroke, malignant diseases, mental
+            diseases or malaria?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q15"
+                  id="q15"
+                  [(ngModel)]="q15"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q15"
+                  id="q15"
+                  [(ngModel)]="q15"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="tab inputs">
+          <label>
+            16. Do you suffer from any other chronic disease: heart, lungs,
+            kidneys, liver, stomach and intestines, bones and joints,nervous
+            system, blood and blood vessels?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q16"
+                  id="q16"
+                  [(ngModel)]="q16"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q16"
+                  id="q16"
+                  [(ngModel)]="q16"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            17. Have you ever had thyroid, pituitary, and/or hormone
+            problems?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q17"
+                  id="q17"
+                  [(ngModel)]="q17"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q17"
+                  id="q17"
+                  [(ngModel)]="q17"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            18. Do you have any changes in your skin or suffer from
+            allergies?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q18"
+                  id="q18"
+                  [(ngModel)]="q18"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q18"
+                  id="q18"
+                  [(ngModel)]="q18"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            19. Do you bleed for a long time after an injury or do you bruise
+            spontaneously?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q19"
+                  id="q19"
+                  [(ngModel)]="q19"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q19"
+                  id="q19"
+                  [(ngModel)]="q19"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="tab inputs">
+          <p>20. In the past 6 months, have you:</p>
+          <label> a) had an operation or received blood?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20a"
+                  id="q20a"
+                  [(ngModel)]="q20a"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20a"
+                  id="q20a"
+                  [(ngModel)]="q20a"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label> b) traveled or lived abroad?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20b"
+                  id="q20b"
+                  [(ngModel)]="q20b"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20b"
+                  id="q20b"
+                  [(ngModel)]="q20b"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label> c) had acupuncture, piercing or tattoo?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20c"
+                  id="q20c"
+                  [(ngModel)]="q20c"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20c"
+                  id="q20c"
+                  [(ngModel)]="q20c"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <hr />
+          <label> 21. Have you drunk alcohol in the last 6 hours?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20c"
+                  id="q20c"
+                  [(ngModel)]="q20c"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q20c"
+                  id="q20c"
+                  [(ngModel)]="q20c"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="tab inputs">
+          <p>22. Forms of risky conditions and behaviors:</p>
+          <label>
+            a) Have you suffered or are you suffering from hepatitis (jaundice)
+            A, B or C?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22a"
+                  id="q22a"
+                  [(ngModel)]="q22a"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22a"
+                  id="q22a"
+                  [(ngModel)]="q22a"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            b) Have you been in contact with or live with a person suffering
+            from hepatitis (jaundice)?
+          </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22b"
+                  id="q22b"
+                  [(ngModel)]="q22b"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22b"
+                  id="q22b"
+                  [(ngModel)]="q22b"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            c) Do you think there was a possibility of contracting HIV?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22c"
+                  id="q22c"
+                  [(ngModel)]="q22c"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22c"
+                  id="q22c"
+                  [(ngModel)]="q22c"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label> d) Have you ever used any type of drug?</label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22d"
+                  id="q22d"
+                  [(ngModel)]="q22d"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22d"
+                  id="q22d"
+                  [(ngModel)]="q22d"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            e) Have you ever used over-the-counter preparations and/or
+            bodybuilding preparations (steroids)?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22e"
+                  id="q22e"
+                  [(ngModel)]="q22e"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22e"
+                  id="q22e"
+                  [(ngModel)]="q22e"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            f) Have you ever taken money or drugs for providing sexual
+            services?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22f"
+                  id="q22f"
+                  [(ngModel)]="q22f"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22f"
+                  id="q22f"
+                  [(ngModel)]="q22f"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            g) Do you know all the ways you could have exposed yourself to the
+            risk of infectious, blood-borne diseases?</label
+          >
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22g"
+                  id="q22g"
+                  [(ngModel)]="q22g"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q22g"
+                  id="q22g"
+                  [(ngModel)]="q22g"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="tab inputs">
+          <p>23. Have you had unprotected sex during the past 6 months:</p>
+          <label> a) with a person who is HIV positive? </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23a"
+                  id="q23a"
+                  [(ngModel)]="q23a"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23a"
+                  id="q23a"
+                  [(ngModel)]="q23a"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label> b) with a person who has or had hepatitis B or C? </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23b"
+                  id="q23b"
+                  [(ngModel)]="q23b"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23b"
+                  id="q23b"
+                  [(ngModel)]="q23b"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            c) with a person who has ever taken money or drugs for providing
+            sexual services?
+          </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23c"
+                  id="q23c"
+                  [(ngModel)]="q23c"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23c"
+                  id="q23c"
+                  [(ngModel)]="q23c"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            d) with a person who has ever used any type of drug in any way?
+          </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23d"
+                  id="q23d"
+                  [(ngModel)]="q23d"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23d"
+                  id="q23d"
+                  [(ngModel)]="q23d"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            e) with a person whose previous sexual behavior could put you at
+            risk of contracting a sexually transmitted disease?
+          </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23e"
+                  id="q23e"
+                  [(ngModel)]="q23e"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23e"
+                  id="q23e"
+                  [(ngModel)]="q23e"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label> f) have you had anal sex during the past 6 months? </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23f"
+                  id="q23f"
+                  [(ngModel)]="q23f"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q23f"
+                  id="q23f"
+                  [(ngModel)]="q23f"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="tab inputs">
+          <p>For women:</p>
+          <label> Are you in another state? </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q24"
+                  id="q24"
+                  [(ngModel)]="q24"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q24"
+                  id="q24"
+                  [(ngModel)]="q24"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label> Are you currently on your period? </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q25"
+                  id="q25"
+                  [(ngModel)]="q25"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q25"
+                  id="q25"
+                  [(ngModel)]="q25"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+          <label>
+            In the last 6 months, have you given birth or had a termination of
+            pregnancy?
+          </label>
+          <div class="d-flex row justify-content-center" style="gap: 15px">
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q26"
+                  id="q26"
+                  [(ngModel)]="q26"
+                  [value]="true"
+                /><span>Yes</span></label
+              >
+            </div>
+            <div class="col">
+              <label
+                ><input
+                  class="radio"
+                  type="radio"
+                  name="q26"
+                  id="q26"
+                  [(ngModel)]="q26"
+                  [value]="false"
+                  checked
+                /><span>No</span></label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="tab inputs">
+          <label
+            >Once you have completed the donation questionnaire, you have the
+            option to donate blood if you have not donated blood in the last 6
+            months. You can fill in the questionnaire again on your profile page
+            to update your donation information.
+          </label>
+        </div>
+
+        <div style="overflow: auto">
+          <div class="d-flex flex-row justify-content-around" style="gap: 12px">
+            <button
+              type="button"
+              class="button"
+              id="prevBtn"
+              (click)="nextPrev(-1)"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              class="button"
+              id="nextBtn"
+              (click)="nextPrev(1)"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+      </div>
+    </form>
   </div>
-  
+</div>
