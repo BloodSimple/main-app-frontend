@@ -30,6 +30,8 @@ import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadm
 import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
 import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments.component';
 import { DonationFormComponent } from './pages/donation-form/donation-form.component';
+import { MedicalAdminPageComponent } from './pages/medical-admin-page/medical-admin-page.component';
+import { CenterUsersComponent } from './pages/center-users/center-users.component';
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -56,6 +58,8 @@ import { DonationFormComponent } from './pages/donation-form/donation-form.compo
     MakeAppointmentComponent,
     MyAppointmentsComponent,
     DonationFormComponent,
+    MedicalAdminPageComponent,
+    CenterUsersComponent,
   ],
   imports: [
     BrowserModule,
