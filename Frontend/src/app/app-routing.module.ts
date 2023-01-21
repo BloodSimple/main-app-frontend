@@ -9,7 +9,6 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MedicalCentersComponent } from './pages/medical-centers/medical-centers.component';
 import { SystemadminRegisterComponent } from './pages/systemadmin-register/systemadmin-register.component';
 
-import { LoginComponent } from './pages/login/login.component';
 import { MedicalAdminProfileComponent } from './pages/medical-admin-profile/medical-admin-profile.component';
 import { AppointmentCreationComponent } from './pages/appointment-creation/appointment-creation.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
@@ -35,7 +34,6 @@ const routes: Routes = [
   { path: 'sysadmin', component: SystemadminProfileComponent },
   // Registration page and login page
   { path: 'registration-page', component: RegistrationPageComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'login-page', component: LoginPageComponent },
   // Donation pages
   { path: 'donation-form', component: DonationFormComponent },
@@ -45,8 +43,11 @@ const routes: Routes = [
   // TODO: New my-appointments page for MEDICAL_STAFF
   { path: 'make-appointment', component: MakeAppointmentComponent },
   // TODO: Delete this page later
-        { path: 'create-appointment', component: AppointmentCreationComponent },
-  { path: 'medical-center-schedule', component: MedicalcenterScheduleComponent },
+  { path: 'create-appointment', component: AppointmentCreationComponent },
+  {
+    path: 'medical-center-schedule',
+    component: MedicalcenterScheduleComponent,
+  },
   // Sysadmin pages
   { path: 'new-center', component: CenterRegistrationComponent },
   { path: 'register-sysadmin', component: SystemadminRegisterComponent },

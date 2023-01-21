@@ -17,14 +17,21 @@ import { SearchPipe } from './pages/medical-centers/search.pipe';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { MedicalcenterProfileComponent } from './pages/medicalcenter-profile/medicalcenter-profile.component';
 import { SystemadminRegisterComponent } from './pages/systemadmin-register/systemadmin-register.component';
-import { LoginComponent } from './pages/login/login.component';
 import { MedicalAdminProfileComponent } from './pages/medical-admin-profile/medical-admin-profile.component';
 import { AppointmentCreationComponent } from './pages/appointment-creation/appointment-creation.component';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
 import { MedicalcenterScheduleComponent } from './pages/medicalcenter-schedule/medicalcenter-schedule.component';
-import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, YearService, Year } from '@syncfusion/ej2-angular-schedule';
+import {
+  ScheduleModule,
+  RecurrenceEditorModule,
+  DayService,
+  WeekService,
+  MonthService,
+  YearService,
+  Year,
+} from '@syncfusion/ej2-angular-schedule';
 import { SysadminListComponent } from './pages/sysadmin-list/sysadmin-list.component';
 import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadmin-center-list.component';
 import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
@@ -43,7 +50,6 @@ import { DonationFormComponent } from './pages/donation-form/donation-form.compo
     SearchPipe,
     MedicalcenterProfileComponent,
     SystemadminRegisterComponent,
-    LoginComponent,
     MedicalAdminProfileComponent,
     AppointmentCreationComponent,
     RegistrationPageComponent,
@@ -67,10 +73,10 @@ import { DonationFormComponent } from './pages/donation-form/donation-form.compo
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ScheduleModule, RecurrenceEditorModule,
+    ScheduleModule,
+    RecurrenceEditorModule,
   ],
   providers: [DayService, WeekService, MonthService, YearService],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
