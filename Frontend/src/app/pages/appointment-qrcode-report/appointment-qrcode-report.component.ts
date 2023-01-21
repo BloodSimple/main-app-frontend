@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SystemadminServiceService } from 'src/app/systemadmin-utils/systemadmin.service';
 import { ReportDTO } from 'src/app/systemadmin-utils/reportDTO';
+import { ReportRequest } from 'src/app/systemadmin-utils/ReportRequest';
 @Component({
   selector: 'app-appointment-qrcode-report',
   templateUrl: './appointment-qrcode-report.component.html',
@@ -101,8 +102,10 @@ notApproved(){
 
 generateReport(){
  this.report = new ReportDTO()
- this.report.appointment = this.appointment
- if(this.approved == 'true')  
+ let app = new AppointmentDTO(this.appointment.startTime, 0, this.appointment.user, this.appointment.duration, this.appointment.medicalCenter, 
+  this.appointment.id)
+  this.report.appointment = app
+  if(this.approved == 'true')  
   this.report.approved = true
   else
     this.report.approved = false
@@ -122,7 +125,18 @@ generateReport(){
  this.report.endTime = new Date()
  this.report.endTime.setHours(this.endHour)
  this.report.endTime.setMinutes(this.endMinutes)
-
+ let request = new ReportRequest()
+ request.appointmentReport = this.report
+ request.amountOfBlood = 0.5
+ request.bags = this.bloodBags 
+ request.syringes = this.syringes
+ request.needles = this.needles
+ request.bloodType = this.bloodType
+ console.log(request)
+this.service.putReport(request).subscribe(res => {
+  console.log(res)
+})
+ 
  //this.endTime = new Date(new Date(this.startTime).getTime() +  a.duration*60000)
 }
 }

@@ -16,6 +16,7 @@ export class SystemadminServiceService {
   readonly sysAdminUrl = 'http://localhost:8080/api/sysadmin'
   readonly scheduleUrl = 'http://localhost:8080/api/centers'
   readonly readQRurl = 'http://localhost:8080/api/read-qr/'
+  readonly reportUrl = 'http://localhost:8080/api/report'
 
    reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
                                     .set('Accept', 'application/json');
@@ -77,6 +78,12 @@ export class SystemadminServiceService {
     this.reqHeader = this.getHeaders()
     return this.http.get<any>(this.readQRurl +  data[2] + '/'+data[3], {headers:this.reqHeader})
   }
+
+  public putReport(u:any): Observable<any>{
+    this.reqHeader = this.getHeaders()
+    return this.http.put(this.reportUrl+'/',  JSON.stringify(u), {headers:this.reqHeader});
+}
+
 
   // getUsersForAppointment(id:number):Observable<UserDTO[]>{
   //   return this.http.get<UserDTO[]>(this.scheduleUrl+'/1/schedule/'+id)

@@ -8,7 +8,6 @@ export class AppointmentScheduleDTO{
     endTime :Date 
     medicalCenter:MedicalCenterDTO
     user:UserDTO
-    bloodType:string
     amountOfBlood : number
 
     constructor(a:AppointmentDTO ){
@@ -17,7 +16,6 @@ export class AppointmentScheduleDTO{
         this.startTime = a.startTime;
         this.endTime = new Date(new Date(this.startTime).getTime() +  a.duration*60000)
         this.medicalCenter = a.medicalCenter
-        this.bloodType = a.bloodType
         this.amountOfBlood = a.amountOfBlood
     }
 }
