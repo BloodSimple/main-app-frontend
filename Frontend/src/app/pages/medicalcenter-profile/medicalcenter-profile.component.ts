@@ -19,12 +19,10 @@ import Swal from 'sweetalert2';
 })
 export class MedicalcenterProfileComponent implements OnInit {
 
-  constructor(private medicalService: MedicalCenterService, public service:SystemadminServiceService) {
+  constructor(private medicalService: MedicalCenterService, public service:SystemadminServiceService,  public router: Router) {
 
-    
+  }
 
-
-   }
    private eventData: DataManager = new DataManager({
     url: 'https://js.syncfusion.com/demos/ejservices/api/Schedule/LoadData',
     adaptor: new WebApiAdaptor,
@@ -47,6 +45,8 @@ export class MedicalcenterProfileComponent implements OnInit {
   public statusData: string[] = ['New', 'Requested', 'Confirmed'];
 
 
+
+
   async ngOnInit(): Promise<any>{
 
     this.medicalService.getMedicalCenterById(1).subscribe((response)  => {
@@ -63,13 +63,20 @@ export class MedicalcenterProfileComponent implements OnInit {
     
     });
 
-    this.service.viewSchedule().subscribe(data=>{
-      this.appointments=data;
-      console.log('drugo');
-      console.log(data);
-      console.log(this.appointments);
-      this.init2()
-    });
+    // this.service.viewSchedule().subscribe(data=>{
+    //   this.appointments=data;
+    //   console.log('drugo');
+    //   console.log(data);
+    //   console.log(this.appointments);
+    //   this.init2()
+    // });
+    this.medicalService.viewSchedule().subscribe(data=>{
+        this.appointments=data;
+        console.log('drugo');
+        console.log(data);
+        console.log(this.appointments);
+        this.init2()
+      });
   }
 
   init2(){
@@ -107,6 +114,10 @@ export class MedicalcenterProfileComponent implements OnInit {
       alert("Center uppdated.")
     });
 
+  }
+
+  createFreeAppointment() : void {
+    this.router.navigate(['/create-appointment'])
   }
 
   loadMedicalCenterAdministators() : void {
