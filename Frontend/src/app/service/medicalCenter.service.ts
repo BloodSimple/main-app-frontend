@@ -23,6 +23,12 @@ export class MedicalCenterService {
         return this.http.get("http://localhost:8080/api/centers" + "/"+id, {headers: this.reqHeader});
     }
 
+    
+    public getMedicalCenterStoreById(id: any): Observable<any> {
+        this.reqHeader = this.getHeaders();
+        return this.http.get("http://localhost:8080/api/centers/bloodstore" + "/"+id, {headers: this.reqHeader});
+    }
+
     public updateCenter(obj:any): Observable<any>{
         this.reqHeader = this.getHeaders();
         return this.http.put("http://localhost:8080/api/centers/", obj, {headers: this.reqHeader});
