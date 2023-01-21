@@ -41,6 +41,24 @@
             </div>
             
         </div>
+        <div class="col-md-2 border-right">
+            <div class="d-flex justify-content-between align-items-center mb-3 p-3 py-5">
+                <h4 class="text-right">Blod amount</h4>
+            </div>
+            <div >
+                <ul>
+                    <li>A  {{this.medicalStore[0]?.storedA}} l</li>
+                    <li>B  {{this.medicalStore[0]?.storedB}} l</li>
+                    <li>AB {{this.medicalStore[0]?.storedAB}} l</li>
+                    <li>O  {{this.medicalStore[0]?.storedO}} l</li>
+                </ul>
+<!--                 
+                <ul *ngFor="let a of this.medicalCenter.medicalStaff">
+                    <li *ngIf="a.role == 'MEDICAL_ADMIN'">{{a.name}} {{a.surname}}</li>
+                </ul> -->
+            </div>
+            
+        </div>
         
     </div>
     <div class="row">
@@ -51,6 +69,46 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Free medical appointments</h4>
+                </div>
+
+                <div style="width: 65%; margin-left:auto; margin-right: auto;margin-top: 2%; align-items: center; text-align: center; height: 80%;" >
+                    <ejs-schedule  height="70%" width="100%" [eventSettings]="eventObject" [currentView]="view" [views]="views" [showQuickInfo]="true"  > 
+                        <e-views>       
+                            <e-view option="Day"></e-view>
+                            <e-view option="Week"></e-view>
+                            <e-view option="Month"></e-view>
+                          </e-views>
+                    <!--       
+                          <ng-template #cellTemplate let-data>
+                            <div class="templatewrap" [innerHTML]="getCellContent(data.date)"></div>
+                          </ng-template> -->
+                    
+                          <ng-template #quickInfoTemplatesHeader let-data >
+                            <div style="align-items: center;text-align: center;">
+                                <table > 
+                                  <tr style="align-items: center;text-align: center;"> 
+                                    <td style="color:white; font-size: 20px;"> {{data.user?.name}} </td>
+                                    <td style="color: white;font-size: 20px;"> {{data.user?.surname}} </td>  
+                                  </tr>
+                                  <tr style="align-items: left;text-align: left;" *ngFor="let med of data.medicalStaff"> 
+                                    <td style="color:white; font-size: 15px;">Staff: {{med?.name}} {{med?.surname}}</td>
+                                  </tr>
+                                </table>
+                            </div>
+                          </ng-template>
+                    </ejs-schedule>
+                    </div>
+
+
+
+
+
+
+
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <button class="btn btn-primary profile-button" type="submit" (click)="createFreeAppointment()">Add appointment</button>
+
                 </div>
             </div>
         </div>

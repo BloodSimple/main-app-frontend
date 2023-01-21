@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicalCenterModel } from 'src/app/model/medicalCenter';
+import { UserModel } from 'src/app/model/user';
 import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
+import { AppointmentDTO } from 'src/app/systemadmin-utils/AppointmentDTO';
 
 @Component({
   selector: 'app-appointment-creation',
@@ -14,6 +16,8 @@ export class AppointmentCreationComponent implements OnInit {
   medicalCenter = new MedicalCenterModel();
   datetime: string = '';
   medicalStuffSelection: MedicalStuffSelection[] = []; 
+  
+  public duration: number = 10;
 
   ngOnInit(): void {
 
@@ -39,9 +43,15 @@ export class AppointmentCreationComponent implements OnInit {
 
   createAppointment() : void {
 
-    var medicalStuffForAppintment = []
+    var medicalStuffForAppintment: UserModel[] = []
     //proci kroz listu medical stuff i sacuvati idjeve,
     //poslati idijeve, id centra, datetime
+    // let dateString = '1968-11-16T00:00:00' 
+    let newDate = new Date(this.datetime);
+
+    let ndto = new AppointmentDTO(newDate,new UserModel(),this.duration,Number(this.medicalCenter.id), medicalStuffForAppintment);
+    console.log("usao u funkciju za create appointment")
+    this.medicalService.createFreeApointment(ndto);
 
   }
 

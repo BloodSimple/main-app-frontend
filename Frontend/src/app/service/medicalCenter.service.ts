@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-
+import { AppointmentDTO } from "../systemadmin-utils/AppointmentDTO";
 
 @Injectable({
     providedIn: 'root'
@@ -22,6 +22,28 @@ export class MedicalCenterService {
         this.reqHeader = this.getHeaders();
         return this.http.get("http://localhost:8080/api/centers" + "/"+id, {headers: this.reqHeader});
     }
+
+    public createFreeApointment(dto: AppointmentDTO): Observable<any>{
+        this.reqHeader = this.getHeaders();
+        console.log("salje se na back")
+        return this.http.post("http://localhost:8080/api/centers/createfreeappointment", dto);
+    }
+
+    // createAppointment(a:AppointmentDTO):Observable<any>{
+    //     this.reqHeader = this.getHeaders();
+    //     return this.http.post('http://localhost:8080/api/centers'+'/defineAppointment', a, {headers: this.reqHeader});
+    //   }
+
+    
+    public getMedicalCenterStoreById(id: any): Observable<any> {
+        this.reqHeader = this.getHeaders();
+        return this.http.get("http://localhost:8080/api/centers/bloodstore" + "/"+id, {headers: this.reqHeader});
+    }
+
+    public viewSchedule():Observable<AppointmentDTO[]>{
+        this.reqHeader = this.getHeaders();
+        return this.http.get<AppointmentDTO[]>("http://localhost:8080/api/centers/freeappointments/" + "1", {headers: this.reqHeader})
+      }
 
     public updateCenter(obj:any): Observable<any>{
         this.reqHeader = this.getHeaders();

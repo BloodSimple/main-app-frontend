@@ -48,6 +48,7 @@ export class SystemadminServiceService {
     this.reqHeader = this.getHeaders();
     return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/1/schedule', {headers: this.reqHeader})
   }
+  
   allAdmins():Observable<UserDTO[]>{
     this.reqHeader = this.getHeaders();
     return this.http.get<UserDTO[]>(this.sysAdminUrl+'/', {headers: this.reqHeader})

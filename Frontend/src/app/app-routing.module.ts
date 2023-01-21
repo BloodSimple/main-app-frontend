@@ -22,6 +22,8 @@ import { SysadminCenterListComponent } from './pages/sysadmin-center-list/sysadm
 import { MakeAppointmentComponent } from './pages/make-appointment/make-appointment.component';
 import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments.component';
 import { DonationFormComponent } from './pages/donation-form/donation-form.component';
+import { MedicalAdminPageComponent } from './pages/medical-admin-page/medical-admin-page.component';
+import { CenterUsersComponent } from './pages/center-users/center-users.component';
 
 const routes: Routes = [
   // Homepage and medical centers page
@@ -30,6 +32,8 @@ const routes: Routes = [
   // Profile pages for different users
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'medical-center-profile', component: MedicalcenterProfileComponent },
+  { path: 'medical-admin-page', component: MedicalAdminPageComponent },
+  { path: 'center-users', component: CenterUsersComponent },
   { path: 'medical-admin-profile', component: MedicalAdminProfileComponent },
   { path: 'sysadmin', component: SystemadminProfileComponent },
   // Registration page and login page
