@@ -33,6 +33,11 @@ export class UserService {
         return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, null, {headers: this.reqHeader});
     }
 
+    public cancelAppointment(obj:any): Observable<any>{
+        this.reqHeader = this.getHeaders();
+        return this.http.post("http://localhost:8080/api/centers/cancelAppointment", obj, {headers: this.reqHeader});
+    }
+
     public getAppointmentsByUser(id: any): Observable<any>{
         this.reqHeader = this.getHeaders();
         return this.http.get("http://localhost:8080/api/centers/myAppointments" + "/" + id, {headers: this.reqHeader});

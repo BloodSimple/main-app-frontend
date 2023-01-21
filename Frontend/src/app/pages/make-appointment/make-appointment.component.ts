@@ -160,6 +160,17 @@ export class MakeAppointmentComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000,
          });
+      }else if(appointment.response == "You have cancelled this appointment, you can't schedule it again."){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: "You have cancelled this appointment, you can't schedule it again.",
+          background: '#1e2126',
+          color: '#c4c4c4',
+          showCancelButton: false,
+          showConfirmButton: false,
+          timer: 2000,
+         });
       }else {
         Swal.fire({
           icon: 'success',

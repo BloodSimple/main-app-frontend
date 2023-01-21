@@ -13,16 +13,14 @@
           <tr>
             <th scope="col">Start time</th>
             <th scope="col">Duration</th>
-            <!-- <th scope="col">Medical center</th> -->
-            <!-- <th scope="col">Address</th> -->
+            <th scope="col">Cancellation</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let myAppointment of myAppointments">
             <td>{{myAppointment.startTime | date:'short'}}</td>
             <td>{{myAppointment.duration}} min</td>
-            <!-- <td>{{myAppointment.}}</td> -->
-            <!-- <td>{{myAppointment.medicalCenter.address.street}} {{myAppointment.medicalCenter.address.number}}, {{myAppointment.medicalCenter.address.city}}</td> -->
+            <td><button (click)="cancelAppointment(myAppointment)">Cancel</button></td>
           </tr>
         </tbody>
     </table>
