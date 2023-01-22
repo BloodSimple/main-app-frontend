@@ -55,9 +55,7 @@ export class MakeAppointmentComponent implements OnInit {
     this.activeUser = this.authenticationService.getCurrentUser();
   }
 
-  search(){                           //Give user only medical center with free appointments
-
-
+  search(){                    
     const format = "yyyy-MM-ddTHH:mm:ss";
     let startTime = new Date(this.startDate);
     console.log(startTime);
@@ -175,6 +173,7 @@ export class MakeAppointmentComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000,
         });
+        this.router.navigate(['/'])
       }
     })
 
