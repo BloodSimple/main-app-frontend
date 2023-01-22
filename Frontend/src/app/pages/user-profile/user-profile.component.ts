@@ -44,7 +44,7 @@ export class UserProfileComponent implements OnInit {
     console.log(this.user.personalId);
     this.activeUser = this.authenticationService.getCurrentUser();
     this.userService
-      .getUserById(this.activeUser.personalId)
+      .getUserByPersonalId(this.activeUser.personalId)
       .subscribe((response) => {
         console.log(response);
         this.user = response;

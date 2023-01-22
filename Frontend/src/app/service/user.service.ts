@@ -18,7 +18,7 @@ export class UserService {
         return this.http.put("http://localhost:8080/api/users/", obj, {headers: this.reqHeader});
     }
 
-    public getUserById(id: String): Observable<any> {
+    public getUserByPersonalId(id: String): Observable<any> {
         this.reqHeader = this.getHeaders();
         return this.http.get("http://localhost:8080/api/users" + "/" + id, {headers: this.reqHeader});
     }
@@ -30,7 +30,7 @@ export class UserService {
 
     public scheduleAppointment(medicalCenterId: any, startTime: any, personalId: any): Observable<any>{
         this.reqHeader = this.getHeaders();
-        return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, null, {headers: this.reqHeader});
+        return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, {headers: this.reqHeader});
     }
 
     public cancelAppointment(obj:any): Observable<any>{

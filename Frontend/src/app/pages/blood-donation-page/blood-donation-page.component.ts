@@ -20,7 +20,7 @@ export class BloodDonationPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeUser = this.authenticationService.getCurrentUser();
-    this.userService.getUserById(this.activeUser.personalId).subscribe((response: any) => {
+    this.userService.getUserByPersonalId(this.activeUser.personalId).subscribe((response: any) => {
         this.user = response
     }, (err) => { }); 
   
