@@ -13,6 +13,8 @@ export class UserModel {
     addressNumber?: string = '';
     addressCity?: string = '';
     addressCountry?: string = '';
+    addressX?: number = 0;
+    addressY?: number = 0;
     role?: string='';
     // checked?: boolean = false;
 }

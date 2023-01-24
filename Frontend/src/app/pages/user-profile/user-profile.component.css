@@ -50,3 +50,20 @@ body {
   cursor: pointer;
   border: solid 1px #931f20;
 }
+
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  background: white;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  color: white;
+  box-shadow: 20px 20px rgba(0,0,0,.15);
+  transition: all .4s ease;
+}
+#map:hover {
+  cursor:grab;
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  box-shadow: 10px 10px rgba(0,0,0,.25);
+}

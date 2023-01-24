@@ -68,4 +68,6 @@ export class MyAppointmentsComponent implements OnInit {
         }
       });
   }
+
+
 }

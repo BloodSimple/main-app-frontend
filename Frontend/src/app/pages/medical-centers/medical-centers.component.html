@@ -1,57 +1,133 @@
 <div class="medicalCentersContainer">
+  <nav aria-label="breadcrumb" style="font-size: 20px">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Medical Centers
+      </li>
+      <div style="margin-left: 50px">
+        <button
+          class="btn btn-primary btn-dark"
+          type="button"
+          routerLink="/make-appointment"
+          style="font-size: 15px"
+        >
+          Make an appointment
+        </button>
+        <button
+          class="btn btn-primary btn-dark"
+          type="button"
+          routerLink="/map"
+          style="font-size: 15px; margin-left: 10px"
+        >
+          See the map
+        </button>
+      </div>
+    </ol>
+  </nav>
 
-    <nav aria-label="breadcrumb" style="font-size: 20px;">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Bloodsimple</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Medical Centers</li>
-        </ol>
-    </nav>
+  <hr />
+  <br /><br />
 
-    <hr>
-    <br><br>
-
-
-    <div class="form-outline mb-2">
-        <span style="display: flex; ">
-            <input type="search" class="form-control" name="searchText" [(ngModel)]="searchText" placeholder="Search by name or location...">&nbsp;&nbsp;
-            <button type="button" class="btn btn-primary" (click)="searchCenters()">
-                Search
-            </button>&nbsp;
-            <button type="button" class="btn btn-primary" (click)="reset()">
-                Reset
-            </button>
-        </span>
-    </div>
-    <span class="filters">
-        <select class="form-select form-select-md" aria-label=".form-select-sm example" [(ngModel)]="selected"
-        (ngModelChange)="onSelect()"> 
-            <option selected disabled value=0>All</option>
-            <option value=5>5</option>
-            <option value=4>4</option>
-            <option value=3>3</option>
-            <option value=2>2</option>
-            <option value=1>1</option>
-        </select>
-
-    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameAsc()">Sort By Name ASC</button>
-    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByNameDesc()">Sort By Name DESC</button>
-    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingAsc()">Sort By Rating ASC</button>
-    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByRatingDesc()">Sort By Rating DESC</button>
-    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityAsc()">Sort By City ASC</button>
-    <button type="button" class="btn btn-outline-primary" style="font-size:10px;" (click)="sortByCityDesc()">Sort By City DESC</button>
+  <div class="form-outline mb-2">
+    <span style="display: flex">
+      <input
+        type="search"
+        class="form-control"
+        name="searchText"
+        [(ngModel)]="searchText"
+        placeholder="Search by name or location..."
+      />&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="searchCenters()">
+        Search</button
+      >&nbsp;
+      <button type="button" class="btn btn-primary" (click)="reset()">
+        Reset
+      </button>
     </span>
+  </div>
+  <span class="filters">
+    <select
+      class="form-select form-select-md"
+      aria-label=".form-select-sm example"
+      [(ngModel)]="selected"
+      (ngModelChange)="onSelect()"
+    >
+      <option selected disabled value="0">All</option>
+      <option value="5">5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+      <option value="1">1</option>
+    </select>
 
-    <hr>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col" *ngFor="let medicalCenter of medicalCenters">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{this.medicalCenter.name}}</h5>
-                <p class="card-text">{{this.medicalCenter.address.street}}  {{this.medicalCenter.address.number}}</p>
-                <p class="card-text"> {{this.medicalCenter.address.city}}, {{this.medicalCenter.address.country}}</p>
-                <p class="card-text">{{this.medicalCenter.grade}}</p>
-            </div>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      style="font-size: 10px"
+      (click)="sortByNameAsc()"
+    >
+      Sort By Name ASC
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      style="font-size: 10px"
+      (click)="sortByNameDesc()"
+    >
+      Sort By Name DESC
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      style="font-size: 10px"
+      (click)="sortByRatingAsc()"
+    >
+      Sort By Rating ASC
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      style="font-size: 10px"
+      (click)="sortByRatingDesc()"
+    >
+      Sort By Rating DESC
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      style="font-size: 10px"
+      (click)="sortByCityAsc()"
+    >
+      Sort By City ASC
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      style="font-size: 10px"
+      (click)="sortByCityDesc()"
+    >
+      Sort By City DESC
+    </button>
+  </span>
+
+  <hr />
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let medicalCenter of medicalCenters">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ this.medicalCenter.name }}</h5>
+          <p class="card-text">
+            {{ this.medicalCenter.address.street }}
+            {{ this.medicalCenter.address.number }}
+          </p>
+          <p class="card-text">
+            {{ this.medicalCenter.address.city }},
+            {{ this.medicalCenter.address.country }}
+          </p>
+          <p class="card-text">{{ this.medicalCenter.grade }}</p>
         </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
