@@ -40,7 +40,8 @@ export class AppointmentQrcodeReportComponent implements OnInit {
   public bloodBags:number = 0
   public syringes : number = 0
   public needles : number = 0
-
+//
+  public amountOfBlood : number = 0
   //
   public report: ReportDTO|undefined
   file = new File(["foo"], "foo.txt", {
@@ -120,14 +121,14 @@ generateReport(){
     this.report.leftHand = false
  this.report.stopReason = this.interuptionReason
  this.report.startTime = new Date()
- this.report.startTime.setHours(this.startHour)
+ this.report.startTime.setHours(this.startHour+1)
  this.report.startTime.setMinutes(this.startMinutes)
  this.report.endTime = new Date()
- this.report.endTime.setHours(this.endHour)
+ this.report.endTime.setHours(this.endHour+1)
  this.report.endTime.setMinutes(this.endMinutes)
  let request = new ReportRequest()
  request.appointmentReport = this.report
- request.amountOfBlood = 0.5
+ request.amountOfBlood = this.amountOfBlood/1000
  request.bags = this.bloodBags 
  request.syringes = this.syringes
  request.needles = this.needles
@@ -136,7 +137,7 @@ generateReport(){
 this.service.putReport(request).subscribe(res => {
   console.log(res)
 })
- 
- //this.endTime = new Date(new Date(this.startTime).getTime() +  a.duration*60000)
+this.router.navigate(['/sysadmin']);
+//this.endTime = new Date(new Date(this.startTime).getTime() +  a.duration*60000)
 }
 }

@@ -97,13 +97,18 @@
                   <div class="col">
                   Interuption reason: </div> <div class="col"> <input name="interrupt" type='text' placeholder="Leave blank if there was no interuption" class="form-control"  required=""  [(ngModel)]="interuptionReason" style="width: 80%; margin-left:2%"/>
                 </div></div>
+                <div class="row">
+                  <div class="col">
+                  Amount of blood in milliliters:</div> <div class="col"> <input name="amountOfBlood" type="number" class="form-control"  required=""  [(ngModel)]="amountOfBlood" style="width: 16%; margin-left:2%"/>
+                </div></div>
 
 
               </div>
               
-              <div class="row" style="align-items: center;text-align:center" ><div>
+              <div [hidden]="!proceed" class="row" style="align-items: center;text-align:center" ><div>
                 <button  (click)="generateReport()" style="width: 20%; margin-top:5%"
-                 class="btn btn-success" style="background-color:#5E1313 ;">Proceed to report</button></div></div>
+                 class="btn btn-success" style="background-color:#5E1313 ;">Create report</button>
+                </div></div>
                  </form>
             </div>
             
