@@ -1,53 +1,75 @@
-import { HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IResponse } from '../model/authentication/IResponse';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class UserService {
-    constructor(private http: HttpClient){ }
+  url = 'http://localhost:8080/api/';
 
-    reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
-                                   .set('Accept', 'application/json');
+  constructor(
+    private http: HttpClient,
+    private _authenticationService: AuthenticationService
+  ) {}
 
-    public updateUser(obj:any): Observable<any>{
-        this.reqHeader = this.getHeaders();
-        return this.http.put("http://localhost:8080/api/users/", obj, {headers: this.reqHeader});
-    }
+  public updateUser(obj: any): Observable<any> {
+    const headers = this._authenticationService.getHeaders();
+    return this.http.put<any>('http://localhost:8080/api/users/', obj, {
+      headers: headers,
+    });
+  }
 
-    public getUserByPersonalId(id: String): Observable<any> {
-        this.reqHeader = this.getHeaders();
-        return this.http.get("http://localhost:8080/api/users" + "/" + id, {headers: this.reqHeader});
-    }
+  public getUserByPersonalId(id: String): Observable<any> {
+    const headers = this._authenticationService.getHeaders();
+    return this.http.get('http://localhost:8080/api/users' + '/' + id, {
+      headers: headers,
+    });
+  }
 
-    public updatePassword(obj:any): Observable<any>{
-        this.reqHeader = this.getHeaders();
-        return this.http.put("http://localhost:8080/api/users/updatepassword", obj, {headers: this.reqHeader});
-    }
+  public updatePassword(obj: any): Observable<any> {
+    const headers = this._authenticationService.getHeaders();
 
-    public scheduleAppointment(medicalCenterId: any, startTime: any, personalId: any): Observable<any>{
-        this.reqHeader = this.getHeaders();
-        return this.http.post("http://localhost:8080/api/centers/scheduleAppointment" + "/"+ medicalCenterId+"/"+startTime+"/"+personalId, {headers: this.reqHeader});
-    }
+    return this.http.put(
+      'http://localhost:8080/api/users/updatepassword',
+      obj,
+      { headers: headers }
+    );
+  }
 
-    public cancelAppointment(obj:any): Observable<any>{
-        this.reqHeader = this.getHeaders();
-        return this.http.post("http://localhost:8080/api/centers/cancelAppointment", obj, {headers: this.reqHeader});
-    }
+  public scheduleAppointment(
+    medicalCenterId: any,
+    startTime: any,
+    personalId: any
+  ): Observable<any> {
+    const appointment = {
+      medicalCenterId: medicalCenterId,
+      startTime: startTime,
+      personalId: personalId,
+    };
+    return this.http.post<IResponse>(
+      'http://localhost:8080/api/centers/scheduleAppointment',
+      appointment,
+      { headers: this._authenticationService.getHeaders() }
+    );
+  }
 
-    public getAppointmentsByUser(id: any): Observable<any>{
-        this.reqHeader = this.getHeaders();
-        return this.http.get("http://localhost:8080/api/centers/myAppointments" + "/" + id, {headers: this.reqHeader});
-    }
+  public cancelAppointment(obj: any): Observable<any> {
+    const headers = this._authenticationService.getHeaders();
+    return this.http.post<any>(
+      'http://localhost:8080/api/centers/cancelAppointment',
+      obj,
+      { headers: headers }
+    );
+  }
 
-    getHeaders() {
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
-        });
-        return headers;
-    }
+  public getAppointmentsByUser(id: any): Observable<any> {
+    const headers = this._authenticationService.getHeaders();
+    return this.http.get<any>(
+      'http://localhost:8080/api/centers/myAppointments' + '/' + id,
+      { headers: headers }
+    );
+  }
 }

@@ -26,8 +26,7 @@ export class AuthenticationService {
 
   logIn(email: string, password: string) {
     var body = { email: email, password: password };
-    return this._http
-      .post<ILogInInfo>('http://localhost:8080/api/login', body)
+    return this._http.post<ILogInInfo>('http://localhost:8080/api/login', body);
   }
 
   sendPasswordRecoveryRequest(email: string): Observable<IResponse> {
@@ -76,12 +75,9 @@ export class AuthenticationService {
     return false;
   }
 
-  register(person: any) {
+  register(person: any): Observable<any> {
     console.log(' -- Service for Registration...');
-    return this._http.post<IResponse>(
-      'http://localhost:8080/api/register',
-      person
-    );
+    return this._http.post('http://localhost:8080/api/register', person);
   }
 
   sendPasswordlessLoginRequest(email: string): Observable<IResponse> {
@@ -104,12 +100,12 @@ export class AuthenticationService {
     var user = new LoginResponse();
     localStorage.setItem('currentUser', JSON.stringify(user));
     window.location.href = '/';
-    localStorage.setItem("jwt", '');
+    localStorage.setItem('jwt', '');
   }
 
   isUserLoggedIn() {
-    let user=this.getCurrentUser();
-    if (user== null || user.accessToken==undefined) {
+    let user = this.getCurrentUser();
+    if (user == null || user.accessToken == undefined) {
       return false;
     } else {
       return this.getCurrentUser().role !== '';
@@ -143,6 +139,7 @@ export class AuthenticationService {
 
   loginSetUser(loginResponse: LoginResponse) {
     localStorage.setItem('currentUser', JSON.stringify(loginResponse));
-    localStorage.setItem("jwt", loginResponse.accessToken);
+    localStorage.setItem('role', loginResponse.role);
+    localStorage.setItem('jwt', loginResponse.accessToken);
   }
 }

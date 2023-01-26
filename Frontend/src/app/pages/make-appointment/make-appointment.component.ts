@@ -147,6 +147,21 @@ export class MakeAppointmentComponent implements OnInit {
         console.log(appointment);
         if (
           appointment.response ==
+          "You have already cancelled this appointment"
+        ) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: "You have already cancelled this appointment",
+            background: '#1e2126',
+            color: '#c4c4c4',
+            showCancelButton: false,
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+        else if (
+          appointment.response ==
           "Six months haven't passed since your last blood donation."
         ) {
           Swal.fire({

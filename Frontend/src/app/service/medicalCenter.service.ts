@@ -57,7 +57,7 @@ export class MedicalCenterService {
 
     public getMedicalCenterWithAppointments(startTime: any): Observable<any>{
         this.reqHeader = this.getHeaders();
-        return this.http.get("http://localhost:8080/api/centers/freeAppointments"+ '?startTime=' + startTime, {headers: this.reqHeader});
+        return this.http.get("http://localhost:8080/api/centers/freeAppointments"+ '?startTime=' + startTime,  {headers: this.reqHeader});
     }
 
     getHeaders() {

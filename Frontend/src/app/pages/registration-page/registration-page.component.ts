@@ -182,15 +182,12 @@ export class RegistrationPageComponent implements OnInit {
       dateOfBirth: this.dateOfBirth,
     };
     console.log(this.personalId);
-    console.log('STIGLI SMO DO OVDE 1');
     this.authenticationService.register(person).subscribe((response) => {
-      console.log('STIGLI SMO DO OVDE 2');
-      if (response.error != '' && response.error != undefined) {
-        console.log(response.error);
+      if (response == "Something went wrong. Maybe a user with this email already exists.") {
         Swal.fire({
           icon: 'error',
-          title: 'Something went wrong. 😒',
-          footer: 'Exact error: ' + response.error,
+          title: 'Something went wrong. Maybe a user with this email already exists. 😒',
+          footer: 'Please, try again.',
         });
       }
     });
