@@ -47,10 +47,14 @@
             </div>
             <div >
                 <ul>
-                    <li>A  {{this.medicalStore[0]?.storedA}} l</li>
-                    <li>B  {{this.medicalStore[0]?.storedB}} l</li>
-                    <li>AB {{this.medicalStore[0]?.storedAB}} l</li>
-                    <li>O  {{this.medicalStore[0]?.storedO}} l</li>
+                    <li>A+  {{this.medicalStore[0]?.storedAP}} ml</li>
+                    <li>A+  {{this.medicalStore[0]?.storedAN}} ml</li>
+                    <li>B+  {{this.medicalStore[0]?.storedBP}} ml</li>
+                    <li>B-  {{this.medicalStore[0]?.storedBN}} ml</li>
+                    <li>AB+ {{this.medicalStore[0]?.storedABP}} ml</li>
+                    <li>AB- {{this.medicalStore[0]?.storedABN}} ml</li>
+                    <li>O+  {{this.medicalStore[0]?.storedOP}} ml</li>
+                    <li>O-  {{this.medicalStore[0]?.storedON}} ml</li>
                 </ul>
 <!--                 
                 <ul *ngFor="let a of this.medicalCenter.medicalStaff">

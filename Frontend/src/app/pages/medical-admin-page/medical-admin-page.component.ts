@@ -1,3 +1,5 @@
+//main page for medical admin so he can see all the other pages
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({

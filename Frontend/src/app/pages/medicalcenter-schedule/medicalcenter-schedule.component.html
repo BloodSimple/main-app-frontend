@@ -153,6 +153,10 @@
       </ng-template> -->
 
       <ng-template #quickInfoTemplatesHeader let-data >
+        <p>nesto novo</p>
+        <button>start appoit.</button>
+        <button>client missing.</button>
+        <!-- <button>client unfit.</button> -->
         <div style="align-items: center;text-align: center;">
             <table > 
               <tr style="align-items: center;text-align: center;"> 
@@ -161,6 +165,7 @@
               </tr>
               <tr style="align-items: left;text-align: left;" *ngFor="let med of data.medicalStaff"> 
                 <td style="color:white; font-size: 15px;">Staff: {{med?.name}} {{med?.surname}}</td>
+                <button>report</button>
               </tr>
             </table>
         </div>

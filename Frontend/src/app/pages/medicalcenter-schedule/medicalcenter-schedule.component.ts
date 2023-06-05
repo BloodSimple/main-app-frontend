@@ -183,7 +183,7 @@ export class MedicalcenterScheduleComponent implements OnInit {
             }, 
             enableTooltip: true,
           }
-        this.clickable=false
+        this.clickable=true//false
         
   }
   displayStyle = "none";
