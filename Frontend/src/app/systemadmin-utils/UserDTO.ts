@@ -12,6 +12,7 @@ export class UserDTO{
     job:string;
     bio:string;
     role:string;
+    addres: string;
 
     constructor(personalId:string,email:string, password:string, name:string,
         surname:string, gender:string,address:AddressDTO, phoneNumber:string,
@@ -27,5 +28,8 @@ export class UserDTO{
         this.bio=bio;
         this.role=role;
         this.personalId = personalId;
+        this.addres = address.city + " " + address.street + " " + address.number;//dodato poslednje, ako nesto ne radi
     }
+
+    
 }

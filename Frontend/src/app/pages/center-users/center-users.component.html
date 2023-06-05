@@ -19,8 +19,11 @@
               <th class="col" width="15%">Email</th>
               <th class="col" width="25%">Info</th>
               <th class="col" width="15%">Job</th> -->
-              <th class="col" width="35%">Address</th>
-    
+              
+              <!-- <th class="col" width="15%">Address</th> -->
+              <th class="col" width="15%"><a (click)="sortByColumn(this.users$,'addres')">Address</a></th>
+
+              <th class="col" width="15%">Latest donation date</th>
             </tr>
           <tbody>
             <tr *ngFor="let user of sortedUsers$" style="margin: 100px;"  >
@@ -30,7 +33,7 @@
               <!-- <td > {{ user.bio }}</td> -->
               <td>{{ user.job }}</td>
               <td>{{ user.phoneNumber }}</td>
-              <td>{{ user.address.street }} {{ user.address.number }}, {{ user.address.city }}  </td>
+              <td>{{ user.address.city +" "+ user.address.street +" "+ user.address.number }}  </td>
             </tr>
           </tbody>
           

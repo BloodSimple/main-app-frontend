@@ -32,18 +32,18 @@ export class CenterUsersComponent implements OnInit {
       this.users$=data)
 
       this.users$.push(new UserDTO("1","test1","testpass","testime","Testprez","gen",
-      new AddressDTO("sda","asd","asd","asd",10,10),"abc","posao1","bio1","rola"))
+      new AddressDTO("aaa","11","Beograd","asd",10,10),"abc","posao1","bio1","rola"))
       this.users$.push(new UserDTO("2","test2","testpass2","pera","peric","gen2",
-      new AddressDTO("sda","asd","asd","asd",10,10),"htr","posao1","bio1","rola"))
+      new AddressDTO("bbb","22","Negotin","asd",10,10),"htr","posao4","bio1","rola"))
       this.users$.push(new UserDTO("3","test3","maki","makic","asda","gasden",
-      new AddressDTO("sda","asd","asd","asd",10,10),"trh","posao3","bio3","rola3"))
+      new AddressDTO("ccc","33","Paracin","asd",10,10),"trh","posao3","bio3","rola3"))
       
       this.sortedUsers$.push(new UserDTO("1","test1","testpass","testime","Testprez","gen",
-      new AddressDTO("sda","asd","asd","asd",10,10),"abc","posao1","bio1","rola"))
+      new AddressDTO("aaa","11","Beograd","asd",10,10),"abc","posao1","bio1","rola"))
       this.sortedUsers$.push(new UserDTO("2","test2","testpass2","pera","peric","gen2",
-      new AddressDTO("sda","asd","asd","asd",10,10),"htr","posao1","bio1","rola"))
+      new AddressDTO("bbb","22","Negotin","asd",10,10),"htr","posao4","bio1","rola"))
       this.sortedUsers$.push(new UserDTO("3","test3","maki","makic","asda","gasden",
-      new AddressDTO("sda","asd","asd","asd",10,10),"thr","posao3","bio3","rola3"))
+      new AddressDTO("ccc","33","Paracin","asd",10,10),"thr","posao3","bio3","rola3"))
       
   }
 
@@ -56,28 +56,60 @@ export class CenterUsersComponent implements OnInit {
     })};
   }
 
-  sortByColumn(list: any[] | undefined, column:string, direction = 'desc'): any {
+  sortByColumn(list: any[] | undefined, column:string): any {
     console.log("nesto1")
-    if(direction==="asc")
-      direction = "desc";
+    if(this.direction==="asc")
+      this.direction = "desc";
     else 
-      direction = "asc";
+      this.direction = "asc";
     
 
     console.log("direkcija je:")
-    console.log(direction)
+    console.log(this.direction)
 
+    // let sortedArray = (list || []).sort((a,b)=>{
+    //   console.log("sortira")
+    //   if(a[column] > b[column]){
+    //     console.log("usao ovde 1")
+    //     return (direction === 'asc') ? 1 : -1;
+    //   }
+    //   if(a[column] < b[column]){
+    //     console.log("u 2 je")
+    //     return (direction === 'desc') ? -1 : 1; //bilo desc
+    //   }
+    //   return 0;
+    // })
     let sortedArray = (list || []).sort((a,b)=>{
       console.log("sortira")
-      if(a[column] > b[column]){
-        console.log("usao ovde 1")
-        return (direction === 'asc') ? 1 : -1;
-      }
-      if(a[column] < b[column]){
-        console.log("u 2 je")
-        return (direction === 'desc') ? -1 : 1; //bilo desc
-      }
-      return 0;
+
+      let valueA = a[column];
+      let valueB = b[column];
+
+      if (this.direction === 'asc')
+        return valueA.localeCompare(valueB);
+      else if (this.direction === 'desc')
+        return valueB.localeCompare(valueA);
+
+      // if (comparison < 0) {
+      //   // console.log(`${stringA} comes before ${stringB}`);
+      //   return (direction === 'asc') ? 1 : -1;
+      // } else if (comparison > 0) {
+      //   return (direction === 'asc') ? -1 : 1;
+      //   // console.log(`${stringA} comes after ${stringB}`);
+      // } else {
+      //   return 0;
+      // }
+      // return valueA.localeCompare(valueB);
+
+      // if(a[column] > b[column]){
+      //   console.log("usao ovde 1")
+      //   return (direction === 'asc') ? 1 : -1;
+      // }
+      // if(a[column] < b[column]){
+      //   console.log("u 2 je")
+      //   return (direction === 'desc') ? -1 : 1; //bilo desc
+      // }
+      // return 0;
     })
     console.log(JSON.stringify(sortedArray))
 
