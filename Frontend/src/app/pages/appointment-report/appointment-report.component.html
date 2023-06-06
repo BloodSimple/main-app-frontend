@@ -1,0 +1,219 @@
+<div class="overlay" style="align-items: center; text-align: center; margin-top: 5%;">
+    <div class="container ">
+        <div class="heading-page" style="margin-bottom: 2%;">
+            <!-- <span style="color:#931F20">user</span><span style="color:#5E1313 ">search</span> -->
+            <span style="color:#931F20; font-size:20px; font-weight: bold;" >Appointment report</span>
+        </div>
+
+        <p>If user didn't appear on appointment, close report</p>
+        <button>Close report</button>
+
+
+        <!-- ovde ide list stvari koje korisnik ne ispunjava, za svako pitanje opis -->
+        <p>If user does not fulfill the condition for donating blood by reviewing the previous questionnaire</p>
+        <button>End report</button>
+
+        
+        <h3>Report data:</h3>
+        <br>
+
+
+        <div class="form-container">
+
+        
+
+        <div class="form-row">
+        <h5>Blood type:</h5>
+        <select [(ngModel)]="selectedBloodType">
+            <option *ngFor="let bloodType of bloodTypes" [value]="bloodType">{{ bloodType }}</option>
+        </select>
+        </div>
+
+        <div class="form-row">
+        <h5>Blood amount</h5>
+        <input type="number" [(ngModel)]="bloodAmount" min="100" max="1000" value="400">
+        </div>
+
+        <div class="form-row">
+        <h5>Medical doctor's note:</h5>
+        <input type="text" [(ngModel)]="doctorNote">
+        </div>
+
+        <div class="form-row">
+        <h5>Puncture site:</h5>
+        <select [(ngModel)]="selectedHand">
+            <option *ngFor="let hand of handTypes" [value]="hand">{{ hand }}</option>
+        </select>
+        </div>
+        
+        <div class="form-row">
+        <h5>Determination of hemoglobin/hematocrit</h5>
+        </div>
+        <div class="form-row">
+        <label>Copper sulfate:</label>
+        <input type="text" [(ngModel)]="coppsulf">
+        </div>
+        <div class="form-row">
+        <label>Normal level:</label>
+        <input type="text" [(ngModel)]="coppsulfNormal">
+        </div>
+        <div class="form-row">
+        <label>Low level</label>
+        <input type="text" [(ngModel)]="coppsulfLow">
+        </div>
+        <div class="form-row">
+        <label>Hemoglobin Ometer:</label>
+        <input type="text" [(ngModel)]="hemoometer">
+        </div>
+        <div class="form-row">
+        <label>Read value:</label>
+        <input type="text" [(ngModel)]="readValue">
+        </div>
+
+
+        
+
+
+        <div class="form-row">
+        <h5>Health checkup</h5>
+        </div>
+
+
+        <div class="form-row">
+        <label>lungs:</label>
+        <input type="text" [(ngModel)]="lungs">
+        </div>
+
+        <div class="form-row">
+        <label>heart:</label>
+        <input type="text" [(ngModel)]="heart">
+        </div>
+        
+        <div class="form-row">
+        <label>TA:</label>
+        <input type="text" [(ngModel)]="ta">
+        </div>
+        
+        <div class="form-row">
+        <label>TT</label>
+        <input type="text" [(ngModel)]="tt">
+
+        </div>
+
+        <div class="form-row">
+        <label>TV</label>
+        <input type="text" [(ngModel)]="tv">
+        </div>
+
+        <div class="form-row">
+        <label>Reason for refusal of medical examination, In case of refusal</label>
+        <input type="text" [(ngModel)]="refusalReason">
+        </div>
+
+
+        <div class="form-row">
+        <h5>Used itmes:</h5>
+        </div>
+
+
+        <div class="small-form-row" >
+        <label>Blood lancet</label>
+        <input type="number" [(ngModel)]="bloodLancet" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Single bag 150ml:</label>
+        <input type="number" [(ngModel)]="sbag150" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Single bag 400ml:</label>
+        <input type="number" [(ngModel)]="sbag400" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Single bag 600ml:</label>
+        <input type="number" [(ngModel)]="sbag600" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Double bag 150ml:</label>
+        <input type="number" [(ngModel)]="dbag150" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Double bag 400ml:</label>
+        <input type="number" [(ngModel)]="dbag400" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Double bag 600ml:</label>
+        <input type="number" [(ngModel)]="dbag600" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Triple bag 150ml:</label>
+        <input type="number" [(ngModel)]="tbag150" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+        
+        <div class="small-form-row">
+        <label>Triple bag 400ml:</label>
+        <input type="number" [(ngModel)]="tbag400" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+
+        <div class="small-form-row">
+        <label>Triple bag 600ml:</label>
+        <input type="number" [(ngModel)]="tbag600" min="0" max="5" value="0" style="width: 10px;">
+        </div>
+        
+
+        </div>
+        <button>Send report</button>
+
+        <!-- <div class="form-container">
+            <div class="form-row">
+                <h5>Some long text ..........</h5>
+              </div>
+            <div class="form-row">
+              <label for="input1">Label 1:</label>
+              <input type="text" id="input1">
+            </div>
+            <div class="form-row">
+              <label for="input2">Label 2:</label>
+              <input type="text" id="input2">
+            </div>
+            <div class="form-row">
+              <label for="input3">Label 3:</label>
+              <input type="text" id="input3">
+            </div>
+          </div> -->
+          
+<!--      
+        <table class="table" style="text-align: center; margin-left: 30%; margin: auto;">
+            <tr  style="margin: 100px;color: white; background-color: black;">
+              
+              <th><a (click)="sortByColumn(this.users$,'personalId')">personalId</a></th>
+              <th><a (click)="sortByColumn(this.users$,'name')">Name</a></th>
+              <th><a (click)="sortByColumn(this.users$,'email')">Email</a></th>
+              <th><a (click)="sortByColumn(this.users$,'job')">Job</a></th>
+              <th><a (click)="sortByColumn(this.users$,'phoneNumber')">PhoneNumber</a></th>
+                           
+              <th class="col" width="15%"><a (click)="sortByColumn(this.users$,'addres')">Address</a></th>
+
+              <th class="col" width="15%">Latest donation date</th>
+            </tr>
+          <tbody>
+            <tr *ngFor="let user of sortedUsers$" style="margin: 100px;"  >
+              <td>{{ user.personalId }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              
+              <td>{{ user.job }}</td>
+              <td>{{ user.phoneNumber }}</td>
+              <td>{{ user.address.city +" "+ user.address.street +" "+ user.address.number }}  </td>
+            </tr>
+          </tbody>
+          
+        </table> -->
+      </div>
+    </div>

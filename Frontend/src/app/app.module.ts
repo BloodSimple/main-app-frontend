@@ -39,6 +39,7 @@ import { MyAppointmentsComponent } from './pages/my-appointments/my-appointments
 import { DonationFormComponent } from './pages/donation-form/donation-form.component';
 import { MedicalAdminPageComponent } from './pages/medical-admin-page/medical-admin-page.component';
 import { CenterUsersComponent } from './pages/center-users/center-users.component';
+import { AppointmentReportComponent } from './pages/appointment-report/appointment-report.component';
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -66,6 +67,7 @@ import { CenterUsersComponent } from './pages/center-users/center-users.componen
     DonationFormComponent,
     MedicalAdminPageComponent,
     CenterUsersComponent,
+    AppointmentReportComponent,
   ],
   imports: [
     BrowserModule,
