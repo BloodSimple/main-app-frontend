@@ -1,19 +1,88 @@
 <div class="overlay" style="align-items: center; text-align: center; margin-top: 5%;">
-    <div class="container ">
+    <div class="container " style="width: 100%;">
         <div class="heading-page" style="margin-bottom: 2%;">
             <!-- <span style="color:#931F20">user</span><span style="color:#5E1313 ">search</span> -->
             <span style="color:#931F20">Registered users who donated blood</span>
         </div>
         
+
+
+
+
+
+
+        <!-- Modal -->
+
+<div
+class="modal"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle}">
+<div class="modal-dialog" role="document" style="width: 700px;">
+  <form ngNativeValidate #appointmentForm="ngForm">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Donation history</h4>
+    </div>
+    <div class="modal-body">
+      <table class="table" style="text-align: center;width: 100%;">
+      
+
+
+        <tr  style="color: white; background-color: black;">
+          <!-- <th class="col" width="15%">ID</th> -->
+          <th>Status</th>
+          <th>Date</th>
+          <th>BloodAmount</th>
+
+        </tr>
+
+        <tr *ngFor="let history of userHistory" style="margin: 100px;"  >
+          <td>{{ history.status }}</td>
+          <td>{{ history.date }}</td>
+          <td>{{ history.bloodAmount }}</td>
+                    
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      
+      <button type="button" class="btn btn-danger" 
+              (click)="closePopup()">
+        Close
+      </button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+
+
+
+<!-- Modal -->
+
+
+
+
+
+
+
+
+
+
+
+
      
-        <table class="table" style="text-align: center; margin-left: 30%; margin: auto;">
-            <tr  style="margin: 100px;color: white; background-color: black;">
+        <table class="table" style="text-align: center;width: 100%;">
+            <tr  style="color: white; background-color: black;">
               <!-- <th class="col" width="15%">ID</th> -->
               <th><a (click)="sortByColumn(this.users$,'personalId')">personalId</a></th>
               <th><a (click)="sortByColumn(this.users$,'name')">Name</a></th>
+              <th><a (click)="sortByColumn(this.users$,'lastName')">Last Name</a></th>
               <th><a (click)="sortByColumn(this.users$,'email')">Email</a></th>
-              <th><a (click)="sortByColumn(this.users$,'job')">Job</a></th>
               <th><a (click)="sortByColumn(this.users$,'phoneNumber')">PhoneNumber</a></th>
+              
                            
               <!-- <th class="col" width="15%">Name</th>
               <th class="col" width="15%">Email</th>
@@ -21,19 +90,23 @@
               <th class="col" width="15%">Job</th> -->
               
               <!-- <th class="col" width="15%">Address</th> -->
-              <th class="col" width="15%"><a (click)="sortByColumn(this.users$,'addres')">Address</a></th>
+              <th class="col" width="15%"><a (click)="sortByColumn(this.users$,'address')">Address</a></th>
 
-              <th class="col" width="15%">Latest donation date</th>
+              <th class="col" width="15%"><a (click)="sortByColumn(this.users$,'latestBloodDonation')">Latest donation date</a></th>
+              <th>history</th>
             </tr>
           <tbody>
-            <tr *ngFor="let user of sortedUsers$" style="margin: 100px;"  >
+            <tr *ngFor="let user of sortedUsers$" style="margin: 10px;"  >
               <td>{{ user.personalId }}</td>
               <td>{{ user.name }}</td>
               <td>{{ user.email }}</td>
+              <td>{{ user.lastName }}</td>
               <!-- <td > {{ user.bio }}</td> -->
-              <td>{{ user.job }}</td>
               <td>{{ user.phoneNumber }}</td>
-              <td>{{ user.address.city +" "+ user.address.street +" "+ user.address.number }}  </td>
+              <td>{{ user.address }}  </td>
+              <td>{{ user.latestBloodDonation }}  </td>
+              <td><button (click)="openPopup(user.id)">check</button></td>
+              
             </tr>
           </tbody>
           

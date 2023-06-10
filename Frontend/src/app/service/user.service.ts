@@ -50,4 +50,17 @@ export class UserService {
         });
         return headers;
     }
+
+    public getUserWithDonatedBlood(id: any): Observable<any>{
+        // this.reqHeader = this.getHeaders();
+        return this.http.get("http://localhost:8080/api/users/donated-blood" + "/" + id, {headers: this.reqHeader});
+    }
+
+    public getAppointmentHistory(id: any): Observable<any>{
+        // this.reqHeader = this.getHeaders();
+        let medCentId = 1;
+        return this.http.get("http://localhost:8080/api/users/history/" + id + "/" + medCentId , {headers: this.reqHeader});
+    }
+
+    
 }
