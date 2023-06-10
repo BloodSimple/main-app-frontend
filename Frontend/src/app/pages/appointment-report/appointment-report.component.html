@@ -6,12 +6,12 @@
         </div>
 
         <p>If user didn't appear on appointment, close report</p>
-        <button>Close report</button>
+        <button (click)="userMissApointment()">Close report</button>
 
 
         <!-- ovde ide list stvari koje korisnik ne ispunjava, za svako pitanje opis -->
         <p>If user does not fulfill the condition for donating blood by reviewing the previous questionnaire</p>
-        <button>End report</button>
+        <button (click)="conditionsUnfulfilled()">End report</button>
 
         
         <h3>Report data:</h3>
@@ -168,7 +168,7 @@
         
 
         </div>
-        <button>Send report</button>
+        <button (click)="sendReport()">Send report</button>
 
         <!-- <div class="form-container">
             <div class="form-row">

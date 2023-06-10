@@ -275,6 +275,12 @@ export class MedicalcenterScheduleComponent implements OnInit {
     //window.location.reload();
     this.init2();
   }
+
+  setArgs(aid: any, mcid: any) : void {
+      this.medicalCenterService.setAppointmentId(aid);
+      this.medicalCenterService.setMedicalServiceId(mcid);
+      
+  }
 }
 
 

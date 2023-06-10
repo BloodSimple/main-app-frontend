@@ -10,6 +10,37 @@ import { AppointmentDTO } from "../systemadmin-utils/AppointmentDTO";
 export class MedicalCenterService {
     constructor(private http: HttpClient){ }
 
+    private appointmentId = 0;
+    private medicalServiceId = 0;
+    
+
+    setAppointmentId(id:any) {
+        this.appointmentId = id;
+        console.log("setovan appid")
+        console.log(this.appointmentId)
+        
+     }
+
+    getAppointmentId() {
+        console.log("gettovan appid")
+        console.log(this.appointmentId)
+        return this.appointmentId;
+    }
+
+    setMedicalServiceId(id:any) {
+        this.medicalServiceId = id;
+        console.log("setovan mcid")
+        console.log(this.medicalServiceId)
+     }
+
+    getMedicalCenterId() {
+        console.log("getovan mcid")
+        console.log(this.medicalServiceId)
+        return this.medicalServiceId;
+    }
+
+
+
     reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
                                    .set('Accept', 'application/json');
 
@@ -49,6 +80,28 @@ export class MedicalCenterService {
         this.reqHeader = this.getHeaders();
         return this.http.put("http://localhost:8080/api/centers/", obj, {headers: this.reqHeader});
     }
+
+
+
+
+    public updateAppointmentReport(obj:any): Observable<any>{
+        this.reqHeader = this.getHeaders();
+        return this.http.put("http://localhost:8080/api/reports/create-report", obj, {responseType: 'text',headers: this.reqHeader});
+    }
+
+    public userMissAppointmentReport(obj:any): Observable<any>{
+        this.reqHeader = this.getHeaders();
+        return this.http.put("http://localhost:8080/api/reports/user-miss-appointment", obj, {responseType: 'text',headers: this.reqHeader});
+    }
+
+    public conditionsUnfulfilledAppointmentReport(obj:any): Observable<any>{
+        this.reqHeader = this.getHeaders();
+        return this.http.put("http://localhost:8080/api/reports/appointment-condition-unfulfilled", obj, {responseType: 'text',headers: this.reqHeader});
+    }
+
+
+
+
 
     public getMedicalCenterDTOById(id: any): Observable<any> {
         this.reqHeader = this.getHeaders();

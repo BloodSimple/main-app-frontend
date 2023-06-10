@@ -20,6 +20,8 @@ import { SystemadminRegisterComponent } from './pages/systemadmin-register/syste
 import { MedicalAdminProfileComponent } from './pages/medical-admin-profile/medical-admin-profile.component';
 import { AppointmentCreationComponent } from './pages/appointment-creation/appointment-creation.component';
 
+import { MedicalCenterService } from './service/medicalCenter.service';
+
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BloodDonationPageComponent } from './pages/blood-donation-page/blood-donation-page.component';
 import { MedicalcenterScheduleComponent } from './pages/medicalcenter-schedule/medicalcenter-schedule.component';
