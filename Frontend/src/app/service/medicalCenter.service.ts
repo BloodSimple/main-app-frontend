@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { AppointmentDTO } from "../systemadmin-utils/AppointmentDTO";
+import { NewAppointmentFree } from "../pages/appointment-creation/appointment-creation.component";
 
 @Injectable({
     providedIn: 'root'
@@ -54,10 +55,10 @@ export class MedicalCenterService {
         return this.http.get("http://localhost:8080/api/centers" + "/"+id, {headers: this.reqHeader});
     }
 
-    public createFreeApointment(dto: AppointmentDTO): Observable<any>{
+    public createFreeApointment(dto: NewAppointmentFree): Observable<any>{
         this.reqHeader = this.getHeaders();
         console.log("salje se na back")
-        return this.http.post("http://localhost:8080/api/centers/createfreeappointment", dto);
+        return this.http.post("http://localhost:8080/api/centers/create-appointment-free", dto);
     }
 
     // createAppointment(a:AppointmentDTO):Observable<any>{

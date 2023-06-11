@@ -43,21 +43,59 @@ export class AppointmentCreationComponent implements OnInit {
 
   createAppointment() : void {
 
-    var medicalStuffForAppintment: UserModel[] = []
+    var medicalStuffForAppintment: MedicalStuffSelection[] = []
+
+    let isOneSelected = false;
+    for(const selectedStaff of this.medicalStuffSelection)
+    {
+      if (selectedStaff.isSelected==true)
+      {
+        isOneSelected=true;
+        let userForList = new MedicalStuffSelection(selectedStaff.id,selectedStaff.name,selectedStaff.surname,selectedStaff.isSelected);
+        // userForList.id = selectedStaff.id
+
+        medicalStuffForAppintment.push(userForList);
+        console.log("Ima selektovanih osoblja")
+      }
+    }
+
+    if(isOneSelected==false)
+    {
+      alert("Medical staff is not selected.")
+      return;
+    }
+    
     //proci kroz listu medical stuff i sacuvati idjeve,
     //poslati idijeve, id centra, datetime
     // let dateString = '1968-11-16T00:00:00' 
     let newDate = new Date(this.datetime);
+    const today = new Date();
+    if(newDate < today)
+    {
+      alert("Can't add appointment in past");
+    }
+    
+    // let ndto = new AppointmentDTO(newDate,new UserModel(),this.duration,Number(this.medicalCenter.id), medicalStuffForAppintment);
+    
+    let newApp = new NewAppointmentFree();
+    newApp.duration = this.duration;
+    newApp.medicalCenterId = 1;
+    newApp.startTime = newDate;
+    newApp.medicalStaff = medicalStuffForAppintment;
+    console.log("usao u funkciju za create appointment");
+    console.log(JSON.stringify(newApp));
+    
+    this.medicalService.createFreeApointment(newApp).subscribe(response => {
 
-    let ndto = new AppointmentDTO(newDate,new UserModel(),this.duration,Number(this.medicalCenter.id), medicalStuffForAppintment);
-    console.log("usao u funkciju za create appointment")
-    this.medicalService.createFreeApointment(ndto);
+      alert(response);
+
+    })
 
   }
 
 }
 
-class MedicalStuffSelection {
+export class MedicalStuffSelection {
   id?: string='';
   name?: string='';
   surname?: string='';
@@ -70,4 +108,12 @@ class MedicalStuffSelection {
     this.surname = surname;
     this.isSelected = is;
   }
+}
+
+export class NewAppointmentFree {
+  public startTime:Date = new Date();
+  public duration:number = -1;
+  public medicalCenterId: number = -1;
+  public medicalStaff: MedicalStuffSelection[] = [];
+
 }
