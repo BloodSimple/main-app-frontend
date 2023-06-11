@@ -10,8 +10,10 @@
 
 
         <!-- ovde ide list stvari koje korisnik ne ispunjava, za svako pitanje opis -->
-        <p>If user does not fulfill the condition for donating blood by reviewing the previous questionnaire</p>
-        <button (click)="conditionsUnfulfilled()">End report</button>
+        <p *ngIf="conditions">User does not fulfill the condition for donating blood by reviewing the previous questionnaire</p>
+        <p *ngIf="conditions">{{errorText}}</p>
+        
+        <button *ngIf="conditions" (click)="conditionsUnfulfilled()">End report</button>
 
         
         <h3>Report data:</h3>
@@ -168,7 +170,7 @@
         
 
         </div>
-        <button (click)="sendReport()">Send report</button>
+        <button *ngIf="!conditions" (click)="sendReport()">Send report</button>
 
         <!-- <div class="form-container">
             <div class="form-row">

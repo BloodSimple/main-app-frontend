@@ -45,6 +45,10 @@ export class AppointmentReportComponent implements OnInit {
   appointmentId: number = -1;
   medicalCenterId: number = -1;
 
+
+  conditions: boolean = false;
+  errorText: string = "";
+
   constructor(private medicalService: MedicalCenterService,  public router: Router) { 
 
     console.log("Sacuvan id za pocetak appointmenta je:")
@@ -53,6 +57,20 @@ export class AppointmentReportComponent implements OnInit {
 
     console.log(astr);
     console.log(this.appointmentId);
+
+    //  /appointment-condition-check
+
+    this.medicalService.appointmentConditionCheck(this.appointmentId).subscribe((response) => {
+
+      if(response == "OK"){
+        alert("Loaded conditions.")
+      }
+      else {
+        this.errorText = response;
+        alert(response);
+        this.conditions = true;
+      }
+    });
 
   }
 

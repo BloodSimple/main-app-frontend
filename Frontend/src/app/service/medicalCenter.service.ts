@@ -84,6 +84,13 @@ export class MedicalCenterService {
 
 
 
+    
+    public appointmentConditionCheck(obj:any): Observable<any>{
+        this.reqHeader = this.getHeaders();
+        return this.http.put("http://localhost:8080/api/reports/appointment-condition-check", obj, {responseType: 'text',headers: this.reqHeader});
+    }
+
+
     public updateAppointmentReport(obj:any): Observable<any>{
         this.reqHeader = this.getHeaders();
         return this.http.put("http://localhost:8080/api/reports/create-report", obj, {responseType: 'text',headers: this.reqHeader});
