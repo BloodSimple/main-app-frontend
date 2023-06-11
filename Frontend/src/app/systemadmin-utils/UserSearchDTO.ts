@@ -13,7 +13,7 @@ export class UserSearchDTO{
     job:string;
     bio:string;
     role:string;
-
+    public id:number = -1;
     constructor(user:UserDTO){
         this.email=user.email;
         this.password=user.password;

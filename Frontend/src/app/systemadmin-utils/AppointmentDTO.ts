@@ -4,9 +4,10 @@ import { UserModel } from "../model/user";
 
 export class AppointmentDTO{
     // id: number;
+    public id : number = -1;
     startTime:Date;
     duration:number;
-
+    public status : any = " ";
     //ne treba mi?
     // medicalCenter:MedicalCenterDTO;
     user : UserModel; 

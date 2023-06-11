@@ -62,5 +62,11 @@ export class UserService {
         return this.http.get("http://localhost:8080/api/users/history/" + id + "/" + medCentId , {headers: this.reqHeader});
     }
 
+    public getUserTakenAppointment(id: any): Observable<any>{
+        // this.reqHeader = this.getHeaders();
+        let medCentId = 1;///appointments-taken/{userId}/{mcId}
+        return this.http.get("http://localhost:8080/api/users/appointments-taken/" + id + "/" + medCentId , {headers: this.reqHeader});
+    }
+
     
 }

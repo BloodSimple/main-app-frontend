@@ -45,11 +45,20 @@ export class AppointmentReportComponent implements OnInit {
   appointmentId: number = -1;
   medicalCenterId: number = -1;
 
-  constructor(private medicalService: MedicalCenterService,  public router: Router) { }
+  constructor(private medicalService: MedicalCenterService,  public router: Router) { 
+
+    console.log("Sacuvan id za pocetak appointmenta je:")
+    let astr = localStorage.getItem('idForStartAppointment');
+    this.appointmentId = parseInt(astr||"-2");
+
+    console.log(astr);
+    console.log(this.appointmentId);
+
+  }
 
 
   sendReport() : void {
-    this.appointmentId = this.medicalService.getAppointmentId();
+    // this.appointmentId = this.medicalService.getAppointmentId();
     this.medicalCenterId = this.medicalService.getMedicalCenterId();
 
     console.log("send report")
@@ -102,7 +111,7 @@ export class AppointmentReportComponent implements OnInit {
 
 
   userMissApointment() : void {
-    this.appointmentId = this.medicalService.getAppointmentId();
+    // this.appointmentId = this.medicalService.getAppointmentId();
     console.log("User miss app")
     console.log(this.appointmentId)
     
@@ -124,7 +133,7 @@ export class AppointmentReportComponent implements OnInit {
   }
 
   conditionsUnfulfilled() : void {
-    this.appointmentId = this.medicalService.getAppointmentId();
+    // this.appointmentId = this.medicalService.getAppointmentId();
     console.log("conditions unful...")
     console.log(this.appointmentId)
 

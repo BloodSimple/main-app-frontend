@@ -22,7 +22,7 @@
           <th class="col" width="15%">Email</th>
           <th class="col" width="25%">Info</th>
           <th class="col" width="15%">Job</th>
-          <th class="col" width="35%">Address</th>
+          <th class="col" width="35%">Appointments</th>
 
         </tr>
       <tbody>
@@ -32,10 +32,80 @@
           <td>{{ user.email }}</td>
           <td > {{ user.bio }}</td>
           <td>{{ user.job }}</td>
-          <td>{{ user.address.street }} {{ user.address.number }}, {{ user.address.city }}  </td>
+          <!-- <td>{{ user.id }}</td> -->
+          <td><button (click)="openPopup(user.id)">See all</button></td>
+          <!-- <td>{{ user.address.street }} {{ user.address.number }}, {{ user.address.city }}  </td> -->
         </tr>
       </tbody>
       
     </table>
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal -->
+
+<div
+class="modal"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle}">
+<div class="modal-dialog" role="document" style="width: 700px;">
+  <form ngNativeValidate #appointmentForm="ngForm">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Donation history</h4>
+    </div>
+    <div class="modal-body">
+      <table class="table" style="text-align: center;width: 100%;">
+      
+
+
+        <tr  style="color: white; background-color: black;">
+          <!-- <th class="col" width="15%">ID</th> -->
+          <th>Status</th>
+          <th>Date</th>
+          <th>Start</th>
+
+        </tr>
+
+        <tr *ngFor="let appointment of takenAppointments" style="margin: 100px;"  >
+          <td>{{ appointment.status }}</td>
+          <td>{{ appointment.date }}</td>
+          <td ><button (click)="startAppointment(appointment.appId)">start</button></td>
+          <!-- <td>{{ appointment.appId }}</td> -->
+                    
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      
+      <button type="button" class="btn btn-danger" 
+              (click)="closePopup()">
+        Close
+      </button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+
   </div>
 </div>

@@ -36,6 +36,12 @@ export class SystemadminServiceService {
     this.reqHeader = this.getHeaders();
     return this.http.get<UserDTO[]>(this.centerUrl + '/allusers', {headers: this.reqHeader})
   }
+
+  allRegUsers():Observable<UserDTO[]>{
+    this.reqHeader = this.getHeaders();
+    return this.http.get<UserDTO[]>(this.centerUrl + '/allRegUsers', {headers: this.reqHeader})
+  }
+
   putAdmin(centerName:String, data:UserDTO){
     this.reqHeader = this.getHeaders();
     return this.http.put(this.centerUrl + '/' + centerName + '/admin', data, {headers: this.reqHeader})

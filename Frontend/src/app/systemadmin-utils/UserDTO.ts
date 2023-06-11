@@ -13,6 +13,7 @@ export class UserDTO{
     bio:string;
     role:string;
     addres: string;
+    public id:number = -1;
 
     constructor(personalId:string,email:string, password:string, name:string,
         surname:string, gender:string,address:AddressDTO, phoneNumber:string,

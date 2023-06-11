@@ -153,20 +153,20 @@
       </ng-template> -->
 
       <ng-template #quickInfoTemplatesHeader let-data >
-        <p>nesto novo</p>
-        <button>start appoit.</button>
-        <button>client missing.</button>
         <!-- <button>client unfit.</button> -->
         <div style="align-items: center;text-align: center;">
             <table > 
               <tr style="align-items: center;text-align: center;"> 
                 <td style="color:white; font-size: 20px;"> {{data.user?.name}} </td>
+                
                 <td style="color: white;font-size: 20px;"> {{data.user?.surname}} </td>
-                <button (click)="setArgs(1,1)">mozda ovde</button>  
+
+                <td style="color:white; font-size: 20px;">| {{data.status}} </td>
+                <button *ngIf="data.status == 'taken'" (click)="setArgs(data.id,1)">report</button>  
               </tr>
               <tr style="align-items: left;text-align: left;" *ngFor="let med of data.medicalStaff"> 
                 <td style="color:white; font-size: 15px;">Staff: {{med?.name}} {{med?.surname}}</td>
-                <button>report</button>
+                <!-- <button>report</button> -->
               </tr>
             </table>
         </div>

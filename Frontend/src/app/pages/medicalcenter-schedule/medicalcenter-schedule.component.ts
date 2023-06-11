@@ -115,6 +115,7 @@ export class MedicalcenterScheduleComponent implements OnInit {
           this.staffAppointment.push(object);
         }  
       });
+
     }
 
     private eventData: DataManager = new DataManager({
@@ -164,9 +165,16 @@ export class MedicalcenterScheduleComponent implements OnInit {
 
  init2(){
         let app : AppointmentDTO[] = []
-        this.appointments.forEach((u) => {          
-          this.schedule.push( new AppointmentScheduleDTO(u));          
-          console.log(u)  
+        this.appointments.forEach((u) => {
+
+          let sch = new AppointmentScheduleDTO(u)
+          sch.id = u.id
+          sch.status = u.status;
+          this.schedule.push(sch);          
+          // console.log(sch)
+          
+          
+
           })
           this.schedule.forEach((s) => {
             console.log(s)
@@ -277,8 +285,10 @@ export class MedicalcenterScheduleComponent implements OnInit {
   }
 
   setArgs(aid: any, mcid: any) : void {
+    localStorage.setItem('idForStartAppointment', aid);
       this.medicalCenterService.setAppointmentId(aid);
       this.medicalCenterService.setMedicalServiceId(mcid);
+    this.router.navigate(['/appointment-report']);
       
   }
 }

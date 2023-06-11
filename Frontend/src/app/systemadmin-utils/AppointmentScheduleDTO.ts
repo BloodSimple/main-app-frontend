@@ -5,8 +5,10 @@ import { UserDTO } from "./UserDTO";
 
 export class AppointmentScheduleDTO{
     // id : number
-    startTime:Date
-    endTime :Date 
+    public id : number = -1;
+    public status : any = " ";
+    startTime:Date;
+    endTime :Date ;
     // medicalCenter:MedicalCenterDTO
     // user:UserDTO
     // bloodType:string
