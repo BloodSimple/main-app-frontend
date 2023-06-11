@@ -58,7 +58,7 @@ export class MedicalCenterService {
     public createFreeApointment(dto: NewAppointmentFree): Observable<any>{
         this.reqHeader = this.getHeaders();
         console.log("salje se na back")
-        return this.http.post("http://localhost:8080/api/centers/create-appointment-free", dto);
+        return this.http.post("http://localhost:8080/api/centers/create-appointment-free", dto,{headers: this.reqHeader});
     }
 
     // createAppointment(a:AppointmentDTO):Observable<any>{

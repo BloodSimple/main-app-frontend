@@ -25,42 +25,46 @@ import { DonationFormComponent } from './pages/donation-form/donation-form.compo
 import { MedicalAdminPageComponent } from './pages/medical-admin-page/medical-admin-page.component';
 import { CenterUsersComponent } from './pages/center-users/center-users.component';
 import { AppointmentReportComponent } from './pages/appointment-report/appointment-report.component';
+import { MedAdminGuardService } from './medadm-guard.service';
+import { UserGuardService } from './user-guard.service';
+import { AdminGuardService } from './admin-guard.service';
+import { SharedGuardService } from './shared-guard.service';
 
 const routes: Routes = [
   // Homepage and medical centers page
   { path: '', component: HomepageComponent },
   { path: 'medical-centers', component: MedicalCentersComponent },
   // Profile pages for different users
-  { path: 'user-profile', component: UserProfileComponent },
-  { path: 'medical-center-profile', component: MedicalcenterProfileComponent },
-  { path: 'medical-admin-page', component: MedicalAdminPageComponent },
-  { path: 'appointment-report', component: AppointmentReportComponent },
-  { path: 'center-users', component: CenterUsersComponent },
-  { path: 'medical-admin-profile', component: MedicalAdminProfileComponent },
+  { path: 'user-profile', component: UserProfileComponent,canActivate: [UserGuardService] },
+  { path: 'medical-center-profile', component: MedicalcenterProfileComponent, canActivate: [MedAdminGuardService] },
+  { path: 'medical-admin-page', component: MedicalAdminPageComponent, canActivate: [MedAdminGuardService] },
+  { path: 'appointment-report', component: AppointmentReportComponent, canActivate: [MedAdminGuardService] },
+  { path: 'center-users', component: CenterUsersComponent, canActivate: [MedAdminGuardService] },
+  { path: 'medical-admin-profile', component: MedicalAdminProfileComponent, canActivate: [MedAdminGuardService] },
   { path: 'sysadmin', component: SystemadminProfileComponent },
   // Registration page and login page
   { path: 'registration-page', component: RegistrationPageComponent },
   { path: 'login-page', component: LoginPageComponent },
   // Donation pages
-  { path: 'donation-form', component: DonationFormComponent },
-  { path: 'blood-donation-page', component: BloodDonationPageComponent },
+  { path: 'donation-form', component: DonationFormComponent,canActivate: [UserGuardService] },
+  { path: 'blood-donation-page', component: BloodDonationPageComponent,canActivate: [UserGuardService] },
   // Appointment and schedule pages
-  { path: 'my-appointments', component: MyAppointmentsComponent },
+  { path: 'my-appointments', component: MyAppointmentsComponent,canActivate: [UserGuardService] },
   // TODO: New my-appointments page for MEDICAL_STAFF
-  { path: 'make-appointment', component: MakeAppointmentComponent },
-  // TODO: Delete this page later
-  { path: 'create-appointment', component: AppointmentCreationComponent },
+  { path: 'make-appointment', component: MakeAppointmentComponent,  canActivate: [AdminGuardService]},
+  
+  { path: 'create-appointment', component: AppointmentCreationComponent, canActivate: [MedAdminGuardService] },
   {
     path: 'medical-center-schedule',
-    component: MedicalcenterScheduleComponent,
+    component: MedicalcenterScheduleComponent, canActivate: [SharedGuardService]
   },
   // Sysadmin pages
-  { path: 'new-center', component: CenterRegistrationComponent },
-  { path: 'register-sysadmin', component: SystemadminRegisterComponent },
-  { path: 'admins', component: SysadminListComponent },
-  { path: 'sysadmin-centers', component: SysadminCenterListComponent },
+  { path: 'new-center', component: CenterRegistrationComponent,  canActivate: [AdminGuardService] },
+  { path: 'register-sysadmin', component: SystemadminRegisterComponent,  canActivate: [AdminGuardService] },
+  { path: 'admins', component: SysadminListComponent,  canActivate: [AdminGuardService] },
+  { path: 'sysadmin-centers', component: SysadminCenterListComponent,  canActivate: [AdminGuardService] },
   // Other pages
-  { path: 'search-users', component: UserSearchComponent },
+  { path: 'search-users', component: UserSearchComponent, canActivate: [SharedGuardService]},
 ];
 
 @NgModule({

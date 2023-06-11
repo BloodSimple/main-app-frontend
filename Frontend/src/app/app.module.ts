@@ -42,6 +42,10 @@ import { DonationFormComponent } from './pages/donation-form/donation-form.compo
 import { MedicalAdminPageComponent } from './pages/medical-admin-page/medical-admin-page.component';
 import { CenterUsersComponent } from './pages/center-users/center-users.component';
 import { AppointmentReportComponent } from './pages/appointment-report/appointment-report.component';
+import { MedAdminGuardService } from './medadm-guard.service';
+import { AdminGuardService } from './admin-guard.service';
+import { UserGuardService } from './user-guard.service';
+import { SharedGuardService } from './shared-guard.service';
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -84,7 +88,7 @@ import { AppointmentReportComponent } from './pages/appointment-report/appointme
     ScheduleModule,
     RecurrenceEditorModule,
   ],
-  providers: [DayService, WeekService, MonthService, YearService],
+  providers: [DayService, WeekService, MonthService, YearService, MedAdminGuardService, AdminGuardService, UserGuardService, SharedGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

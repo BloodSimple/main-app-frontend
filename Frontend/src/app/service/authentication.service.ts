@@ -76,6 +76,25 @@ export class AuthenticationService {
     return false;
   }
 
+  medicalAdminAccess() {
+
+    if (this.loggedIn())
+    {
+      console.log("ulogovan");
+    }
+    var lsUser = localStorage.getItem('userRole');
+    console.log("ispis  user role");
+    console.log(lsUser);
+    if (lsUser == 'MEDICAL_ADMIN') {
+      console.log(" -- CHECKING user's access: TRUE ");
+      return true;
+    }
+    console.log(" -- CHECKING user's access: FALSE ");
+    return false;
+  }
+
+  
+
   register(person: any) {
     console.log(' -- Service for Registration...');
     return this._http.post<IResponse>(
