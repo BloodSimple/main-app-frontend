@@ -35,7 +35,12 @@ export class MedicalAdminProfileComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.userService.getUserById('743199760011').subscribe((response) => {
+
+    var lsUser = localStorage.getItem('currentUser');
+    // var loadedRole = lsUser?.role;
+    const object = JSON.parse(lsUser || ' ');
+    
+    this.userService.getUserByMail(object.email).subscribe((response) => {
       console.log(response);
       this.user = response;
       this.dto.id = this.user.personalId;

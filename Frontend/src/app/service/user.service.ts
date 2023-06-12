@@ -32,6 +32,11 @@ export class UserService {
         return this.http.get("http://localhost:8080/api/users" + "/" + id, {headers: this.reqHeader});
     }
 
+    public getUserByMail(id: String): Observable<any> {
+        this.reqHeader = this.getHeaders();
+        return this.http.get("http://localhost:8080/api/users/mail" + "/" + id, {headers: this.reqHeader});
+    }
+
     public updatePassword(obj:any): Observable<any>{
         this.reqHeader = this.getHeaders();
         return this.http.put("http://localhost:8080/api/users/updatepassword", obj, {headers: this.reqHeader});
