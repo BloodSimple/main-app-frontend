@@ -5,7 +5,7 @@ import { AuthenticationService } from "./service/authentication.service";
 import { UserService } from "./service/user.service";
 
 @Injectable()
-export class MedAdminGuardService implements CanActivate {
+export class FirstLoginGuardService implements CanActivate {
     constructor(private authService: AuthenticationService, private router: Router, private userService: UserService) {}
 
     
@@ -13,23 +13,6 @@ export class MedAdminGuardService implements CanActivate {
         // return true;
         if(this.authService.medicalAdminAccess())
         {
-            var lsUser = localStorage.getItem('currentUser');
-            // var loadedRole = lsUser?.role;
-            const object = JSON.parse(lsUser || ' ');
-    
-            //check if it is first login
-            this.userService.isFirstLogin(object.email).subscribe(response => {
-                console.log("Da li je prvi log");
-                console.log(JSON.stringify(response));
-                if(response==true)
-                {
-                    this.router.navigate(['/first-login'])
-                    return false;
-                }
-                //if first navigate to first login, else return true
-                return true;
-            });
-
             return true;
         }
         

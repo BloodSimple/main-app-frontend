@@ -13,6 +13,15 @@ export class UserService {
     reqHeader = new HttpHeaders().set('Content-Type', 'application/json')
                                    .set('Accept', 'application/json');
 
+    public isFirstLogin(mail:String): Observable<any>{
+            this.reqHeader = this.getHeaders();
+            // const obj = { mail: mail };
+
+            return this.http.put("http://localhost:8080/api/users/isFirstLogin", mail, {headers: this.reqHeader});
+    }
+
+    
+
     public updateUser(obj:any): Observable<any>{
         this.reqHeader = this.getHeaders();
         return this.http.put("http://localhost:8080/api/users/", obj, {headers: this.reqHeader});
@@ -59,13 +68,18 @@ export class UserService {
     public getAppointmentHistory(id: any): Observable<any>{
         // this.reqHeader = this.getHeaders();
         let medCentId = 1;
-        return this.http.get("http://localhost:8080/api/users/history/" + id + "/" + medCentId , {headers: this.reqHeader});
+        let medID = localStorage.getItem('idForMedicalCenter');
+        let medicalCenterId = parseInt(medID||"-1")
+        return this.http.get("http://localhost:8080/api/users/history/" + id + "/" + medicalCenterId , {headers: this.reqHeader});
     }
 
     public getUserTakenAppointment(id: any): Observable<any>{
         // this.reqHeader = this.getHeaders();
         let medCentId = 1;///appointments-taken/{userId}/{mcId}
-        return this.http.get("http://localhost:8080/api/users/appointments-taken/" + id + "/" + medCentId , {headers: this.reqHeader});
+        
+        let medID = localStorage.getItem('idForMedicalCenter');
+        let medicalCenterId = parseInt(medID||"-1")
+        return this.http.get("http://localhost:8080/api/users/appointments-taken/" + id + "/" + medicalCenterId , {headers: this.reqHeader});
     }
 
     

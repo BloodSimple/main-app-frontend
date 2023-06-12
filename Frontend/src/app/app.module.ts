@@ -46,6 +46,9 @@ import { MedAdminGuardService } from './medadm-guard.service';
 import { AdminGuardService } from './admin-guard.service';
 import { UserGuardService } from './user-guard.service';
 import { SharedGuardService } from './shared-guard.service';
+import { FirstLoginComponent } from './pages/first-login/first-login.component';
+import { FirstLoginGuardService } from './firstlogin-guard.service';
+
 @NgModule({
   declarations: [
     MyFilterPipe,
@@ -74,6 +77,7 @@ import { SharedGuardService } from './shared-guard.service';
     MedicalAdminPageComponent,
     CenterUsersComponent,
     AppointmentReportComponent,
+    FirstLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +92,7 @@ import { SharedGuardService } from './shared-guard.service';
     ScheduleModule,
     RecurrenceEditorModule,
   ],
-  providers: [DayService, WeekService, MonthService, YearService, MedAdminGuardService, AdminGuardService, UserGuardService, SharedGuardService],
+  providers: [DayService, WeekService, MonthService, YearService, MedAdminGuardService, AdminGuardService, UserGuardService, SharedGuardService, FirstLoginGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

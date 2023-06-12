@@ -55,6 +55,12 @@ export class MedicalCenterService {
         return this.http.get("http://localhost:8080/api/centers" + "/"+id, {headers: this.reqHeader});
     }
 
+    public getCenterMedWorks(mail:String): Observable<any>{
+        this.reqHeader = this.getHeaders();
+
+        return this.http.put("http://localhost:8080/api/centers/getCenterMedWorks", mail, {headers: this.reqHeader});
+    }
+
     public createFreeApointment(dto: NewAppointmentFree): Observable<any>{
         this.reqHeader = this.getHeaders();
         console.log("salje se na back")
@@ -74,7 +80,9 @@ export class MedicalCenterService {
 
     public viewSchedule():Observable<AppointmentDTO[]>{
         this.reqHeader = this.getHeaders();
-        return this.http.get<AppointmentDTO[]>("http://localhost:8080/api/centers/freeappointments/" + "1", {headers: this.reqHeader})
+        let medID = localStorage.getItem('idForMedicalCenter');
+        let medicalCenterId = parseInt(medID||"-1")
+        return this.http.get<AppointmentDTO[]>("http://localhost:8080/api/centers/freeappointments/" + medicalCenterId, {headers: this.reqHeader})
       }
 
     public updateCenter(obj:any): Observable<any>{

@@ -83,14 +83,21 @@ export class MedicalcenterScheduleComponent implements OnInit {
   medicalStaff: UserModel[] = [];
   staffAppointment: StaffAppointment [] = [];
 
+  public medicalCenterId:any;
+  
   constructor(
     public service:SystemadminServiceService,
     public  router: Router,
     public medicalCenterService: MedicalCenterService
     ) {
+
+      
+      let medID = localStorage.getItem('idForMedicalCenter');
+      this.medicalCenterId = parseInt(medID||"-1")
+
       this.currentDate = new Date().toISOString().slice(0, 10);
       //TODO: Dobavi id centra
-      this.medicalCenterService.getMedicalCenterDTOById(1).subscribe((response)  => {
+      this.medicalCenterService.getMedicalCenterDTOById(this.medicalCenterId).subscribe((response)  => {
         console.log(response);
         // this.medicalStaff = response.medicalStaff; 
         for(let med of response.medicalStaff){

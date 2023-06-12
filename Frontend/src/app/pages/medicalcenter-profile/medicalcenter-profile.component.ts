@@ -45,18 +45,21 @@ export class MedicalcenterProfileComponent implements OnInit {
   public statusData: string[] = ['New', 'Requested', 'Confirmed'];
 
 
-
+  public medicalCenterId: any; 
 
   async ngOnInit(): Promise<any>{
 
-    this.medicalService.getMedicalCenterById(1).subscribe((response)  => {
+    let medID = localStorage.getItem('idForMedicalCenter');
+    this.medicalCenterId = parseInt(medID||"-1")
+
+    this.medicalService.getMedicalCenterById(this.medicalCenterId).subscribe((response)  => {
       // console.log(response);
       console.log(JSON.stringify(response));
       this.medicalCenter = response;
       
   });
 
-    this.medicalService.getMedicalCenterStoreById(1).subscribe((response)  => {
+    this.medicalService.getMedicalCenterStoreById(this.medicalCenterId).subscribe((response)  => {
       console.log(response);
       console.log(JSON.stringify(response));
       this.medicalStore = response;

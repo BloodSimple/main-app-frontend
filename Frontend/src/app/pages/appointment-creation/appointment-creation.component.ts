@@ -21,7 +21,10 @@ export class AppointmentCreationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.medicalService.getMedicalCenterById(1).subscribe((response)  => {
+    let medID = localStorage.getItem('idForMedicalCenter');
+    // parseInt(medID||"-1")
+    console.log("med id je " + medID);
+    this.medicalService.getMedicalCenterById(parseInt(medID||"-1")).subscribe((response)  => {
       // console.log(response);
       console.log(JSON.stringify(response));
       this.medicalCenter = response;

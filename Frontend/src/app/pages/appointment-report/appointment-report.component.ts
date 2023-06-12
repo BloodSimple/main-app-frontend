@@ -58,6 +58,9 @@ export class AppointmentReportComponent implements OnInit {
     console.log(astr);
     console.log(this.appointmentId);
 
+    let medID = localStorage.getItem('idForMedicalCenter');
+    this.medicalCenterId = parseInt(medID||"-1")
+
     //  /appointment-condition-check
 
     this.medicalService.appointmentConditionCheck(this.appointmentId).subscribe((response) => {
@@ -77,7 +80,7 @@ export class AppointmentReportComponent implements OnInit {
 
   sendReport() : void {
     // this.appointmentId = this.medicalService.getAppointmentId();
-    this.medicalCenterId = this.medicalService.getMedicalCenterId();
+    // this.medicalCenterId = this.medicalService.getMedicalCenterId();
 
     console.log("send report")
     console.log(this.appointmentId)

@@ -29,12 +29,14 @@ import { MedAdminGuardService } from './medadm-guard.service';
 import { UserGuardService } from './user-guard.service';
 import { AdminGuardService } from './admin-guard.service';
 import { SharedGuardService } from './shared-guard.service';
+import { FirstLoginComponent } from './pages/first-login/first-login.component';
 
 const routes: Routes = [
   // Homepage and medical centers page
   { path: '', component: HomepageComponent },
   { path: 'medical-centers', component: MedicalCentersComponent },
   // Profile pages for different users
+  { path: 'first-login', component: FirstLoginComponent },
   { path: 'user-profile', component: UserProfileComponent,canActivate: [UserGuardService] },
   { path: 'medical-center-profile', component: MedicalcenterProfileComponent, canActivate: [MedAdminGuardService] },
   { path: 'medical-admin-page', component: MedicalAdminPageComponent, canActivate: [MedAdminGuardService] },
