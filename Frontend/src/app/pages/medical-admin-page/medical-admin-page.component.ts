@@ -52,4 +52,9 @@ export class MedicalAdminPageComponent implements OnInit {
     this.router.navigate(['/medical-center-profile'])
   }
 
+  searchUsers()
+  {
+    this.router.navigate(['/search-users'])
+  }
+
 }

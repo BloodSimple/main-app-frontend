@@ -52,7 +52,9 @@ export class SystemadminServiceService {
   }
   viewSchedule():Observable<AppointmentDTO[]>{
     this.reqHeader = this.getHeaders();
-    return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/1/schedule', {headers: this.reqHeader})
+    let medID = localStorage.getItem('idForMedicalCenter');
+    let medicalCenterId = parseInt(medID||"-1")
+    return this.http.get<AppointmentDTO[]>(this.scheduleUrl+'/' + medicalCenterId + '/schedule', {headers: this.reqHeader})
   }
   
   allAdmins():Observable<UserDTO[]>{
