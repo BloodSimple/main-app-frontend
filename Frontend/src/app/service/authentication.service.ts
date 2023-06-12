@@ -53,22 +53,32 @@ export class AuthenticationService {
   }
 
   loggedIn() {
-    return !!localStorage.getItem('userToken');
+    return !!localStorage.getItem('jwt');
   }
 
   adminAccess() {
-    var lsUser = localStorage.getItem('userRole');
-    if (lsUser == 'admin') {
-      //console.log(" -- CHECKING admin's access: TRUE")
+    if (this.loggedIn())
+    {
+      console.log("ulogovan");
+    }
+    var lsUser = localStorage.getItem('currentUser');
+    const object = JSON.parse(lsUser || ' ');
+    if (object.role == 'ADMIN') {
+      console.log(" -- CHECKING admin's access: TRUE ");
       return true;
     }
-    //console.log(" -- CHECKING admin's access: FALSE")
+    console.log(" -- CHECKING admin's access: FALSE")
     return false;
   }
 
   userAccess() {
-    var lsUser = localStorage.getItem('userRole');
-    if (lsUser == 'user') {
+    if (this.loggedIn())
+    {
+      console.log("ulogovan");
+    }
+    var lsUser = localStorage.getItem('currentUser');
+    const object = JSON.parse(lsUser || ' ');
+    if (object.role == 'USER') {
       console.log(" -- CHECKING user's access: TRUE ");
       return true;
     }
@@ -82,14 +92,35 @@ export class AuthenticationService {
     {
       console.log("ulogovan");
     }
-    var lsUser = localStorage.getItem('userRole');
+    var lsUser = localStorage.getItem('currentUser');
+    // var loadedRole = lsUser?.role;
+    const object = JSON.parse(lsUser || ' ');
     console.log("ispis  user role");
-    console.log(lsUser);
-    if (lsUser == 'MEDICAL_ADMIN') {
-      console.log(" -- CHECKING user's access: TRUE ");
+    console.log(object);
+    if (object.role == 'MEDICAL_ADMIN') {
+      console.log(" -- CHECKING med admin's access: TRUE ");
       return true;
     }
-    console.log(" -- CHECKING user's access: FALSE ");
+    console.log(" -- CHECKING med admin's access: FALSE ");
+    return false;
+  }
+
+  shareAdminAccess() {
+
+    if (this.loggedIn())
+    {
+      console.log("ulogovan");
+    }
+    var lsUser = localStorage.getItem('currentUser');
+    // var loadedRole = lsUser?.role;
+    const object = JSON.parse(lsUser || ' ');
+    console.log("ispis  user role");
+    console.log(object);
+    if (object.role == 'MEDICAL_ADMIN' || object.role == 'ADMIN') {
+      console.log(" -- CHECKING med admin's access: TRUE ");
+      return true;
+    }
+    console.log(" -- CHECKING med admin's access: FALSE ");
     return false;
   }
 

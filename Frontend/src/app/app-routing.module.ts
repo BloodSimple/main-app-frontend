@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'appointment-report', component: AppointmentReportComponent, canActivate: [MedAdminGuardService] },
   { path: 'center-users', component: CenterUsersComponent, canActivate: [MedAdminGuardService] },
   { path: 'medical-admin-profile', component: MedicalAdminProfileComponent, canActivate: [MedAdminGuardService] },
-  { path: 'sysadmin', component: SystemadminProfileComponent },
+  { path: 'sysadmin', component: SystemadminProfileComponent, canActivate: [AdminGuardService] },
   // Registration page and login page
   { path: 'registration-page', component: RegistrationPageComponent },
   { path: 'login-page', component: LoginPageComponent },

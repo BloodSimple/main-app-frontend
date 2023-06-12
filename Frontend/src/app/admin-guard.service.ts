@@ -9,13 +9,13 @@ export class AdminGuardService implements CanActivate {
 
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        return true;
-        // if(this.authService.adminAccess())
-        // {
-        //     return true;
-        // }
+        // return true;
+        if(this.authService.adminAccess())
+        {
+            return true;
+        }
         
-        // this.router.navigate(['/'])
-        // return false;
+        this.router.navigate(['/'])
+        return false;
     }
 }

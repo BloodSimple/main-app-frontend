@@ -18,16 +18,16 @@ export class MedicalAdminPageComponent implements OnInit {
     this.router.navigate(['/center-users'])
   }
   calendar(){
-    
+    this.router.navigate(['/medical-center-schedule'])
   }
   addApointment(){
-    
+    this.router.navigate(['/create-appointment'])
   }
   profile(){
     this.router.navigate(['/medical-admin-profile'])
   }
   appointments(){
-    
+    this.router.navigate(['/medical-center-schedule'])
   }
 
   medicalcenter()
