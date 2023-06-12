@@ -25,9 +25,22 @@ export class FirstLoginComponent implements OnInit {
     this.dto.currentpassword = this.currentpassword;
     this.dto.newpassword = this.newpassword;
     this.dto.repeatedpassword = this.repeatedpassword;
-    this.userService.updatePassword(this.dto).subscribe((response: String) => {
-      console.log(response);
+
+    var lsUser = localStorage.getItem('currentUser');
+    // var loadedRole = lsUser?.role;
+    const object = JSON.parse(lsUser || ' ');
+    // console.log("ispis  user role");
+    // this.dto.id = ""+object.id;
+    // console.log(JSON.stringify(this.dto));
+    this.userService.getIdByMail(object.email).subscribe(response1 => {
+      this.dto.id = response1;
+      console.log("nadjen korisnik i id:");
+      console.log(JSON.stringify(this.dto));
+      this.userService.updatePassword(this.dto).subscribe((response: String) => {
+        console.log(response);
+      });
     });
+    
   }
 
 }

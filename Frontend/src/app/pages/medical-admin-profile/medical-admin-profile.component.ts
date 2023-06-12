@@ -39,11 +39,16 @@ export class MedicalAdminProfileComponent implements OnInit {
     var lsUser = localStorage.getItem('currentUser');
     // var loadedRole = lsUser?.role;
     const object = JSON.parse(lsUser || ' ');
+    console.log("Profil mail trazi");
+    console.log("Mail je " + object.email);
     
     this.userService.getUserByMail(object.email).subscribe((response) => {
       console.log(response);
+      this.dto.id = response.id;
       this.user = response;
-      this.dto.id = this.user.personalId;
+      // this.dto.id = ""+this.user.id;
+      console.log("DTO");
+      console.log(JSON.stringify(this.dto));
     });
   }
 
@@ -62,6 +67,10 @@ export class MedicalAdminProfileComponent implements OnInit {
     this.dto.repeatedpassword = this.repeatedpassword;
     this.userService.updatePassword(this.dto).subscribe((response: String) => {
       console.log(response);
+      if(response==='OK')
+        alert("Password updated");
+      else 
+      { alert("Server error");}
     });
   }
 }

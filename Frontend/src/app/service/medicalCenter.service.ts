@@ -121,7 +121,9 @@ export class MedicalCenterService {
 
     public getMedicalCenterDTOById(id: any): Observable<any> {
         this.reqHeader = this.getHeaders();
-        return this.http.get("http://localhost:8080/api/centers/dto" + "/"+id, {headers: this.reqHeader});
+        let medID = localStorage.getItem('idForMedicalCenter');
+        let medicalCenterId = parseInt(medID||"-1")
+        return this.http.get("http://localhost:8080/api/centers/dto" + "/"+medicalCenterId, {headers: this.reqHeader});
     }
 
     public getMedicalCenterWithAppointments(startTime: any): Observable<any>{

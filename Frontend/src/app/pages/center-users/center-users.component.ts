@@ -57,30 +57,30 @@ export class CenterUsersComponent implements OnInit {
       // new AddressDTO("ccc","33","Paracin","asd",10,10),"thr","posao3","bio3","rola3"))
 
 
-      this.foundUsers = [{"id":1,"name":"Dusan","lastName":"Markovic","personalId":"2310999760011","address":"Novi Sad Mise Dimitrijevica 25","phoneNumber":"0641123456","job":"engineer","latestBloodDonation":"2023-01-29T08:00","email":"mail1"},{"id":2,"name":"Branimir","lastName":"Nestorovic","personalId":"1212199760011","address":"Beograd Gospodara Vucica 2B","phoneNumber":"0641123456","job":"dr","latestBloodDonation":"2023-01-30T08:00", "email":"mail2"}];
+      // this.foundUsers = [{"id":1,"name":"Dusan","lastName":"Markovic","personalId":"2310999760011","address":"Novi Sad Mise Dimitrijevica 25","phoneNumber":"0641123456","job":"engineer","latestBloodDonation":"2023-01-29T08:00","email":"mail1"},{"id":2,"name":"Branimir","lastName":"Nestorovic","personalId":"1212199760011","address":"Beograd Gospodara Vucica 2B","phoneNumber":"0641123456","job":"dr","latestBloodDonation":"2023-01-30T08:00", "email":"mail2"}];
         
-      for (const user of this.foundUsers) {
+      // for (const user of this.foundUsers) {
+      //     // console.log(user.name);
+      //     this.users$.push(new DonateBloodUserDTO(user.id,user.name,user.lastName,user.personalId,user.address,user.phoneNumber,user.job,
+      //       user.latestBloodDonation,user.email))
+      //     this.sortedUsers$.push(new DonateBloodUserDTO(user.id,user.name,user.lastName,user.personalId,user.address,user.phoneNumber,user.job,
+      //         user.latestBloodDonation,user.email))
+      // }
+
+      this.userService.getUserWithDonatedBlood(1).subscribe((response)  => {
+
+        console.log(response);
+        console.log(JSON.stringify(response));
+        // this.foundUsers = [{"id":1,"name":"Dusan","lastName":"Markovic","personalId":"2310999760011","address":"Novi Sad Mise Dimitrijevica 25","phoneNumber":"0641123456","job":"engineer","latestBloodDonation":"2023-01-29T08:00","email":"mail1"},{"id":2,"name":"Branimir","lastName":"Nestorovic","personalId":"1212199760011","address":"Beograd Gospodara Vucica 2B","phoneNumber":"0641123456","job":"dr","latestBloodDonation":"2023-01-30T08:00", "email":"mail2"}];
+        
+        for (const user of response) {
           // console.log(user.name);
           this.users$.push(new DonateBloodUserDTO(user.id,user.name,user.lastName,user.personalId,user.address,user.phoneNumber,user.job,
             user.latestBloodDonation,user.email))
           this.sortedUsers$.push(new DonateBloodUserDTO(user.id,user.name,user.lastName,user.personalId,user.address,user.phoneNumber,user.job,
               user.latestBloodDonation,user.email))
-      }
-
-      // this.userService.getUserWithDonatedBlood(1).subscribe((response)  => {
-
-        // console.log(response);
-        // console.log(JSON.stringify(response));
-        // this.foundUsers = [{"id":1,"name":"Dusan","lastName":"Markovic","personalId":"2310999760011","address":"Novi Sad Mise Dimitrijevica 25","phoneNumber":"0641123456","job":"engineer","latestBloodDonation":"2023-01-29T08:00","email":"mail1"},{"id":2,"name":"Branimir","lastName":"Nestorovic","personalId":"1212199760011","address":"Beograd Gospodara Vucica 2B","phoneNumber":"0641123456","job":"dr","latestBloodDonation":"2023-01-30T08:00", "email":"mail2"}];
-        
-        // for (const user of this.foundUsers) {
-        //   // console.log(user.name);
-        //   this.users$.push(new DonateBloodUserDTO(user.id,user.name,user.lastName,user.personalId,user.address,user.phoneNumber,user.job,
-        //     user.latestBloodDonation,user.email))
-        //   this.sortedUsers$.push(new DonateBloodUserDTO(user.id,user.name,user.lastName,user.personalId,user.address,user.phoneNumber,user.job,
-        //       user.latestBloodDonation,user.email))
             
-        // }
+        }
         
         // this.users$ = response;
         // this.foundUsers = response;
@@ -88,7 +88,7 @@ export class CenterUsersComponent implements OnInit {
         // [{"id":1,"name":"Dusan","lastName":"Markovic","personalId":"2310999760011","address":"Novi Sad Mise Dimitrijevica 25","phoneNumber":"0641123456","job":"engineer","latestBloodDonation":"2023-01-29T08:00"},{"id":2,"name":"Branimir","lastName":"Nestorovic","personalId":"1212199760011","address":"Beograd Gospodara Vucica 2B","phoneNumber":"0641123456","job":"dr","latestBloodDonation":"2023-01-30T08:00"}]
         // this.medicalCenter = response;
         
-    // });
+    });
       
   }
 

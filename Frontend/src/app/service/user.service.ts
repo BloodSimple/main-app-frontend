@@ -32,9 +32,14 @@ export class UserService {
         return this.http.get("http://localhost:8080/api/users" + "/" + id, {headers: this.reqHeader});
     }
 
-    public getUserByMail(id: String): Observable<any> {
+    public getUserByMail(mail: String): Observable<any> {
         this.reqHeader = this.getHeaders();
-        return this.http.get("http://localhost:8080/api/users/mail" + "/" + id, {headers: this.reqHeader});
+        return this.http.get("http://localhost:8080/api/users/mail/" + mail, {headers: this.reqHeader});
+    }
+
+    public getIdByMail(mail: String): Observable<any> {
+        this.reqHeader = this.getHeaders();
+        return this.http.put("http://localhost:8080/api/users/getIdByEmail" , mail, {headers: this.reqHeader});
     }
 
     public updatePassword(obj:any): Observable<any>{
@@ -66,8 +71,10 @@ export class UserService {
     }
 
     public getUserWithDonatedBlood(id: any): Observable<any>{
-        // this.reqHeader = this.getHeaders();
-        return this.http.get("http://localhost:8080/api/users/donated-blood" + "/" + id, {headers: this.reqHeader});
+        this.reqHeader = this.getHeaders();
+        let medID = localStorage.getItem('idForMedicalCenter');
+        let medicalCenterId = parseInt(medID||"-1")
+        return this.http.get("http://localhost:8080/api/users/donated-blood" + "/" + medicalCenterId, {headers: this.reqHeader});
     }
 
     public getAppointmentHistory(id: any): Observable<any>{
@@ -79,7 +86,7 @@ export class UserService {
     }
 
     public getUserTakenAppointment(id: any): Observable<any>{
-        // this.reqHeader = this.getHeaders();
+        this.reqHeader = this.getHeaders();
         let medCentId = 1;///appointments-taken/{userId}/{mcId}
         
         let medID = localStorage.getItem('idForMedicalCenter');

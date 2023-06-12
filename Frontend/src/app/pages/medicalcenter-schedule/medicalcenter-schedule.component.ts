@@ -168,6 +168,7 @@ export class MedicalcenterScheduleComponent implements OnInit {
       //     this.appointments = app
       //     this.schedule = sch 
       //   this.clickable=false
+      
     }
 
  init2(){
