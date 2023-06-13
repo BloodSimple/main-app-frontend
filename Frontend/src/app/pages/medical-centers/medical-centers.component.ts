@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressModel } from 'src/app/model/address';
+import { GradeCenter } from 'src/app/model/gradeCenter';
 import { MedicalCenterModel } from 'src/app/model/medicalCenter';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-medical-centers',
@@ -14,14 +17,28 @@ export class MedicalCentersComponent implements OnInit {
 
   medicalCenter = new MedicalCenterModel();
   medicalCenters: MedicalCenterModel[] = [];
+
+  medicalGrade = new GradeCenter();
+  medicalGrades: GradeCenter[] = [];
+
+  isUserLoged = false;
+  isUserRoleUser = false;
+  selectedNumber = 1;
+
   address = new AddressModel();
 
   searchText: any = '';
   selected: number = 0;
 
-  constructor(private medicalCenterService: MedicalCenterService) {}
+  constructor(private medicalCenterService: MedicalCenterService, private autoService: AuthenticationService,
+    private router: Router) {
+      this.isUserLoged = autoService.loggedIn()
+      this.isUserRoleUser = autoService.userAccess()
+  }
 
   ngOnInit(): void {
+    this.isUserLoged = this.autoService.loggedIn()
+      this.isUserRoleUser = this.autoService.userAccess()
     // this.medicalCenterService
     //   .getMedicalCenters()
     //   .subscribe((medicalCenters: MedicalCenterModel[]) => {
@@ -32,7 +49,31 @@ export class MedicalCentersComponent implements OnInit {
 
     //     console.log(this.medicalCenters);
     //   });
-      this.medicalCenterService.getMedicalCenters()
+  //     this.medicalCenterService.getMedicalCenters()
+  //     .subscribe(
+  //   (medicalCenters: MedicalCenterModel[]) => {
+  //     this.medicalCenters = medicalCenters;
+  //     console.log(this.medicalCenters);
+  //   },
+  //   (error: any) => {
+  //     this.inits();
+  //     // console.error('An error occurred:', error);
+  //   }
+  // );
+  
+  if(this.isUserLoged){
+  this.medicalCenterService.getCentersWithGrades().subscribe(response =>{
+      console.log(JSON.stringify(response));
+      this.medicalGrades = response;
+  //     for(Object o of response)
+  //     {
+
+  //     }
+  } );
+  }
+  else{
+
+         this.medicalCenterService.getMedicalCenters()
       .subscribe(
     (medicalCenters: MedicalCenterModel[]) => {
       this.medicalCenters = medicalCenters;
@@ -40,11 +81,12 @@ export class MedicalCentersComponent implements OnInit {
     },
     (error: any) => {
       this.inits();
-      // console.error('An error occurred:', error);
+      console.error('An error occurred:', error);
     }
   );
 
-
+  }
+  
   }
 
   onSelect() {
@@ -70,7 +112,7 @@ export class MedicalCentersComponent implements OnInit {
   );
   }
   sortByRatingAsc() {
-    this.medicalCenters.sort((a, b) => {
+    this.medicalGrades.sort((a, b) => {
       return b.grade - a.grade;
     });
   }
@@ -98,6 +140,16 @@ export class MedicalCentersComponent implements OnInit {
     this.medicalCenters.sort((a, b) => {
       return a.address.city.localeCompare(b.address.city);
     });
+  }
+
+  addGrade(centerId:any)
+  {
+      this.medicalCenterService.addGrade(centerId, this.selectedNumber).subscribe(response => {
+        if(response)
+        {
+          this.router.navigate(['/medical-centers']);
+        }
+      })
   }
 
   inits()
@@ -149,21 +201,52 @@ export class MedicalCentersComponent implements OnInit {
     this.medicalCenters.push(medicalCenter2);
     this.medicalCenters.push(medicalCenter3);
 
+    let medicalGrade1 = new GradeCenter();
+    medicalGrade1.center = medicalCenter1;
+    medicalGrade1.center.grade = 2
+    
+    let medicalGrade2 = new GradeCenter();
+    medicalGrade2.center = medicalCenter2;
+    medicalGrade2.center.grade = 5
+    
+    let medicalGrade3 = new GradeCenter();
+    medicalGrade3.center = medicalCenter3;
+    medicalGrade3.center.grade = 5
+    
+    this.medicalGrades = []
+    this.medicalGrades.push(medicalGrade1);
+    this.medicalGrades.push(medicalGrade2);
+    this.medicalGrades.push(medicalGrade3);
+
   }
 
   searchCenters() {
-    this.medicalCenters = this.medicalCenters.filter(
+    // this.medicalCenters = this.medicalCenters.filter(
+    //   (el) =>
+    //     (el.address.street + ' ' + el.address.number)
+    //       .toLowerCase()
+    //       .includes(this.searchText.trim().toLowerCase()) ||
+    //     el.address.city
+    //       ?.toLowerCase()
+    //       .includes(this.searchText.trim().toLowerCase()) ||
+    //     el.address.country
+    //       ?.toLowerCase()
+    //       .includes(this.searchText.trim().toLowerCase()) ||
+    //     el.name?.toLowerCase().includes(this.searchText.trim().toLowerCase())
+    // );
+
+    this.medicalGrades = this.medicalGrades.filter(
       (el) =>
-        (el.address.street + ' ' + el.address.number)
+        (el.center?.address.street + ' ' + el.center?.address.number)
           .toLowerCase()
           .includes(this.searchText.trim().toLowerCase()) ||
-        el.address.city
+        el.center?.address.city
           ?.toLowerCase()
           .includes(this.searchText.trim().toLowerCase()) ||
-        el.address.country
+        el.center?.address.country
           ?.toLowerCase()
           .includes(this.searchText.trim().toLowerCase()) ||
-        el.name?.toLowerCase().includes(this.searchText.trim().toLowerCase())
+        el.center?.name?.toLowerCase().includes(this.searchText.trim().toLowerCase())
     );
   }
 }

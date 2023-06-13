@@ -43,13 +43,17 @@
 
     <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col" *ngFor="let medicalCenter of medicalCenters">
+        <div class="col" *ngFor="let medicalGrade of medicalGrades">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{this.medicalCenter.name}}</h5>
-                <p class="card-text">{{this.medicalCenter.address.street}}  {{this.medicalCenter.address.number}}</p>
-                <p class="card-text"> {{this.medicalCenter.address.city}}, {{this.medicalCenter.address.country}}</p>
-                <p class="card-text">{{this.medicalCenter.grade}}</p>
+                <h5 class="card-title">{{medicalGrade.center?.name}}</h5>
+                <p class="card-text">{{medicalGrade.center?.address?.street}}  {{medicalGrade.center?.address?.number}}</p>
+                <p class="card-text"> {{medicalGrade.center?.address?.city}}, {{medicalGrade.center?.address?.country}}</p>
+                <p class="card-text">{{medicalGrade.center?.grade}}</p>
+                <p class="card-text" *ngIf="isUserLoged && isUserRoleUser">your grade :{{medicalGrade.grade}}</p>
+                <button *ngIf="isUserLoged && isUserRoleUser" (click)="addGrade(medicalGrade.center?.id)">Add grade</button>
+                <input *ngIf="isUserLoged && isUserRoleUser" type="number" min="1" max="5" [(ngModel)]="selectedNumber">
+
             </div>
         </div>
         </div>

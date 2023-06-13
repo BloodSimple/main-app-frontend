@@ -50,6 +50,49 @@ export class MedicalCenterService {
         return this.http.get("http://localhost:8080/api/centers" + "/", {headers: this.reqHeader});
     }
 
+
+
+
+
+
+
+
+
+    public getCentersWithGrades(): Observable<any> {
+        this.reqHeader = this.getHeaders();
+        var lsUser = localStorage.getItem('currentUser');
+            // var loadedRole = lsUser?.role;
+        const object = JSON.parse(lsUser || ' ');
+        return this.http.get("http://localhost:8080/api/centers/withGrades/" + object.email, {headers: this.reqHeader});
+    }
+
+
+
+
+    public addGrade(centerId:any, selectedNumber:any): Observable<any>
+    {
+        this.reqHeader = this.getHeaders();
+
+        var lsUser = localStorage.getItem('currentUser');
+            // var loadedRole = lsUser?.role;
+        const object = JSON.parse(lsUser || ' ');
+
+        const myObject = {
+            mail: object.email,
+            centerId: ""+centerId,
+            grade: ""+selectedNumber
+          };
+
+        return this.http.put("http://localhost:8080/api/centers/addGrade", myObject, {headers: this.reqHeader});
+    }
+
+
+
+
+
+
+
+
     public getMedicalCenterById(id: any): Observable<any> {
         this.reqHeader = this.getHeaders();
         return this.http.get("http://localhost:8080/api/centers" + "/"+id, {headers: this.reqHeader});

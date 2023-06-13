@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { ChangePasswordDto } from 'src/app/model/ChangePasswordDto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-first-login',
@@ -16,7 +17,7 @@ export class FirstLoginComponent implements OnInit {
   repeatedpassword: string = '';
   
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private rtr: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,7 +39,9 @@ export class FirstLoginComponent implements OnInit {
       console.log(JSON.stringify(this.dto));
       this.userService.updatePassword(this.dto).subscribe((response: String) => {
         console.log(response);
+        
       });
+      this.rtr.navigate(["/"]);
     });
     
   }

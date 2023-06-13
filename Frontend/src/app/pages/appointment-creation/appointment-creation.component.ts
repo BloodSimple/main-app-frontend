@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MedicalCenterModel } from 'src/app/model/medicalCenter';
 import { UserModel } from 'src/app/model/user';
 import { MedicalCenterService } from 'src/app/service/medicalCenter.service';
@@ -11,7 +12,7 @@ import { AppointmentDTO } from 'src/app/systemadmin-utils/AppointmentDTO';
 })
 export class AppointmentCreationComponent implements OnInit {
 
-  constructor(private medicalService: MedicalCenterService) { }
+  constructor(private medicalService: MedicalCenterService, private router: Router) { }
 
   medicalCenter = new MedicalCenterModel();
   datetime: string = '';
@@ -87,12 +88,16 @@ export class AppointmentCreationComponent implements OnInit {
     newApp.medicalStaff = medicalStuffForAppintment;
     console.log("usao u funkciju za create appointment");
     console.log(JSON.stringify(newApp));
-    
+    let medID = localStorage.getItem('idForMedicalCenter');
+    let medicalCenterId = parseInt(medID||"-1")
+    newApp.medicalCenterId = medicalCenterId;
     this.medicalService.createFreeApointment(newApp).subscribe(response => {
 
       alert(response);
+      
 
     })
+    this.router.navigate(["/medical-center-schedule"]);
 
   }
 
